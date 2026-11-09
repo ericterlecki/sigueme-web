@@ -209,6 +209,20 @@ footer a{color:var(--cream)}
 .phone .scale span{flex:1;height:8px;border-radius:4px;background:rgba(242,235,219,.2)}
 .phone .scale span.on{background:var(--mustard)}
 @media (max-width:720px){.app-card{grid-template-columns:1fr}}
+
+/* Lecturas */
+.books{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.book{--sp:var(--accent);background:var(--surface);border-radius:14px;padding:18px 18px 18px 22px;border-left:6px solid var(--sp);display:flex;flex-direction:column;gap:4px}
+.b-afe{--sp:#D9906F}.b-esp{--sp:#E5B866}.b-cui{--sp:#3D7480}.b-sen{--sp:#7E9A5A}
+.book-tag{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+.book h3{font-size:1.25rem;margin-top:2px}
+.book .book-au{font-size:.9rem;color:var(--accent);font-weight:600}
+.book p:last-child{font-size:.93rem;color:var(--muted);margin-top:4px}
+.book-filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.book-filters button{font:inherit;font-size:.9rem;min-height:40px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
+.book-filters button[aria-pressed="true"]{background:var(--petrol);border-color:var(--petrol);color:var(--cream)}
+@media (max-width:900px){.books{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.books{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -241,6 +255,7 @@ footer a{color:var(--cream)}
       <li><a href="#emaus">Como en Emaús</a></li>
       <li><a href="#como-empezar">Cómo empezar</a></li>
       <li><a href="#quien-soy">Quién soy</a></li>
+      <li><a href="#lecturas">Lecturas</a></li>
       <li><a href="#app">App</a></li>
       <li><a href="#preguntas">Preguntas</a></li>
       <li><a href="#contacto">Contacto</a></li>
@@ -257,7 +272,8 @@ footer a{color:var(--cream)}
         <li><a href="#emaus">Como en Emaús</a></li>
         <li><a href="#como-empezar">Cómo empezar</a></li>
         <li><a href="#quien-soy">Quién soy</a></li>
-      <li><a href="#app">App</a></li>
+        <li><a href="#lecturas">Lecturas</a></li>
+        <li><a href="#app">App</a></li>
         <li><a href="#preguntas">Preguntas</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
@@ -373,6 +389,36 @@ footer a{color:var(--cream)}
     </div>
   </section>
 
+  <section class="block" id="lecturas">
+    <div class="wrap">
+      <p class="eyebrow">Lecturas</p>
+      <h2>Libros que acompañan</h2>
+      <p class="po-lead">Algunas lecturas que recomiendo para el camino de la formación y del ministerio: autores que unen la psicología y la vida espiritual con hondura y realismo.</p>
+      <div class="book-filters" role="group" aria-label="Filtrar lecturas">
+        <button type="button" aria-pressed="true" data-bf="">Todas</button>
+        <button type="button" aria-pressed="false" data-bf="Madurez afectiva">Madurez afectiva</button>
+        <button type="button" aria-pressed="false" data-bf="Vida espiritual">Vida espiritual</button>
+        <button type="button" aria-pressed="false" data-bf="Cansancio y cuidado">Cansancio y cuidado</button>
+        <button type="button" aria-pressed="false" data-bf="Sentido">Sentido</button>
+      </div>
+      <ul class="books">
+          <li class="book b-afe" data-cat="Madurez afectiva"><span class="book-tag">Madurez afectiva</span><h3>Vivir reconciliados</h3><span class="book-au">Amedeo Cencini</span><p>Una mirada psicológica sobre la reconciliación: con uno mismo, con los otros y con Dios. Ayuda a integrar la propia historia y las heridas.</p></li>
+          <li class="book b-esp" data-cat="Vida espiritual"><span class="book-tag">Vida espiritual</span><h3>Amarás al Señor tu Dios</h3><span class="book-au">Amedeo Cencini</span><p>Psicología del encuentro con Dios: cómo la madurez humana y la experiencia de fe se sostienen mutuamente.</p></li>
+          <li class="book b-afe" data-cat="Madurez afectiva"><span class="book-tag">Madurez afectiva</span><h3>Por amor, con amor, en el amor</h3><span class="book-au">Amedeo Cencini</span><p>Libertad y madurez afectiva en el celibato consagrado. Una obra de referencia para la formación y para releer la propia afectividad.</p></li>
+          <li class="book b-cui" data-cat="Cansancio y cuidado"><span class="book-tag">Cansancio y cuidado</span><h3>La mitad de la vida como tarea espiritual</h3><span class="book-au">Anselm Grün</span><p>La crisis de los 40 y 50 años como oportunidad de crecimiento personal y espiritual. Muy cercano a la experiencia de muchos sacerdotes.</p></li>
+          <li class="book b-cui" data-cat="Cansancio y cuidado"><span class="book-tag">Cansancio y cuidado</span><h3>Fluir. Cómo superar el burnout y los bloqueos</h3><span class="book-au">Anselm Grün</span><p>Para espíritus agotados: imágenes y prácticas que ayudan a prevenir el desgaste y a reencontrar las fuentes de energía.</p></li>
+          <li class="book b-cui" data-cat="Cansancio y cuidado"><span class="book-tag">Cansancio y cuidado</span><h3>¿Qué enferma y qué sana a los hombres?</h3><span class="book-au">Anselm Grün y Wunibald Müller</span><p>Reflexiones de acompañantes espirituales sobre lo que enferma y lo que sana, con atención especial a sacerdotes y religiosos.</p></li>
+          <li class="book b-esp" data-cat="Vida espiritual"><span class="book-tag">Vida espiritual</span><h3>Biografía del silencio</h3><span class="book-au">Pablo d’Ors</span><p>Breve ensayo sobre la meditación, escrito por un sacerdote desde su propia experiencia. Una invitación a la quietud y al encuentro con uno mismo.</p></li>
+          <li class="book b-esp" data-cat="Vida espiritual"><span class="book-tag">Vida espiritual</span><h3>El regreso del hijo pródigo</h3><span class="book-au">Henri J. M. Nouwen</span><p>Meditaciones ante el cuadro de Rembrandt sobre la misericordia del Padre. Para quien acompaña a otros y también necesita volver a casa.</p></li>
+          <li class="book b-sen" data-cat="Sentido"><span class="book-tag">Sentido</span><h3>El sanador herido</h3><span class="book-au">Henri J. M. Nouwen</span><p>El ministerio desde la propia herida: quien acompaña no lo hace desde la perfección, sino desde una fragilidad reconocida y ofrecida.</p></li>
+          <li class="book b-cui" data-cat="Cansancio y cuidado"><span class="book-tag">Cansancio y cuidado</span><h3>El cansancio del clero</h3><span class="book-au">Antonio Ávila Blanco</span><p>Un reto para hoy y para el futuro. Analiza el desgaste y el burnout en el ministerio y propone caminos realistas e integradores.</p></li>
+          <li class="book b-cui" data-cat="Cansancio y cuidado"><span class="book-tag">Cansancio y cuidado</span><h3>Sacerdotes rotos</h3><span class="book-au">Gérard Daucourt</span><p>Una mirada cargada de amor sobre los curas: la debilidad de lo humano y la fortaleza de la gracia, sin esquivar los temas difíciles.</p></li>
+          <li class="book b-sen" data-cat="Sentido"><span class="book-tag">Sentido</span><h3>El hombre en busca de sentido</h3><span class="book-au">Viktor Frankl</span><p>Un clásico de la psicología humanista: aun en el sufrimiento, la vida puede tener sentido.</p></li>
+      </ul>
+      <p class="po-note">Se consiguen en librerías religiosas o en formato digital. Si querés, lo conversamos en sesión para elegir por dónde empezar.</p>
+    </div>
+  </section>
+
   <section class="block" id="app">
     <div class="wrap">
       <div class="app-card">
@@ -467,6 +513,7 @@ document.querySelectorAll("[data-copy]").forEach(btn=>{
 (()=>{const f=document.querySelector(".wa-float"),c=document.getElementById("contacto");if(!f||!c||!("IntersectionObserver" in window))return;
 new IntersectionObserver(e=>f.classList.toggle("is-hidden",e[0].isIntersecting),{threshold:.15}).observe(c);})();
 (()=>{const mm=document.getElementById("mobile-menu"),wf=document.querySelector(".wa-float");if(mm&&wf)new MutationObserver(()=>wf.style.display=mm.hidden?"":"none").observe(mm,{attributes:true,attributeFilter:["hidden"]});})();
+document.querySelectorAll("[data-bf]").forEach(b=>b.addEventListener("click",()=>{const f=b.dataset.bf;document.querySelectorAll("[data-bf]").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));document.querySelectorAll(".book").forEach(li=>li.hidden=!!f&&li.dataset.cat!==f);}));
 </script>
 </body>
 </html>
