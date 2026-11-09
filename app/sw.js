@@ -1,5 +1,5 @@
 // Permite abrir la app sin conexión. Cambiar la versión al publicar cambios.
-const CACHE = "sigueme-v16";
+const CACHE = "sigueme-v17";
 const FILES = ["./", "./index.html", "./manifest.webmanifest", "./icons/icon-192.png", "./icons/icon-512.png", "./icons/apple-touch-icon.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES))); self.skipWaiting(); });
 self.addEventListener("activate", e => {
