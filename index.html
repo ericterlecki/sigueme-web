@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:title" content="Quédate · Acompañamiento integral">
+<meta property="og:description" content="Acompañamiento psicológico integral para seminaristas y sacerdotes. Lic. Eric Terlecki. Rosario y virtual.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Quédate">
+<meta property="og:locale" content="es_AR">
+<meta property="og:url" content="https://quedate-web.vercel.app/">
+<meta property="og:image" content="https://quedate-web.vercel.app/og-imagen.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Quédate · Acompañamiento integral para seminaristas y sacerdotes. Lic. Eric Terlecki.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://quedate-web.vercel.app/">
+<meta name="theme-color" content="#1F4955">
+<title>Quédate · Acompañamiento integral para seminaristas y sacerdotes</title>
+<meta name="description" content="Quédate · Acompañamiento psicológico integral para seminaristas y sacerdotes. Lic. Eric Terlecki, Rosario y virtual.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;500;600&family=Playfair+Display:wght@500&display=swap">
+<style>
+html,body{margin:0}body{-webkit-font-smoothing:antialiased}img{max-width:100%}[hidden]{display:none!important}
+:root{
+  --petrol:#1F4955; --petrol-deep:#163842; --cream:#F2EBDB; --terra:#D9906F; --mustard:#E5B866;
+  --bg:#f7f2e9; --surface:#efe6d6; --fg:#1d2f33; --muted:#56686b; --line:#d9cdb9; --accent:#b35a33;
+  --font-display:"Gloock", Georgia, "Times New Roman", serif;
+  --font-body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mark:"Playfair Display", Georgia, serif;
+  --s2:1rem; --s6:clamp(2.4rem,6.4vw,4.2rem);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#0f262b;--surface:#163339;--fg:#ece3d3;--muted:#a3b3b2;--line:#29484e;--accent:#e08a60;color-scheme:dark}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--navh,72px) + 12px)}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:var(--s2);line-height:1.65}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--petrol)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--terra);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;text-wrap:balance;margin:0;line-height:1.15}
+p{margin:0}
+.eyebrow{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--accent)}
+
+/* Latido: la cruz de la t y el círculo blanco del símbolo laten juntos */
+.latido{transform-box:fill-box;transform-origin:center;animation:latido 2.6s ease-in-out infinite}
+@keyframes latido{0%{transform:scale(1)}14%{transform:scale(1.14)}28%{transform:scale(1)}42%{transform:scale(1.07)}70%,100%{transform:scale(1)}}
+.latido-glow{animation-name:latidoGlow}
+@keyframes latidoGlow{0%{transform:scale(1);filter:drop-shadow(0 0 0 rgba(242,235,219,0))}14%{transform:scale(1.12);filter:drop-shadow(0 0 8px rgba(242,235,219,.55))}28%{transform:scale(1)}42%{transform:scale(1.06);filter:drop-shadow(0 0 5px rgba(242,235,219,.35))}70%,100%{transform:scale(1);filter:drop-shadow(0 0 0 rgba(242,235,219,0))}}
+@media (prefers-reduced-motion: reduce){.latido{animation:none}}
+
+/* Marca: símbolo + Quéda†e */
+.wordmark{font-family:var(--font-mark);font-weight:500;letter-spacing:-.01em;white-space:nowrap;display:inline-flex;align-items:baseline}
+.wordmark .t{display:inline-block;width:.39em;height:.75em;margin:0 .03em 0 .01em;vertical-align:baseline;overflow:visible}
+
+/* Navegación */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--petrol);color:var(--cream);border-bottom:1px solid rgba(242,235,219,.12)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px;max-width:1240px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:1.45rem}
+.brand > svg{width:38px;height:38px;flex:none}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:.9rem}
+.nav ul a{text-decoration:none;opacity:.85;white-space:nowrap}
+.nav ul a:hover{opacity:1;text-decoration:underline;text-underline-offset:4px}
+.nav .cta-mini{font-size:.85rem;font-weight:600;text-decoration:none;background:var(--terra);color:var(--petrol);padding:8px 14px;border-radius:999px;white-space:nowrap}
+.menu-btn{display:none;background:none;border:1px solid rgba(242,235,219,.35);color:var(--cream);border-radius:10px;width:44px;height:44px;cursor:pointer;align-items:center;justify-content:center;flex:none}
+.menu-btn svg{width:20px;height:20px}
+.mobile-menu{border-top:1px solid rgba(242,235,219,.12)}
+.mobile-menu ul{list-style:none;margin:0;padding:6px 0 14px;display:flex;flex-direction:column}
+.mobile-menu a{display:block;padding:12px 0;font-size:1.05rem;text-decoration:none;color:var(--cream);border-bottom:1px solid rgba(242,235,219,.1)}
+@media (max-width:860px){.nav ul{display:none}.menu-btn{display:inline-flex}.nav .cta-mini{margin-left:auto}}
+@media (min-width:861px){.mobile-menu{display:none!important}}
+
+/* Hero */
+.hero{background:var(--petrol);color:var(--cream);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center;padding-block:64px 80px}
+.hero-tag{font-family:var(--font-display);font-size:clamp(1.2rem,2.5vw,1.6rem);line-height:1.3;color:var(--cream);opacity:.92;display:inline-block;padding-bottom:12px;border-bottom:2px solid var(--terra)}
+.hero-tag small{display:block;font-family:var(--font-body);font-size:.8rem;letter-spacing:.08em;opacity:.75;margin-top:4px}
+.hero h1{font-size:var(--s6);letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--terra)}
+.hero .common{margin-top:20px;font-size:1.12rem;max-width:44ch;color:rgba(242,235,219,.86)}
+.hero .meta{margin-top:28px;font-size:.85rem;letter-spacing:.04em;color:rgba(242,235,219,.7)}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:12px 20px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.95rem;border:1.5px solid transparent;cursor:pointer;font-family:inherit}
+.btn-terra{background:var(--terra);color:var(--petrol)}
+.btn-terra:hover{background:#e3a487}
+.btn-ghost{border-color:rgba(242,235,219,.5);color:var(--cream);background:transparent}
+.btn-ghost:hover{border-color:var(--cream)}
+.hero-mark{justify-self:center;width:min(100%,360px);display:flex;flex-direction:column;align-items:center;gap:22px}
+.hero-mark > svg{width:100%;height:auto;aspect-ratio:1}
+.hero-mark .wordmark{font-size:clamp(3rem,7vw,4.6rem);color:var(--cream);line-height:1}
+@media (max-width:820px){.hero .wrap{grid-template-columns:1fr;padding-block:40px 56px}.hero-mark{order:-1;width:220px;gap:14px}.hero-mark .wordmark{font-size:3rem}}
+
+/* Secciones */
+section.block{padding-block:80px}
+section.block + section.block{border-top:1px solid var(--line)}
+@media (max-width:820px){section.block{padding-block:56px}}
+.block h2{font-size:clamp(1.9rem,4vw,2.7rem);margin-top:10px}
+.po-lead{font-family:var(--font-display);font-size:clamp(1.15rem,2.2vw,1.4rem);line-height:1.4;max-width:60ch;margin-top:14px}
+.services{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:32px}
+.service{background:var(--surface);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:8px}
+.service h3{font-size:1.35rem}
+.service p{color:var(--muted);font-size:.95rem}
+.service .tag{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+@media (max-width:620px){.services{grid-template-columns:1fr}}
+.po-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px 36px;margin-top:36px}
+.po-cols > *{min-width:0}
+.po-cols h4{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--accent);margin:0 0 8px}
+.po-cols h4:not(:first-child){margin-top:20px}
+.po-cols p,.po-cols li{font-size:.97rem}
+.po-cols ul{margin:10px 0 0;padding-left:1.1em;display:flex;flex-direction:column;gap:8px}
+.po-box{background:var(--petrol);color:var(--cream);border-radius:14px;padding:22px 24px}
+.po-box h4{color:var(--terra)}
+.po-box .btn{margin-top:16px}
+.po-note{margin-top:14px;font-size:.9rem;color:var(--muted)}
+.po-note a{color:var(--accent);font-weight:600}
+@media (max-width:860px){.po-cols{grid-template-columns:1fr}}
+
+/* Como en Emaús */
+.libre{background:var(--petrol);color:var(--cream);border-radius:18px;padding:clamp(24px,4vw,44px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:24px 44px;align-items:start}
+.libre .eyebrow{color:var(--terra)}
+.libre-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem);margin-top:8px}
+.libre-head h2 em{font-style:normal;color:var(--terra)}
+.libre-head p:last-child{margin-top:12px;color:rgba(242,235,219,.8)}
+.libre-head .ref{font-size:.85rem;color:rgba(242,235,219,.65)}
+.libre-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:22px 28px}
+.libre-list li{display:flex;flex-direction:column;gap:4px;border-top:1px solid rgba(242,235,219,.2);padding-top:14px;min-width:0}
+.libre-n{font-family:var(--font-display);color:var(--terra);font-size:.95rem}
+.libre-list b{font-weight:600;font-size:1.05rem}
+.libre-list li span:last-child{color:rgba(242,235,219,.82);font-size:.95rem}
+@media (max-width:820px){.libre{grid-template-columns:1fr}.libre-list{grid-template-columns:1fr}}
+
+/* Primeras entrevistas */
+.first-steps{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.first-steps li{background:var(--surface);border-radius:14px;padding:16px 18px;font-size:.93rem;color:var(--muted)}
+.first-steps b{display:block;font-family:var(--font-display);font-weight:400;font-size:1.15rem;color:var(--fg);margin-bottom:4px}
+.first-steps .n{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--terra);color:var(--petrol);font-weight:600;font-size:.85rem;margin-bottom:8px}
+@media (max-width:720px){.first-steps{grid-template-columns:1fr}}
+
+/* Quién soy */
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:48px;align-items:start}
+.about .facts{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-direction:column;gap:10px}
+.about .facts li{background:var(--surface);border-radius:12px;padding:14px 18px;font-size:.95rem}
+.about .facts b{display:block;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:2px}
+.about p + p{margin-top:12px}
+@media (max-width:820px){.about{grid-template-columns:1fr;gap:20px}}
+
+/* Preguntas */
+.split{display:grid;grid-template-columns:1fr 1.4fr;gap:48px}
+.split > *{min-width:0}
+@media (max-width:820px){.split{grid-template-columns:1fr;gap:24px}}
+.faq{display:flex;flex-direction:column}
+.faq-q{border-top:1px solid var(--line);padding:16px 0}
+.faq-q:last-child{border-bottom:1px solid var(--line)}
+.faq-q > summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-weight:600;font-size:1.05rem}
+.faq-q > summary::-webkit-details-marker{display:none}
+.faq-q > summary::after{content:"+";color:var(--accent);font-size:1.4rem;line-height:1;transition:transform .2s}
+.faq-q[open] > summary::after{transform:rotate(45deg)}
+.faq-q p{margin-top:10px;color:var(--muted);max-width:60ch}
+
+/* Contacto */
+.contact{background:var(--petrol);color:var(--cream)}
+.contact .wrap{padding-block:72px}
+.contact h2{font-size:clamp(2rem,4.5vw,3rem)}
+.contact .intro{margin-top:14px;max-width:48ch;color:rgba(242,235,219,.82)}
+.channels{display:grid;grid-template-columns:repeat(2,1fr);margin-top:36px;border-top:1px solid rgba(242,235,219,.18)}
+.channel{padding:20px 0;border-bottom:1px solid rgba(242,235,219,.18);display:flex;flex-direction:column;gap:6px;min-width:0}
+.channel:nth-child(odd){padding-right:24px}
+.channel:nth-child(even){padding-left:24px;border-left:1px solid rgba(242,235,219,.18)}
+.channel .lbl{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);font-weight:600}
+.channel .val{font-family:var(--font-display);font-size:1.35rem;user-select:all;overflow-wrap:anywhere}
+.channel .acts{display:flex;gap:14px;font-size:.88rem;flex-wrap:wrap;color:rgba(242,235,219,.75)}
+.channel .acts a,.channel .acts button{color:rgba(242,235,219,.88);background:none;border:0;padding:0;font:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:620px){.channels{grid-template-columns:1fr}.channel:nth-child(odd),.channel:nth-child(even){padding:18px 0;border-left:0}}
+.sos{margin-top:40px;background:rgba(242,235,219,.07);border:1px solid rgba(242,235,219,.18);border-radius:16px;padding:22px clamp(18px,3vw,28px)}
+.sos .lbl{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);font-weight:600}
+.sos h3{font-size:1.35rem;margin-top:6px}
+.sos > p{margin-top:6px;color:rgba(242,235,219,.78);font-size:.95rem;max-width:62ch}
+.sos-list{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.sos-list li{background:rgba(0,0,0,.16);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.sos-list .num{font-family:var(--font-display);font-size:1.6rem;line-height:1.1;font-variant-numeric:tabular-nums;user-select:all;white-space:nowrap}
+.sos-list .what{font-weight:600;font-size:.95rem}
+.sos-list .det{color:rgba(242,235,219,.72);font-size:.86rem}
+@media (max-width:760px){.sos-list{grid-template-columns:1fr}}
+footer{background:var(--petrol-deep);color:rgba(242,235,219,.7);font-size:.85rem}
+footer .wrap{padding-block:22px calc(22px + 64px);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a{color:var(--cream)}
+.wa-float{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:7;display:inline-flex;align-items:center;gap:8px;background:var(--terra);color:var(--petrol);text-decoration:none;font-weight:600;font-size:.92rem;padding:12px 16px;border-radius:999px;box-shadow:0 6px 18px rgba(14,49,56,.28);transition:opacity .25s,transform .25s}
+.wa-float svg{width:20px;height:20px}
+.wa-float.is-hidden{opacity:0;pointer-events:none;transform:translateY(12px)}
+.toast{position:fixed;left:50%;bottom:calc(76px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--terra);color:var(--petrol);padding:10px 18px;border-radius:999px;font-size:.9rem;font-weight:600;z-index:20}
+
+/* App */
+.app-card{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center;background:var(--surface);border-radius:18px;padding:clamp(24px,4vw,44px)}
+.app-card > *{min-width:0}
+.app-card ul{margin:16px 0 0;padding-left:1.1em;color:var(--muted)}
+.app-card li + li{margin-top:6px}
+.phone{justify-self:center;width:200px;max-width:100%;aspect-ratio:9/17;border-radius:28px;background:var(--petrol);padding:18px 14px;display:flex;flex-direction:column;gap:10px;color:var(--cream)}
+.phone .ph-top{display:flex;align-items:center;gap:8px;font-family:var(--font-mark);font-size:1rem}
+.phone .ph-top > svg{width:26px;height:26px}
+.phone .ph-row{background:rgba(242,235,219,.1);border-radius:10px;padding:10px;font-size:.72rem;line-height:1.35}
+.phone .ph-row b{display:block;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--terra);margin-bottom:4px}
+.phone .scale{display:flex;gap:4px;margin-top:6px}
+.phone .scale span{flex:1;height:8px;border-radius:4px;background:rgba(242,235,219,.2)}
+.phone .scale span.on{background:var(--mustard)}
+@media (max-width:720px){.app-card{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- Símbolo: pan partido con tres círculos -->
+    <symbol id="simbolo" viewBox="0 0 150 150">
+      <path d="M71,0.1 A75,75 0 0,0 71,149.9 Z" fill="#3D7480"/>
+      <path d="M79,0.1 A75,75 0 0,1 79,149.9 Z" fill="#2C5C67"/>
+      <g class="latido latido-glow">
+        <circle cx="75" cy="56" r="27" fill="none" stroke="#C9A35E" stroke-width="3"/>
+        <circle cx="75" cy="56" r="17" fill="#F2EBDB"/>
+      </g>
+      <circle cx="36" cy="85" r="15.5" fill="#E5B866"/>
+      <circle cx="114" cy="85" r="15.5" fill="#D9906F"/>
+    </symbol>
+    <!-- La t de Quédate, como cruz -->
+    <symbol id="cruz" viewBox="0 0 44 84">
+      <g class="latido" fill="#D9906F"><rect x="16.5" y="0" width="11" height="84" rx="2"/><rect x="0" y="22" width="44" height="10" rx="2"/></g>
+    </symbol>
+  </defs>
+</svg>
+
+<nav class="nav" aria-label="Principal">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Quédate, inicio"><svg aria-hidden="true"><use href="#simbolo"/></svg><span class="wordmark" aria-hidden="true">Quéda<svg class="t"><use href="#cruz"/></svg>e</span></a>
+    <ul>
+      <li><a href="#acompanamiento">El acompañamiento</a></li>
+      <li><a href="#emaus">Como en Emaús</a></li>
+      <li><a href="#como-empezar">Cómo empezar</a></li>
+      <li><a href="#quien-soy">Quién soy</a></li>
+      <li><a href="#app">App</a></li>
+      <li><a href="#preguntas">Preguntas</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a class="cta-mini" href="https://wa.me/5493416601847?text=Hola%20Eric%2C%20quisiera%20consultar%20por%20el%20espacio%20Qu%C3%A9date." target="_blank" rel="noopener">Consultar</a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <div class="wrap">
+      <ul>
+        <li><a href="#acompanamiento">El acompañamiento</a></li>
+        <li><a href="#emaus">Como en Emaús</a></li>
+        <li><a href="#como-empezar">Cómo empezar</a></li>
+        <li><a href="#quien-soy">Quién soy</a></li>
+      <li><a href="#app">App</a></li>
+        <li><a href="#preguntas">Preguntas</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <p class="hero-tag">«Quédate con nosotros, porque ya es tarde»<small>Lc 24,29</small></p>
+      <p class="eyebrow" style="color:var(--terra);margin-top:22px">Acompañamiento integral · Seminaristas y sacerdotes</p>
+      <h1 style="margin-top:14px">Para quien sostiene a tantos, <em>un lugar donde ser sostenido</em>.</h1>
+      <p class="common">Un espacio de acompañamiento psicológico para poner en palabras lo que se vive en la formación y en el ministerio. Desde un enfoque humanista, integrativo y trascendente, presencial en Rosario o virtual.</p>
+      <div class="btns">
+        <a class="btn btn-terra" href="https://wa.me/5493416601847?text=Hola%20Eric%2C%20quisiera%20consultar%20por%20el%20espacio%20Qu%C3%A9date." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        <a class="btn btn-ghost" href="#acompanamiento">Conocer el espacio</a>
+      </div>
+      <p class="meta">Eric Terlecki · Lic. en Psicología · Esp. en Psicoterapia Clínica · Mg. en Psicooncología · Mat. Nro. 4331</p>
+    </div>
+    <div class="hero-mark" aria-hidden="true">
+      <svg><use href="#simbolo"/></svg>
+      <span class="wordmark">Quéda<svg class="t"><use href="#cruz"/></svg>e</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="block" id="acompanamiento">
+    <div class="wrap">
+      <p class="eyebrow">El acompañamiento</p>
+      <h2>Cuidar a la persona que sostiene la vocación</h2>
+      <p class="po-lead">La vocación se vive con todo lo que uno es: la historia, el cuerpo, los afectos, los vínculos, la fe. Quédate es un espacio para cuidar esa trama, en la formación y a lo largo del ministerio.</p>
+      <div class="services">
+        <article class="service"><span class="tag">Seminaristas</span><h3>El camino de la formación</h3><p>Conocerse, integrar la propia historia, crecer en libertad interior. Un espacio propio que acompaña el discernimiento sin reemplazarlo.</p></article>
+        <article class="service"><span class="tag">Sacerdotes</span><h3>El peso del ministerio</h3><p>La demanda pastoral, el cansancio, la soledad, la sensación de no llegar. Lo que se carga en silencio también necesita un lugar.</p></article>
+        <article class="service"><span class="tag">Afectividad</span><h3>Los afectos y los vínculos</h3><p>La amistad, la vida comunitaria, el celibato vivido con madurez, la relación con la familia. Una afectividad integrada sostiene la entrega.</p></article>
+        <article class="service"><span class="tag">Momentos de cambio</span><h3>Crisis y transiciones</h3><p>Un traslado, un duelo, un problema de salud, una crisis de sentido o de vocación. Momentos para no atravesar a solas.</p></article>
+      </div>
+      <div class="po-cols">
+        <div>
+          <h4>Cómo trabajo</h4>
+          <p>Desde la psicoterapia clínica, con un enfoque humanista, integrativo y trascendente: la dimensión espiritual forma parte de la persona y tiene lugar en la conversación. El acompañamiento se adapta a cada etapa y a cada historia.</p>
+          <h4>Algunos temas frecuentes</h4>
+          <ul>
+            <li>Estrés, agotamiento y desgaste en la tarea pastoral.</li>
+            <li>Ansiedad, tristeza, dificultades para descansar.</li>
+            <li>Soledad, vida comunitaria y vínculos con otros sacerdotes.</li>
+            <li>La propia historia familiar y lo que se pone en juego en la vocación.</li>
+            <li>Preguntas por el sentido, la fe, el lugar de cada uno.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="po-box">
+            <h4>Para quién</h4>
+            <p>Para seminaristas en cualquier etapa de la formación y para sacerdotes, diocesanos o religiosos. También para formadores que quieran pensar su tarea. Presencial en Rosario o virtual, por Meet.</p>
+            <a class="btn btn-terra" href="https://wa.me/5493416601847?text=Hola%20Eric%2C%20quisiera%20consultar%20por%20el%20espacio%20Qu%C3%A9date." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+          </div>
+          <p class="po-note">El acompañamiento psicológico no reemplaza la dirección espiritual ni el discernimiento propio de la formación: los complementa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="emaus">
+    <div class="wrap">
+      <div class="libre">
+        <div class="libre-head">
+          <p class="eyebrow">Como en Emaús</p>
+          <h2>Caminar, escuchar, <em>quedarse</em></h2>
+          <p>Dos discípulos vuelven a casa cansados y desilusionados. Alguien se suma al camino, pregunta, escucha y, cuando cae la tarde, se queda. Así entendemos el acompañamiento. <span class="ref">Lc 24,13-35</span></p>
+        </div>
+        <ol class="libre-list">
+          <li><span class="libre-n">01</span><b>Caminar al lado</b><span>Sin apurar el paso, al ritmo de cada uno. Acompañar empieza por estar.</span></li>
+          <li><span class="libre-n">02</span><b>Escuchar lo que pesa</b><span>«¿De qué vienen hablando?» Poner en palabras lo vivido es el primer alivio.</span></li>
+          <li><span class="libre-n">03</span><b>Quedarse</b><span>Cuando se hace tarde y el cansancio pesa, tener un lugar donde quedarse.</span></li>
+          <li><span class="libre-n">04</span><b>Volver al camino</b><span>Con el corazón encendido, volver a la comunidad y a la misión.</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="como-empezar">
+    <div class="wrap">
+      <p class="eyebrow">Cómo empezar</p>
+      <h2>Tres entrevistas iniciales</h2>
+      <p class="po-lead">El proceso empieza con una serie de tres entrevistas. Ahí exploramos qué te trae y después definimos juntos el camino.</p>
+      <ol class="first-steps">
+        <li><span class="n">1</span><b>Escuchar</b>Qué te trae, qué estás viviendo, qué esperás de este espacio.</li>
+        <li><span class="n">2</span><b>Comprender</b>Tu historia, tu momento vocacional, lo que te sostiene.</li>
+        <li><span class="n">3</span><b>Acordar</b>El diseño, las metas y los medios del proceso. Encuentros de una hora, semanales o quincenales.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="quien-soy">
+    <div class="wrap about">
+      <div>
+        <p class="eyebrow">Quién soy</p>
+        <h2>Eric Terlecki</h2>
+        <ul class="facts">
+          <li><b>Formación</b>Lic. en Psicología · Esp. en Psicoterapia Clínica · Mg. en Psicooncología</li>
+          <li><b>Matrícula</b>Mat. Nro. 4331</li>
+          <li><b>Dónde</b>Consultorio en Rosario o virtual, por Meet</li>
+        </ul>
+      </div>
+      <div>
+        <p class="po-lead" style="margin-top:0">Acompaño a personas, parejas y familias en psicoterapia clínica desde un enfoque humanista, integrativo y trascendente.</p>
+        <p style="margin-top:16px">Quien acompaña a otros también necesita ser acompañado. Detrás de cada vocación hay una persona con su historia, sus afectos, su cansancio y sus preguntas.</p>
+        <p>«Quédate» nace para eso: para que seminaristas y sacerdotes tengan un espacio propio donde poner en palabras lo que viven, y seguir caminando.</p>
+        <p class="po-note">Es un espacio hermano de <a href="https://entre-nosotros-web.vercel.app/" target="_blank" rel="noopener">Entre Nosotros</a>, el espacio de psicoterapia general, y de <a href="https://a-tu-lado-web.vercel.app/" target="_blank" rel="noopener">A tu Lado</a>, de psicooncología.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="app">
+    <div class="wrap">
+      <div class="app-card">
+        <div>
+          <p class="eyebrow">Para quienes están en acompañamiento</p>
+          <h2 style="margin-top:10px;font-size:clamp(1.7rem,3.5vw,2.3rem)">Examen del día</h2>
+          <p style="margin-top:12px;color:var(--muted)">Una app sencilla para hacer cada noche la revisión de vida al modo de san Ignacio de Loyola y llevar a la sesión lo que se fue moviendo en la semana. Se instala en el celular como cualquier aplicación.</p>
+          <ul>
+            <li>Los cinco pasos del examen ignaciano</li>
+            <li>Estado de ánimo, emociones, consolación y desolación</li>
+            <li>Revisión semanal para enviar antes de la sesión</li>
+          </ul>
+          <div class="btns"><a class="btn btn-terra" href="app/" target="_blank" rel="noopener">Abrir la app</a></div>
+        </div>
+        <div class="phone" aria-hidden="true">
+          <div class="ph-top"><svg><use href="#simbolo"/></svg>Examen del día</div>
+          <div class="ph-row"><b>1 · Dar gracias</b>Por la misa de la tarde</div>
+          <div class="ph-row"><b>3 · Revisar el día</b>Algo de consolación<div class="scale"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div></div>
+          <div class="ph-row"><b>5 · Mañana</b>La gracia que pido: paciencia</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="preguntas">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="eyebrow">Preguntas frecuentes</p>
+          <h2>Antes de empezar</h2>
+          <p style="margin-top:12px;color:var(--muted);max-width:40ch">Si tenés otra duda, escribime.</p>
+        </div>
+        <div class="faq">
+          <details class="faq-q"><summary>¿Lo que hablo es confidencial?</summary><p>Sí. Lo que conversamos está protegido por el secreto profesional. No se comparte información con el seminario, la diócesis o la congregación sin tu consentimiento expreso.</p></details>
+          <details class="faq-q"><summary>¿Reemplaza la dirección espiritual?</summary><p>No. Son espacios distintos que pueden convivir. La psicoterapia trabaja lo psicológico y lo vincular; la dirección espiritual acompaña la vida de fe. Muchas veces se enriquecen mutuamente.</p></details>
+          <details class="faq-q"><summary>¿Hace falta estar en crisis para consultar?</summary><p>No. Se puede consultar para cuidarse, para conocerse mejor o para atravesar una etapa nueva. No hace falta esperar a «estar mal».</p></details>
+          <details class="faq-q"><summary>¿Puedo hacerlo de forma virtual?</summary><p>Sí. Además del consultorio de Pasaje Rizzuto 3451, en Rosario, atiendo por Meet. Es útil si vivís en otra ciudad o tu agenda pastoral cambia mucho.</p></details>
+          <details class="faq-q"><summary>¿Cómo es la primera entrevista?</summary><p>Es la primera de una serie de tres entrevistas iniciales. Ahí exploramos qué te trae, qué estás viviendo, qué esperás. Después definimos juntos las metas y los medios del proceso.</p></details>
+          <details class="faq-q"><summary>¿Trabajás con obras sociales?</summary><p>No trabajo con obras sociales. Para los honorarios, consultame por WhatsApp. Están disponibles todos los medios de pago.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <p class="eyebrow" style="color:var(--terra)">Contacto</p>
+    <h2 style="margin-top:10px">Quedate a conversar</h2>
+    <p class="intro">Escribime para coordinar una primera entrevista. Respondo personalmente.</p>
+    <div class="channels">
+      <div class="channel"><span class="lbl">WhatsApp</span><span class="val">341 660-1847</span><span class="acts"><a href="https://wa.me/5493416601847?text=Hola%20Eric%2C%20quisiera%20consultar%20por%20el%20espacio%20Qu%C3%A9date." target="_blank" rel="noopener">Abrir chat</a><button type="button" data-copy="341 660-1847">Copiar</button></span></div>
+      <div class="channel"><span class="lbl">Mail</span><span class="val">ericterlecki@gmail.com</span><span class="acts"><button type="button" data-copy="ericterlecki@gmail.com">Copiar</button></span></div>
+      <div class="channel"><span class="lbl">Consultorio</span><span class="val">Pasaje Rizzuto 3451, Rosario</span><span class="acts">A la altura de Uruguay al 1150 · También virtual</span></div>
+      <div class="channel"><span class="lbl">Horarios</span><span class="val">Lun a vie 8 a 21 h · Sáb 8 a 13 h</span><span class="acts">Encuentros de una hora aproximadamente</span></div>
+    </div>
+    <div class="sos" id="emergencias">
+      <span class="lbl">Ante una emergencia</span>
+      <h3>Si estás en peligro o en una crisis, no esperes a la sesión</h3>
+      <p>Llamá a alguno de estos números o acercate a la guardia más cercana. Este espacio no atiende urgencias.</p>
+      <ul class="sos-list">
+        <li><span class="num">911</span><span class="what">Emergencias</span><span class="det">Policía, bomberos y urgencias en general.</span></li>
+        <li><span class="num">107</span><span class="what">SIES · Emergencias médicas</span><span class="det">Ambulancia y urgencias de salud en la provincia de Santa Fe.</span></li>
+        <li><span class="num">0800-999-0091</span><span class="what">Línea Nacional de Salud Mental</span><span class="det">Orientación y apoyo en la urgencia de salud mental. Gratuita, las 24 horas, en todo el país.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span>Quédate · Lic. Eric Terlecki · Mat. N.º 4331 · Un espacio hermano de <a href="https://entre-nosotros-web.vercel.app/" target="_blank" rel="noopener">Entre Nosotros</a> y <a href="https://a-tu-lado-web.vercel.app/" target="_blank" rel="noopener">A tu Lado</a></span><span>Emergencias: <a href="#emergencias">911 · 107 SIES · 0800-999-0091</a></span></div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5493416601847?text=Hola%20Eric%2C%20quisiera%20consultar%20por%20el%20espacio%20Qu%C3%A9date." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp para pedir una primera entrevista"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg><span>Pedir primera entrevista</span></a>
+<div class="toast" id="toast" hidden>Copiado</div>
+<script>
+(function(){
+  const b=document.getElementById("menu-btn"), m=document.getElementById("mobile-menu");
+  const set=o=>{m.hidden=!o;b.setAttribute("aria-expanded",String(o));b.setAttribute("aria-label",o?"Cerrar menú":"Abrir menú");};
+  b.addEventListener("click",()=>set(m.hidden));
+  m.addEventListener("click",e=>{if(e.target.closest("a"))set(false);});
+})();
+function flash(t){const el=document.getElementById("toast");el.textContent=t;el.hidden=false;clearTimeout(flash.t);flash.t=setTimeout(()=>el.hidden=true,1800);}
+document.querySelectorAll("[data-copy]").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    const txt=btn.dataset.copy;
+    const fallback=()=>{const v=btn.closest(".channel").querySelector(".val");const r=document.createRange();r.selectNodeContents(v);const s=getSelection();s.removeAllRanges();s.addRange(r);flash("Seleccionado, copialo con Ctrl+C");};
+    try{navigator.clipboard.writeText(txt).then(()=>flash("Copiado"),fallback);}catch(e){fallback();}
+  });
+});
+(function(){const n=document.querySelector(".nav");if(!n)return;const set=()=>document.documentElement.style.setProperty("--navh",n.offsetHeight+"px");set();addEventListener("resize",set);if(window.ResizeObserver)new ResizeObserver(set).observe(n);})();
+(()=>{const f=document.querySelector(".wa-float"),c=document.getElementById("contacto");if(!f||!c||!("IntersectionObserver" in window))return;
+new IntersectionObserver(e=>f.classList.toggle("is-hidden",e[0].isIntersecting),{threshold:.15}).observe(c);})();
+(()=>{const mm=document.getElementById("mobile-menu"),wf=document.querySelector(".wa-float");if(mm&&wf)new MutationObserver(()=>wf.style.display=mm.hidden?"":"none").observe(mm,{attributes:true,attributeFilter:["hidden"]});})();
+</script>
+</body>
+</html>
