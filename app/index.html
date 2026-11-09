@@ -941,7 +941,8 @@ const standalone=()=>matchMedia("(display-mode: standalone)").matches||navigator
 const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
 window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferred=e;$("#install-btn").hidden=false});
 function installUI(){const c=$("#install-card");c.hidden=standalone()||!!prefs.instHide;
-  if(isIOS){c.querySelector(".inst-android").hidden=true}else if(/android/i.test(navigator.userAgent)){c.querySelector(".inst-ios").hidden=true}}
+  /* se muestran siempre los dos: así se puede ayudar a otro a instalarla; primero el del propio celular */
+  if(/android/i.test(navigator.userAgent)){const i=c.querySelector(".inst-ios"),an=c.querySelector(".inst-android");an.after(i)}}
 
 /* ---------- navegación ---------- */
 const VIEWS=["hoy","semana","recorrido","palabra","guia","contacto","ajustes"];
