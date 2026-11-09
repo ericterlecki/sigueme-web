@@ -446,6 +446,28 @@ footer a{color:var(--cream)}
   .capo{background-image:linear-gradient(rgba(22,56,66,.86),rgba(22,56,66,.9)),url("recursos/fondos/lago-turquesa-movil.webp")}
   .contact{background-image:linear-gradient(rgba(22,56,66,.9),rgba(22,56,66,.93)),url("recursos/fondos/bosque-laguna-movil.webp")}
 }
+/* Más fondos de naturaleza: espacio abierto, valoración, recursos, app y lecturas */
+.free,.app-card{background-color:var(--petrol);background-size:cover;background-repeat:no-repeat;color:var(--cream)}
+.free{background-image:linear-gradient(rgba(22,56,66,.84),rgba(22,56,66,.9)),url("recursos/fondos/valles-niebla.webp");background-position:center 40%}
+.app-card{background-image:linear-gradient(100deg,rgba(22,56,66,.93) 0%,rgba(22,56,66,.84) 55%,rgba(22,56,66,.6) 100%),url("recursos/fondos/bosque-niebla.webp");background-position:center}
+.free .eyebrow,.app-card .eyebrow{color:var(--terra)}
+.free h2,.app-card h2{color:var(--cream)}
+.free p,.app-card .app-lead,.app-card ul{color:rgba(242,235,219,.86)}
+.free ul{color:var(--cream)}
+.free a{color:var(--mustard)}
+.app-lead{margin-top:12px}
+.app-card .phone{box-shadow:0 0 0 1px rgba(242,235,219,.22),0 18px 40px rgba(0,0,0,.35)}
+.free .ill-tile{box-shadow:0 0 0 1px rgba(242,235,219,.2)}
+.scene.photo + .services,.scene.photo + .pablo{margin-top:28px}
+@media (max-width:820px){
+  .free{background-image:linear-gradient(rgba(22,56,66,.86),rgba(22,56,66,.92)),url("recursos/fondos/valles-niebla-movil.webp")}
+  .app-card{background-image:linear-gradient(rgba(22,56,66,.9),rgba(22,56,66,.9)),url("recursos/fondos/bosque-niebla-movil.webp")}
+}
+@media (max-width:760px){
+  #valoracion .scene.photo{--bg:url(recursos/fondos/amanecer-nubes-movil.webp)}
+  #recursos .scene.photo{--bg:url(recursos/fondos/bosque-verde-movil.webp)}
+  #lecturas .scene.photo{--bg:url(recursos/fondos/bosque-silencio-movil.webp)}
+}
 </style>
 </head>
 <body>
@@ -794,9 +816,9 @@ footer a{color:var(--cream)}
 
   <section class="block" id="valoracion">
     <div class="wrap">
-      <p class="eyebrow">Valoración personal</p>
+      <div class="scene photo" style="--bg:url(recursos/fondos/amanecer-nubes.webp)"><div class="scene-txt"><p class="eyebrow">Valoración personal</p>
       <h2>Estimarte con la mirada de Dios</h2>
-      <p class="po-lead">La autoestima es la valoración que hacemos de nosotros mismos: cuánto nos aceptamos, nos respetamos y confiamos en lo que podemos. En la vida sacerdotal y consagrada puede quedar atrapada entre dos extremos: medirse sólo por lo que se rinde, o despreciarse en nombre de una falsa humildad. San Pablo propone otro camino: una estima <em>sobria</em>, verdadera, que nace de saberse amado.</p>
+      <p class="po-lead">La autoestima es la valoración que hacemos de nosotros mismos: cuánto nos aceptamos, nos respetamos y confiamos en lo que podemos. En la vida sacerdotal y consagrada puede quedar atrapada entre dos extremos: medirse sólo por lo que se rinde, o despreciarse en nombre de una falsa humildad. San Pablo propone otro camino: una estima <em>sobria</em>, verdadera, que nace de saberse amado.</p></div></div>
       <div class="pablo">
         <figure><span class="ill-tile"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="58" r="34" fill="#E5B866" opacity=".14"/><path d="M48 30h24l-3 8c14 6 22 20 20 36-2 16-14 26-29 26S33 90 31 74c-2-16 6-30 20-36z" fill="#D9906F"/><path d="M45 26h30" stroke="#F2EBDB" stroke-width="4" stroke-linecap="round"/><path d="M56 46l6 12-8 10 10 12-4 12" stroke="#E5B866" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M62 58l12-4" stroke="#E5B866" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="92" cy="30" r="3" fill="#F2EBDB"/><circle cx="26" cy="40" r="2.2" fill="#F2EBDB"/><path d="M14 104h92" stroke="#3D7480" stroke-width="3" stroke-linecap="round"/></svg></span><div><blockquote>«No se estimen más de lo que conviene, sino estímense con sobriedad, según la medida de la fe que Dios dio a cada uno».</blockquote><figcaption>Rm 12,3</figcaption></div></figure>
         <figure><blockquote>«Por la gracia de Dios soy lo que soy, y su gracia no fue estéril en mí».</blockquote><figcaption>1 Co 15,10</figcaption></figure>
@@ -846,9 +868,9 @@ footer a{color:var(--cream)}
 
   <section class="block" id="recursos">
     <div class="wrap">
-      <p class="eyebrow">Recursos</p>
+      <div class="scene photo" style="--bg:url(recursos/fondos/bosque-verde.webp)"><div class="scene-txt"><p class="eyebrow">Recursos</p>
       <h2>Para leer, completar y compartir</h2>
-      <p class="po-lead">Materiales breves para acompañar el camino: carruseles para leer en el celular, guías para completar, dinámicas para el trabajo personal, frases para mirar y tarjetas de calma.</p>
+      <p class="po-lead">Materiales breves para acompañar el camino: carruseles para leer en el celular, guías para completar, dinámicas para el trabajo personal, frases para mirar y tarjetas de calma.</p></div></div>
 
       <div class="res-tabs" role="group" aria-label="Elegir carrusel"><button type="button" data-car="0" aria-pressed="true">Cuidar a quien cuida</button><button type="button" data-car="1" aria-pressed="false">Silencio y oración</button><button type="button" data-car="2" aria-pressed="false">El perdón</button><button type="button" data-car="3" aria-pressed="false">Tratarte con la misma calidez</button><button type="button" data-car="4" aria-pressed="false">Respetar tu propio proceso</button><button type="button" data-car="5" aria-pressed="false">Vivir con sentido</button><button type="button" data-car="6" aria-pressed="false">Vivir el presente</button><button type="button" data-car="7" aria-pressed="false">La emoción no es el problema</button><button type="button" data-car="8" aria-pressed="false">El qué dirán</button><button type="button" data-car="9" aria-pressed="false">Estimarte con sobriedad</button><button type="button" data-car="10" aria-pressed="false">Las etapas del cambio</button></div>
       <div class="pe-grid">
@@ -934,7 +956,7 @@ footer a{color:var(--cream)}
         <div>
           <p class="eyebrow">De libre uso</p>
           <h2 style="margin-top:10px;font-size:clamp(1.7rem,3.5vw,2.3rem)">Examen del día</h2>
-          <p style="margin-top:12px;color:var(--muted)">Una app sencilla para hacer cada noche la revisión de vida al modo de san Ignacio de Loyola y compartir, si querés, lo que se fue moviendo con quien te acompaña. Se instala en el celular como cualquier aplicación.</p>
+          <p class="app-lead">Una app sencilla para hacer cada noche la revisión de vida al modo de san Ignacio de Loyola y compartir, si querés, lo que se fue moviendo con quien te acompaña. Se instala en el celular como cualquier aplicación.</p>
           <ul>
             <li>Los cinco pasos del examen ignaciano</li>
             <li>Estado de ánimo, emociones, consolación y desolación</li>
@@ -955,9 +977,9 @@ footer a{color:var(--cream)}
 
   <section class="block" id="lecturas">
     <div class="wrap">
-      <p class="eyebrow">Lecturas</p>
+      <div class="scene photo" style="--bg:url(recursos/fondos/bosque-silencio.webp)"><div class="scene-txt"><p class="eyebrow">Lecturas</p>
       <h2>Libros que acompañan</h2>
-      <p class="po-lead">Algunas lecturas que recomiendo para el camino de la formación, del ministerio y de la vida consagrada: autores que unen la psicología y la vida espiritual con hondura y realismo.</p>
+      <p class="po-lead">Algunas lecturas que recomiendo para el camino de la formación, del ministerio y de la vida consagrada: autores que unen la psicología y la vida espiritual con hondura y realismo.</p></div></div>
       <div class="book-filters" role="group" aria-label="Filtrar lecturas">
         <button type="button" aria-pressed="true" data-bf="">Todas</button>
         <button type="button" aria-pressed="false" data-bf="Madurez afectiva">Madurez afectiva</button>
