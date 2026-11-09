@@ -73,8 +73,8 @@ p{margin:0}
 .mobile-menu{border-top:1px solid rgba(242,235,219,.12)}
 .mobile-menu ul{list-style:none;margin:0;padding:6px 0 14px;display:flex;flex-direction:column}
 .mobile-menu a{display:block;padding:12px 0;font-size:1.05rem;text-decoration:none;color:var(--cream);border-bottom:1px solid rgba(242,235,219,.1)}
-@media (max-width:860px){.nav ul{display:none}.menu-btn{display:inline-flex}.nav .cta-mini{margin-left:auto}}
-@media (min-width:861px){.mobile-menu{display:none!important}}
+@media (max-width:860px){.nav > .wrap > ul{display:none}.menu-btn{display:inline-flex}.nav .cta-mini{margin-left:auto}}
+
 
 /* Hero */
 .hero{background:var(--petrol);color:var(--cream);overflow:hidden}
@@ -324,6 +324,14 @@ footer a{color:var(--cream)}
 .din-filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
 .din-filters button{font:inherit;font-size:.88rem;min-height:40px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
 .din-filters button[aria-pressed="true"]{background:var(--petrol);border-color:var(--petrol);color:var(--cream)}
+
+.mobile-menu{max-height:78vh;overflow-y:auto;overscroll-behavior:contain}
+.nav .mobile-menu ul{gap:0;align-items:stretch;width:100%;font-size:1rem}.mobile-menu li{width:100%}.mobile-menu a{padding:11px 0}
+.mobile-menu .mm-h{padding:14px 0 4px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--terra)}
+.mobile-menu .mm-sub a{padding-left:14px}
+/* el botón de menú también en pantallas medianas, donde el menú de arriba no entra */
+@media (max-width:1100px){.nav > .wrap > ul{display:none}.menu-btn{display:inline-flex}.nav .nav-quiet{margin-left:auto}}
+@media (min-width:1101px){.mobile-menu{display:none!important}}
 </style>
 </head>
 <body>
@@ -369,14 +377,23 @@ footer a{color:var(--cream)}
   <div class="mobile-menu" id="mobile-menu" hidden>
     <div class="wrap">
       <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#libre-uso">Un espacio abierto</a></li>
         <li><a href="#emaus">Como en Emaús</a></li>
         <li><a href="#camino">Para el camino</a></li>
-        <li><a href="#recursos">Recursos</a></li>
-        <li><a href="#app">La app</a></li>
-        <li><a href="#lecturas">Lecturas</a></li>
-        <li><a href="#quien-soy">Quién soy</a></li>
-        <li><a href="#preguntas">Preguntas</a></li>
-        <li><a href="#conversar">Si querés conversar</a></li>
+        <li class="mm-h">Recursos</li>
+        <li class="mm-sub"><a href="#recursos">Carruseles</a></li>
+        <li class="mm-sub"><a href="#guia-cuidar-a-quien-cuida">Guías para completar</a></li>
+        <li class="mm-sub"><a href="#dinamicas">Dinámicas</a></li>
+        <li class="mm-sub"><a href="#frases">Frases que acompañan</a></li>
+        <li class="mm-h">Para el día a día</li>
+        <li class="mm-sub"><a href="#app">La app: examen del día</a></li>
+        <li class="mm-sub"><a href="#lecturas">Lecturas recomendadas</a></li>
+        <li class="mm-h">Sobre el espacio</li>
+        <li class="mm-sub"><a href="#quien-soy">Quién soy</a></li>
+        <li class="mm-sub"><a href="#preguntas">Preguntas frecuentes</a></li>
+        <li class="mm-sub"><a href="#conversar">Si querés conversar</a></li>
+        <li class="mm-sub"><a href="#emergencias">Ante una emergencia</a></li>
       </ul>
     </div>
   </div>
@@ -385,7 +402,7 @@ footer a{color:var(--cream)}
 <header class="hero" id="inicio">
   <div class="wrap">
     <div>
-      <p class="hero-tag">«Sígueme»<small>Jn 21,19</small></p>
+      <p class="hero-tag">«Señor, tú lo sabes todo; tú sabes que te quiero». Jesús le dijo: «Sígueme».<small>Jn 21,17-19</small></p>
       <p class="eyebrow" style="color:var(--terra);margin-top:22px">Para seminaristas y sacerdotes</p>
       <h1 style="margin-top:14px">Un lugar para quedarse <em>y seguir caminando</em>.</h1>
       <p class="common">Recursos para cuidar la vida interior en la formación y en el ministerio: una app para el examen del día, la Palabra que consuela, lecturas y algunas claves para el camino.</p>

@@ -389,6 +389,17 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
 .intro .row .btn{flex:0 1 auto}
 .howto h4{margin:10px 0 2px;font-size:.95rem}
 .howto h4:first-child{margin-top:0}
+/* Cuaderno */
+.nb-ed{display:grid;gap:10px}
+.nb-ed input[type=text]{font-family:var(--display);font-size:1.15rem}
+.nb-ed textarea{min-height:240px;font-family:var(--quote);font-size:1.1rem;line-height:1.55;background:var(--surface)}
+.nb-prompts{display:flex;flex-wrap:wrap;gap:6px}
+.nb-prompts .chip{font-size:.82rem;padding:6px 11px}
+.nb-meta{font-size:.78rem;color:var(--muted)}
+.nb-item{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:4px;cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%}
+.nb-item b{font-family:var(--display);font-weight:400;font-size:1.05rem}
+.nb-item span{font-size:.86rem;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.nb-item small{font-size:.74rem;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -416,7 +427,7 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
       <div><div class="name wordmark" aria-hidden="true"><span class="si">Sí</span>gueme</div><div class="sub">Examen del día</div></div>
     </a>
     <div class="top-actions">
-      <a class="icon-btn" href="#contacto" data-nav="contacto">Acerca de</a>
+      <a class="icon-btn" href="#guia" data-nav="guia">Guía</a>
       <a class="icon-btn" href="#ajustes" data-nav="ajustes">Ajustes</a>
     </div>
   </header>
@@ -625,12 +636,38 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
       <p class="small muted">Las citas bíblicas están traducidas de forma libre a partir de las versiones habituales en la liturgia.</p>
     </section>
 
+    <!-- CUADERNO -->
+    <section class="view" id="v-cuaderno" hidden>
+      <div class="lead">
+        <span class="eyebrow">Escritura libre</span>
+        <h2>Mi cuaderno</h2>
+        <p class="muted">Un espacio para escribir lo que quiera: lo que rezó, lo que siente, lo que no quiere olvidar, una carta que no va a mandar. Sin preguntas ni casilleros.</p>
+      </div>
+      <p class="privacy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Lo que escribe acá queda sólo en este celular. Nadie más puede leerlo, salvo que usted decida compartir una nota.</span></p>
+      <div class="card nb-ed" id="nb-ed">
+        <input type="text" id="nb-title" placeholder="Título (opcional)" aria-label="Título de la nota">
+        <div class="nb-prompts" id="nb-prompts" aria-label="Para empezar a escribir"></div>
+        <textarea id="nb-text" placeholder="Escriba libremente…" aria-label="Texto de la nota"></textarea>
+        <span class="nb-meta" id="nb-meta">Se guarda solo mientras escribe.</span>
+        <div class="row">
+          <button class="btn" id="nb-save" type="button">Guardar nota</button>
+          <button class="btn ghost" id="nb-new" type="button">Nueva nota</button>
+        </div>
+        <div class="row" id="nb-actions" hidden>
+          <button class="linkbtn" id="nb-share" type="button">Compartir esta nota</button>
+          <button class="linkbtn" id="nb-del" type="button" style="color:var(--danger)">Eliminar</button>
+        </div>
+      </div>
+      <div class="q"><input type="text" id="nb-q" placeholder="Buscar en mis notas" aria-label="Buscar en mis notas"></div>
+      <div class="list" id="nb-list"></div>
+    </section>
+
     <!-- GUIA -->
     <section class="view" id="v-guia" hidden>
       <div class="lead">
         <span class="eyebrow">Para acompañar</span>
         <h2>Guía breve</h2>
-        <p class="muted">Recursos para acompañar el examen y la revisión de vida. Puede usarlos solo o con quien lo acompaña.</p>
+        <p class="muted">Recursos para acompañar el examen y la revisión de vida. Puede usarlos solo o con quien lo acompaña. <a href="#contacto" style="color:var(--brand);font-weight:600">Acerca de esta app</a></p>
       </div>
 
       <details class="guide" id="guia-uso" open>
@@ -646,7 +683,8 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
           </ul>
           <h4>Otras secciones</h4>
           <ul>
-            <li><b>Recorrido:</b> cómo fueron variando su ánimo y sus consolaciones y desolaciones en los últimos 14 días.</li>
+            <li><b>Cuaderno:</b> un espacio para escribir libremente, sin preguntas ni casilleros. Puede buscar entre sus notas y compartir una si quiere.</li>
+          <li><b>Recorrido:</b> cómo fueron variando su ánimo y sus consolaciones y desolaciones en los últimos 14 días.</li>
             <li><b>La Palabra:</b> las lecturas de la misa del día, el santoral y frases de la Escritura y de los santos.</li>
             <li><b>Guía:</b> el examen ignaciano, la consolación y la desolación, y cómo examinarse sin dureza.</li>
           </ul>
@@ -757,7 +795,7 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
 
     <!-- AJUSTES -->
     <section class="view" id="v-ajustes" hidden>
-      <div class="lead"><h2>Ajustes</h2><p class="muted">Todo se guarda sólo en este dispositivo.</p></div>
+      <div class="lead"><h2>Ajustes</h2><p class="muted">Todo se guarda sólo en este dispositivo. <a href="#contacto" style="color:var(--brand);font-weight:600">Acerca de esta app</a></p></div>
       <div class="card">
         <h3>Instalar en el celular</h3>
         <p class="small muted">Tenga la app en la pantalla de inicio, con el logo de Sígueme. Se abre como cualquier aplicación y funciona sin conexión.</p>
@@ -792,9 +830,9 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
   <div class="in">
     <a href="#hoy" data-nav="hoy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3v18M5 9h14"/></svg>Hoy</a>
     <a href="#semana" data-nav="semana"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Semana</a>
-    <a href="#recorrido" data-nav="recorrido"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 19V11M10 19V5M16 19v-6M22 19H2"/></svg>Recorrido</a>
+    <a href="#cuaderno" data-nav="cuaderno"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11a3 3 0 0 1 3 3v15H8a3 3 0 0 1-3-3z"/><path d="M9 8h6M9 12h6"/></svg>Cuaderno</a>
     <a href="#palabra" data-nav="palabra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.5c3-1.2 6.5-1.2 10 1 3.5-2.2 7-2.2 10-1V19c-3-1.2-6.5-1.2-10 1-3.5-2.2-7-2.2-10-1z"/><path d="M12 6.5V20"/></svg>La Palabra</a>
-    <a href="#guia" data-nav="guia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>Guía</a>
+    <a href="#recorrido" data-nav="recorrido"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 19V11M10 19V5M16 19v-6M22 19H2"/></svg>Recorrido</a>
   </div>
 </nav>
 
@@ -1033,6 +1071,25 @@ function santoralRender(d){const k=iso(lDate).slice(5);const own=SANTORAL[k];let
       h=`<div class="saint"><h3>${esc(t.nombre)}</h3>${x?`<p class="refl">${esc(x)}</p>`:""}</div>`}}
   $("#s-body").innerHTML=h;$("#santoral").hidden=!h}
 
+
+/* ---------- CUADERNO ---------- */
+let notes=store.get("notes",[]);let nbCur=null,nbTimer=null;
+const NBP=["Hoy agradezco…","Señor, te cuento…","Lo que me quedó resonando…","Lo que me cuesta…","Una carta a…","Lo que no quiero olvidar…"];
+const fmtDT=t=>{const d=new Date(t);return d.toLocaleDateString("es-AR",{day:"numeric",month:"short",year:"numeric"})+" · "+d.toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit"})};
+function nbSaveSilent(){const ti=$("#nb-title").value.trim(),tx=$("#nb-text").value;
+  if(!ti&&!tx.trim()){return}
+  const now=Date.now();
+  if(nbCur===null){nbCur="n"+now;notes.unshift({id:nbCur,t:now,u:now,titulo:ti,texto:tx})}
+  else{const n=notes.find(x=>x.id===nbCur);if(n){n.titulo=ti;n.texto=tx;n.u=now}}
+  store.set("notes",notes);$("#nb-meta").textContent="Guardado · "+fmtDT(now);$("#nb-actions").hidden=false;nbList()}
+function nbOpen(id){const n=notes.find(x=>x.id===id);if(!n)return;nbCur=id;$("#nb-title").value=n.titulo||"";$("#nb-text").value=n.texto||"";
+  $("#nb-meta").textContent="Creada "+fmtDT(n.t)+(n.u!==n.t?" · editada "+fmtDT(n.u):"");$("#nb-actions").hidden=false;$("#nb-ed").scrollIntoView({behavior:"smooth"});nbList()}
+function nbNew(){nbCur=null;$("#nb-title").value="";$("#nb-text").value="";$("#nb-meta").textContent="Se guarda solo mientras escribe.";$("#nb-actions").hidden=true;$("#nb-text").focus();nbList()}
+function nbList(){const q=($("#nb-q").value||"").toLowerCase().trim();
+  const ls=notes.filter(n=>!q||(n.titulo+" "+n.texto).toLowerCase().includes(q));
+  $("#nb-list").innerHTML=ls.length?ls.map(n=>`<button class="nb-item" type="button" data-nb="${n.id}"${n.id===nbCur?' style="border-color:var(--brand)"':""}><b>${esc(n.titulo||"Sin título")}</b><span>${esc((n.texto||"").slice(0,180))}</span><small>${esc(fmtDT(n.u||n.t))}</small></button>`).join(""):`<p class="empty">${q?"No hay notas con esa búsqueda.":"Todavía no hay notas. Lo que escriba arriba aparece acá."}</p>`}
+function loadCuaderno(){const pr=$("#nb-prompts");if(!pr.children.length){NBP.forEach(t=>{const b=document.createElement("button");b.type="button";b.className="chip";b.textContent=t;b.addEventListener("click",()=>{const ta=$("#nb-text");ta.value=(ta.value&&!ta.value.endsWith("\n")?ta.value+"\n\n":ta.value)+t.replace("…"," ");ta.focus();ta.setSelectionRange(ta.value.length,ta.value.length)});pr.appendChild(b)})}nbList()}
+
 /* ---------- respiración ---------- */
 let breathT=null;
 function breath(){const ring=$("#ring"),t=$("#ring-t"),btn=$("#breath-btn");
@@ -1052,11 +1109,11 @@ function installUI(){const c=$("#install-card");c.hidden=standalone()||!!prefs.i
   if(/android/i.test(navigator.userAgent)){const i=c.querySelector(".inst-ios"),an=c.querySelector(".inst-android");an.after(i)}}
 
 /* ---------- navegación ---------- */
-const VIEWS=["hoy","semana","recorrido","palabra","guia","contacto","ajustes"];
+const VIEWS=["hoy","semana","cuaderno","recorrido","palabra","guia","contacto","ajustes"];
 function route(){let v=(location.hash||"#hoy").slice(1);if(!VIEWS.includes(v))v="hoy";
   VIEWS.forEach(x=>$("#v-"+x).hidden=x!==v);
   $$("[data-nav]").forEach(a=>{if(a.dataset.nav===v)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
-  if(v==="hoy")loadDay();if(v==="semana")loadWeek();if(v==="recorrido")loadHist();if(v==="palabra"){loadPalabra();loadLecturas()}if(v==="ajustes")$("#a-nombre").value=prefs.nombre||"";
+  if(v==="hoy")loadDay();if(v==="semana")loadWeek();if(v==="recorrido")loadHist();if(v==="cuaderno")loadCuaderno();if(v==="palabra"){loadPalabra();loadLecturas()}if(v==="ajustes")$("#a-nombre").value=prefs.nombre||"";
   scrollTo(0,0)}
 
 /* ---------- inicio ---------- */
@@ -1074,6 +1131,15 @@ $("#w-copiar").addEventListener("click",()=>copy(weekText(),"Resumen copiado"));
 $("#sem-prev").addEventListener("click",()=>{wStart=addDays(wStart,-7);loadWeek()});
 $("#sem-next").addEventListener("click",()=>{if(addDays(wStart,7)<=new Date()){wStart=addDays(wStart,7);loadWeek()}});
 $("#breath-btn").addEventListener("click",breath);
+["#nb-title","#nb-text"].forEach(sel=>$(sel).addEventListener("input",()=>{$("#nb-meta").textContent="Escribiendo…";clearTimeout(nbTimer);nbTimer=setTimeout(nbSaveSilent,800)}));
+$("#nb-save").addEventListener("click",()=>{clearTimeout(nbTimer);if(!$("#nb-title").value.trim()&&!$("#nb-text").value.trim()){toast("La nota está vacía");return}nbSaveSilent();toast("Nota guardada")});
+$("#nb-new").addEventListener("click",()=>{clearTimeout(nbTimer);nbSaveSilent();nbNew()});
+$("#nb-list").addEventListener("click",e=>{const b=e.target.closest("[data-nb]");if(b){clearTimeout(nbTimer);nbSaveSilent();nbOpen(b.dataset.nb)}});
+$("#nb-q").addEventListener("input",nbList);
+$("#nb-share").addEventListener("click",async()=>{const ti=$("#nb-title").value.trim(),tx=$("#nb-text").value.trim();const text=(ti?ti+"\n\n":"")+tx;if(!text)return;
+  if(navigator.share){try{await navigator.share({text});return}catch(e){if(e&&e.name==="AbortError")return}}copy(text,"Nota copiada")});
+let nbDelAsk=false;$("#nb-del").addEventListener("click",()=>{if(nbCur===null)return;if(!nbDelAsk){nbDelAsk=true;$("#nb-del").textContent="¿Seguro? Tocar de nuevo para eliminar";setTimeout(()=>{nbDelAsk=false;$("#nb-del").textContent="Eliminar"},4000);return}
+  notes=notes.filter(n=>n.id!==nbCur);store.set("notes",notes);nbDelAsk=false;$("#nb-del").textContent="Eliminar";nbNew();toast("Nota eliminada")});
 $("#l-prev").addEventListener("click",()=>{lDate=addDays(lDate,-1);loadLecturas()});
 $("#l-next").addEventListener("click",()=>{lDate=addDays(lDate,1);loadLecturas()});
 $("#install-btn").addEventListener("click",async()=>{if(!deferred)return;deferred.prompt();try{await deferred.userChoice}catch(e){}deferred=null;$("#install-btn").hidden=true});
@@ -1082,13 +1148,13 @@ $("#install-later").addEventListener("click",()=>{prefs.instHide=true;store.set(
 $$("[data-copy]").forEach(b=>b.addEventListener("click",()=>copy(b.dataset.copy)));
 $$("[data-goto]").forEach(a=>a.addEventListener("click",()=>setTimeout(()=>{const el=document.getElementById(a.dataset.goto);if(el){if(el.tagName==="DETAILS")el.open=true;el.scrollIntoView({behavior:"smooth"})}},60)));
 $("#a-guardar").addEventListener("click",()=>{prefs.nombre=$("#a-nombre").value.trim();store.set("prefs",prefs);toast("Guardado")});
-$("#a-export").addEventListener("click",()=>copy(JSON.stringify({app:"quedate",daily,weekly,prefs}),"Respaldo copiado"));
+$("#a-export").addEventListener("click",()=>copy(JSON.stringify({app:"quedate",daily,weekly,prefs,notes}),"Respaldo copiado"));
 $("#a-import-btn").addEventListener("click",()=>{try{const o=JSON.parse($("#a-import").value);if(!o||typeof o!=="object"||!o.daily)throw 0;
-  daily=Object.assign(daily,o.daily);weekly=Object.assign(weekly,o.weekly||{});if(o.prefs)prefs=Object.assign(prefs,o.prefs);
+  daily=Object.assign(daily,o.daily);weekly=Object.assign(weekly,o.weekly||{});if(Array.isArray(o.notes)){const ids=new Set(notes.map(n=>n.id));o.notes.forEach(n=>{if(!ids.has(n.id))notes.push(n)});notes.sort((a,b)=>b.t-a.t);store.set("notes",notes)}if(o.prefs)prefs=Object.assign(prefs,o.prefs);
   store.set("daily",daily);store.set("weekly",weekly);store.set("prefs",prefs);$("#a-import").value="";toast("Respaldo restaurado")}catch(e){toast("El texto no es un respaldo válido")}});
 $("#a-borrar").addEventListener("click",()=>{$("#a-confirm").hidden=false});
 $("#a-borrar-no").addEventListener("click",()=>{$("#a-confirm").hidden=true});
-$("#a-borrar-si").addEventListener("click",()=>{daily={};weekly={};prefs={nombre:""};["daily","weekly","prefs"].forEach(k=>{try{localStorage.removeItem("qd_"+k)}catch(e){}});$("#a-confirm").hidden=true;toast("Datos borrados")});
+$("#a-borrar-si").addEventListener("click",()=>{daily={};weekly={};prefs={nombre:""};notes=[];["daily","weekly","prefs","notes"].forEach(k=>{try{localStorage.removeItem("qd_"+k)}catch(e){}});$("#a-confirm").hidden=true;toast("Datos borrados")});
 installUI();
 $("#intro-card").hidden=!!prefs.introHide;
 $("#intro-ok").addEventListener("click",()=>{prefs.introHide=true;store.set("prefs",prefs);$("#intro-card").hidden=true;toast("Puede volver a leerlo en la Guía")});
