@@ -19,12 +19,26 @@ module.exports = async (req, res) => {
       fuente: l.source || ""
     })).filter(l => l.texto);
     if (!lecturas.length) throw new Error("sin lecturas");
+    const c = x.commentary || null;
+    const comentario = c && (c.description || c.text) ? {
+      titulo: c.title || "",
+      texto: c.description || c.text || "",
+      autor: (c.author && (c.author.name || c.author)) || "",
+      fuente: c.source || ""
+    } : null;
+    const lista = x.saints || x.saint || x.santos || [];
+    const santos = (Array.isArray(lista) ? lista : [lista]).map(t => ({
+      nombre: (t && (t.name || t.title || t.nombre)) || "",
+      texto: (t && (t.description || t.biography || t.summary || t.text)) || ""
+    })).filter(t => t.nombre);
     res.setHeader("Cache-Control", "s-maxage=21600, stale-while-revalidate=86400");
     res.status(200).json({
       fecha,
       dia: x.date_displayed || "",
       liturgia: { titulo: (x.liturgy && x.liturgy.title) || "", descripcion: (x.liturgy && x.liturgy.description) || "" },
-      lecturas
+      lecturas,
+      comentario,
+      santos
     });
   } catch (e) {
     res.setHeader("Cache-Control", "no-store");
