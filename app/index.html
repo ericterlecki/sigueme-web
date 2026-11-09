@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Examen del día al modo ignaciano y revisión semanal, de libre uso para seminaristas y sacerdotes. Sus respuestas quedan guardadas sólo en su dispositivo.">
+<meta name="description" content="Examen del día al modo ignaciano y revisión semanal, de libre uso para seminaristas, sacerdotes, religiosos y religiosas. Sus respuestas quedan guardadas sólo en su dispositivo.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
@@ -447,7 +447,7 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
         <ul class="intro-list">
           <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></span><span><b>Es algo personal</b><span class="t">Es una ayuda para su oración y su camino. No es una tarea ni un examen para aprobar: complete sólo lo que le sirva.</span></span></li>
           <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span><b>Diario, semanal o las dos cosas</b><span class="t">Puede hacer el examen cada noche (entre 5 y 15 minutos), sólo la revisión semanal, o ambos. Si un día no lo hace, no pasa nada: se retoma cuando pueda.</span></span></li>
-          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></span><span><b>Compartirlo es opcional</b><span class="t">Puede guardarlo sólo para usted o compartirlo con quien lo acompaña: su director espiritual, su formador, su terapeuta o un hermano de confianza. Usted elige qué, cuándo y con quién.</span></span></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></span><span><b>Compartirlo es opcional</b><span class="t">Puede guardarlo sólo para usted o compartirlo con quien lo/la acompaña: su director espiritual, su formador, su terapeuta o un hermano o hermana de confianza. Usted elige qué, cuándo y con quién.</span></span></li>
           <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><span><b>Es confidencial</b><span class="t">Todo queda guardado sólo en este celular. La app no envía nada a ningún servidor y nadie más puede verlo, ni siquiera quien la hizo. Sólo sale lo que usted decida compartir.</span></span></li>
         </ul>
         <div class="row"><button class="btn" id="intro-ok" type="button">Entendido</button><a class="btn ghost" href="#guia" data-goto="guia-uso">Ver la guía completa</a></div>
@@ -558,7 +558,7 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
 
       <div class="card">
         <div class="qn"><span class="num">3</span><span class="txt">Cansancio y descanso<span class="hint">Durante esta semana, ¿con qué frecuencia me ocurrió lo siguiente?</span></span></div>
-        <div class="q"><span class="small">Sentirme agotado por la tarea o con poca energía para lo que tenía que hacer</span><div class="seg wrap" id="w-cansancio"></div></div>
+        <div class="q"><span class="small">Sentirme agotado/a por la tarea o con poca energía para lo que tenía que hacer</span><div class="seg wrap" id="w-cansancio"></div></div>
         <div class="q"><span class="small">Sentirme nervioso, ansioso o con los nervios de punta</span><div class="seg wrap" id="w-gad1"></div></div>
         <div class="q"><span class="small">No poder dejar de preocuparme o no poder controlar la preocupación</span><div class="seg wrap" id="w-gad2"></div></div>
         <p class="small muted">Los dos últimos ítems están basados en la escala GAD-2 (Kroenke et al., 2007), referidos a la última semana. Indicador de seguimiento; no constituye un diagnóstico.</p>
@@ -570,7 +570,7 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
       </div>
 
       <div class="card">
-        <div class="qn"><span class="num">5</span><span class="txt">¿Qué me gustaría conversar con quien me acompaña?<span class="hint">Director espiritual, formador, terapeuta o un hermano de confianza.</span></span></div>
+        <div class="qn"><span class="num">5</span><span class="txt">¿Qué me gustaría conversar con quien me acompaña?<span class="hint">Director espiritual, formador, terapeuta o un hermano o hermana de confianza.</span></span></div>
         <textarea id="w-sesion" aria-label="Qué me gustaría conversar con quien me acompaña"></textarea>
         <div class="qn"><span class="num">6</span><span class="txt">La gracia que pido para la semana que empieza</span></div>
         <input type="text" id="w-gracia" aria-label="La gracia que pido para la semana">
@@ -578,7 +578,7 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
 
       <div class="card">
         <h3>Guardar y compartir</h3>
-        <p class="small muted">Puede guardarla para usted o compartirla con quien lo acompaña. Al tocar «Compartir por WhatsApp» elige usted a quién enviarla; el mensaje se arma solo con lo que completó.</p>
+        <p class="small muted">Puede guardarla para usted o compartirla con quien lo/la acompaña. Al tocar «Compartir por WhatsApp» elige usted a quién enviarla; el mensaje se arma solo con lo que completó.</p>
         <div class="row">
           <button class="btn" id="w-guardar" type="button">Guardar semana</button>
           <a class="btn ghost" id="w-wa" href="#" target="_blank" rel="noopener">Compartir por WhatsApp</a>
@@ -667,7 +667,7 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
       <div class="lead">
         <span class="eyebrow">Para acompañar</span>
         <h2>Guía breve</h2>
-        <p class="muted">Recursos para acompañar el examen y la revisión de vida. Puede usarlos solo o con quien lo acompaña. <a href="#contacto" style="color:var(--brand);font-weight:600">Acerca de esta app</a></p>
+        <p class="muted">Recursos para acompañar el examen y la revisión de vida. Puede usarlos solo/a o con quien lo/la acompaña. <a href="#contacto" style="color:var(--brand);font-weight:600">Acerca de esta app</a></p>
       </div>
 
       <details class="guide" id="guia-uso" open>
@@ -689,7 +689,7 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
             <li><b>Guía:</b> el examen ignaciano, la consolación y la desolación, y cómo examinarse sin dureza.</li>
           </ul>
           <h4>Compartirlo es opcional</h4>
-          <p>Puede guardar todo sólo para usted. Si quiere compartir algo, el botón «Compartir por WhatsApp» arma un resumen con lo que completó y usted elige a quién mandarlo: su director espiritual, su formador, su terapeuta o un hermano de confianza. También puede copiar el resumen y llevarlo como prefiera. Nada se envía si usted no lo decide.</p>
+          <p>Puede guardar todo sólo para usted. Si quiere compartir algo, el botón «Compartir por WhatsApp» arma un resumen con lo que completó y usted elige a quién mandarlo: su director espiritual, su formador, su terapeuta o un hermano o hermana de confianza. También puede copiar el resumen y llevarlo como prefiera. Nada se envía si usted no lo decide.</p>
           <h4>Es confidencial</h4>
           <ul>
             <li>Todo queda guardado <b>sólo en este celular</b>. La app no tiene cuentas ni contraseñas, y no envía sus datos a ningún servidor.</li>
@@ -725,6 +725,20 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
           </div>
           <p>La desolación no es un fracaso ni una señal de que algo esté mal en usted: es parte del camino. Ignacio aconseja no hacer cambios en ese tiempo, intensificar lo que sostiene y recordar que pasará.</p>
           <p class="small muted">Inspirado en Ejercicios Espirituales, n.º 316-318.</p>
+        </div>
+      </details>
+
+      <details class="guide">
+        <summary>¿Qué significa hoy consagrar mi vida?</summary>
+        <div class="body">
+          <p>Consagrar la vida no es retirarse del mundo ni convertirse en alguien distinto: es entregar lo que uno es, con su historia, su cuerpo y sus afectos, para que Dios lo habite y lo vuelva fecundo para otros.</p>
+          <ul>
+            <li><b>Un amor que funda:</b> la consagración es una respuesta a un amor recibido, no un mérito.</li>
+            <li><b>Los votos como libertad:</b> no poseer para compartir, amar sin apropiarse, buscar juntos la voluntad de Dios.</li>
+            <li><b>Con toda la humanidad:</b> una entrega sana se apoya en el descanso, los vínculos y la afectividad cuidados.</li>
+            <li><b>Una fidelidad que se renueva:</b> «para siempre» no significa «sin crisis»; se vuelve a elegir en cada etapa.</li>
+          </ul>
+          <p class="note">Para rezar: ¿qué me enamoró al principio y qué me sostiene hoy? ¿Cómo vivo mis votos o compromisos: como peso o como forma de amar?</p>
         </div>
       </details>
 
@@ -808,7 +822,7 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
       </div>
       <div class="card">
         <h3>Copia de seguridad</h3>
-        <p class="small muted">Si cambia de teléfono o borra los datos del navegador, sus registros se pierden. Copie este respaldo y guárdelo, por ejemplo enviándoselo a usted mismo por WhatsApp.</p>
+        <p class="small muted">Si cambia de teléfono o borra los datos del navegador, sus registros se pierden. Copie este respaldo y guárdelo, por ejemplo enviándoselo a usted mismo/a por WhatsApp.</p>
         <div class="row"><button class="btn ghost" id="a-export" type="button">Copiar respaldo</button></div>
         <div class="q"><label for="a-import">Restaurar un respaldo</label>
           <textarea id="a-import" placeholder="Pegue aquí el texto del respaldo"></textarea>
@@ -818,7 +832,7 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
         <h3>Borrar mis datos</h3>
         <p class="small muted">Elimina todos los registros de este dispositivo. No se puede deshacer.</p>
         <button class="btn danger" id="a-borrar" type="button">Borrar todo</button>
-        <div id="a-confirm" hidden class="row"><span class="small">¿Seguro?</span><button class="btn danger" id="a-borrar-si" type="button">Sí, borrar</button><button class="btn ghost" id="a-borrar-no" type="button">Cancelar</button></div>
+        <div id="a-confirm" hidden class="row"><span class="small">¿Seguro/a?</span><button class="btn danger" id="a-borrar-si" type="button">Sí, borrar</button><button class="btn ghost" id="a-borrar-no" type="button">Cancelar</button></div>
       </div>
     </section>
   </main>
@@ -848,13 +862,13 @@ const moodColor=v=>v>0?`var(--m${v})`:"var(--sunk)";
 const MOC=[{v:-2,t:"Mucha desolación"},{v:-1,t:"Algo de desolación"},{v:0,t:"Ni una ni otra"},{v:1,t:"Algo de consolación"},{v:2,t:"Mucha consolación"}];
 const mocName=v=>(MOC.find(m=>m.v===v)||{t:"—"}).t;
 const mocColor=v=>v===null||v===undefined?"var(--line)":`var(--c${v})`;
-const GRACIAS=["Una persona","Un encuentro","La oración","La Eucaristía","Un gesto recibido","Mi tarea o ministerio","La comunidad","La naturaleza","El descanso","La salud","Algo que aprendí"];
+const GRACIAS=["Una persona","Un encuentro","La oración","La Eucaristía","Un gesto recibido","Mi misión o ministerio","La comunidad","La naturaleza","El descanso","La salud","Algo que aprendí"];
 const EMOS=["Alegría","Paz","Esperanza","Gratitud","Ternura","Entusiasmo","Tristeza","Soledad","Miedo","Ansiedad","Cansancio","Enojo","Frustración","Culpa","Vergüenza","Sequedad","Confusión"];
-const AREAS=["Oración","Vida fraterna o comunitaria","Ministerio","Estudio","Trabajo","Vínculos y afectos","Descanso y sueño","Cuerpo y salud"];
+const AREAS=["Oración","Vida fraterna o comunitaria","Ministerio o apostolado","Estudio","Trabajo","Vínculos y afectos","Descanso y sueño","Cuerpo y salud"];
 const LUZ=["Sí","Un poco","No"];
 const VOZ=["Con dureza","Mitad y mitad","Con misericordia"];
 const FREC=["Nunca","Varios días","Más de la mitad","Casi todos"];
-const SOSTUVO=["La oración","La dirección espiritual","La comunidad o los hermanos","La familia","Amigos","El descanso","Caminar o hacer deporte","Un rato para mí","Pedir ayuda","Poner un límite"];
+const SOSTUVO=["La oración","El acompañamiento espiritual","La comunidad","La familia","Amigos","El descanso","Caminar o hacer deporte","Un rato para mí","Pedir ayuda","Poner un límite"];
 const DIAS=["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"];
 
 /* almacenamiento local */
@@ -1062,7 +1076,7 @@ async function loadLecturas(){const k=iso(lDate);$("#l-fecha").textContent=fmtLo
 
 
 /* ---------- SANTORAL ---------- */
-const SANTORAL={"01-24": ["San Francisco de Sales", "Obispo y doctor de la Iglesia", "Ganó más corazones con la mansedumbre que con la discusión. Nos recuerda que la paciencia también se ejerce con uno mismo, y que el pastor amable no es un pastor débil."], "01-28": ["Santo Tomás de Aquino", "Presbítero y doctor de la Iglesia", "Uno de los mayores pensadores de la Iglesia terminó diciendo que todo lo escrito le parecía paja frente a lo que había contemplado. El estudio sirve cuando lleva a la oración y a la humildad."], "01-31": ["San Juan Bosco", "Presbítero", "Hizo del patio un lugar de encuentro con Dios. Su alegría no negaba el cansancio: lo ponía al servicio de los jóvenes. ¿Dónde está hoy mi patio, el lugar donde simplemente estoy con la gente?"], "03-16": ["Santo Cura Brochero", "Presbítero", "Recorrió las sierras de Córdoba a lomo de mula para no dejar a nadie sin Dios. Terminó ciego y enfermo, y decía que su ocupación era pedirle a Dios por los hombres. La entrega también se vive en la fragilidad."], "03-19": ["San José", "Esposo de la Virgen María", "Custodió sin protagonismo, en silencio y con ternura. Una paternidad que no posee ni controla: cuida y deja crecer. Un buen espejo para quien acompaña a una comunidad."], "05-10": ["San Juan de Ávila", "Presbítero y doctor de la Iglesia", "Maestro de sacerdotes, insistía en que el pastor necesita ser antes discípulo y orante. Cuidar la propia vida interior no es egoísmo: es la fuente de la que beben los demás."], "05-26": ["San Felipe Neri", "Presbítero", "El santo de la alegría y del buen humor. No se tomaba demasiado en serio a sí mismo, y eso lo hacía libre. Reírse de uno mismo también puede ser una forma de humildad."], "06-29": ["San Pedro y San Pablo", "Apóstoles", "Dos historias muy distintas, ninguna sin caídas: la negación de uno y la persecución del otro. La Iglesia se apoya en hombres que se dejaron levantar. La debilidad reconocida también puede ser fundamento."], "07-11": ["San Benito", "Abad", "«Ora et labora»: un ritmo donde la oración y el trabajo se equilibran y se cuidan mutuamente. Vale la pregunta: ¿cómo está hoy el ritmo de mi vida?"], "07-31": ["San Ignacio de Loyola", "Presbítero", "Aprendió a leer sus movimientos interiores durante una larga convalecencia. Su examen diario nació de esa escucha. Buscar y hallar a Dios en todas las cosas, también en lo que no salió como quería."], "08-04": ["San Juan María Vianney, Cura de Ars", "Presbítero, patrono de los párrocos", "Llegó a una parroquia pequeña y olvidada, y se quedó. Pasaba horas en el confesonario y también conoció el desánimo y las ganas de irse. La santidad sacerdotal no lo eximió de la lucha."], "08-18": ["San Alberto Hurtado", "Presbítero", "Recorría Santiago en su camioneta verde buscando a los que dormían en la calle. A pesar de todo el trabajo, decía «Contento, Señor, contento». La alegría profunda no depende de que todo salga bien."], "08-28": ["San Agustín", "Obispo y doctor de la Iglesia", "Conoció la inquietud del corazón antes de encontrar descanso en Dios. Como obispo decía: «Para ustedes soy obispo, con ustedes soy cristiano». El ministerio no nos saca del camino común de la fe."], "09-23": ["San Pío de Pietrelcina", "Presbítero", "Vivió largas noches oscuras y muchas incomprensiones, también dentro de la Iglesia. Su consejo sigue siendo simple: rezá, esperá y no te preocupes."], "10-01": ["Santa Teresa del Niño Jesús", "Virgen y doctora de la Iglesia", "Rezaba de manera especial por los sacerdotes. Su «caminito» de lo pequeño y cotidiano nos recuerda que la santidad no está en lo extraordinario, sino en el amor puesto en lo de todos los días."], "10-04": ["San Francisco de Asís", "Diácono", "Se despojó de todo para quedarse con lo esencial. Su pobreza lo hizo libre y fraterno con todo lo creado. ¿Qué me sobra hoy para poder caminar más liviano?"], "10-15": ["Santa Teresa de Jesús", "Virgen y doctora de la Iglesia", "Definía la oración como «tratar de amistad» con quien sabemos que nos ama. Una invitación a rezar sin rendir examen, como quien conversa con un amigo."], "10-22": ["San Juan Pablo II", "Papa", "Empezó su pontificado diciendo «¡No tengan miedo!» y lo terminó mostrando su fragilidad sin esconderla. También en la debilidad se puede seguir anunciando."], "11-03": ["San Martín de Porres", "Religioso", "Barría los pasillos del convento y cuidaba enfermos con la misma dedicación. Ningún servicio le parecía menor. La humildad no es pensar poco de uno mismo, sino pensar menos en uno mismo."], "11-04": ["San Carlos Borromeo", "Obispo", "Impulsó la formación de los sacerdotes en tiempos de crisis. Decía que para cuidar a otros primero hay que cuidar el propio fuego interior. La formación permanente también es cuidado."], "12-01": ["San Carlos de Foucauld", "Presbítero", "Buscó el último lugar en el desierto, viviendo entre los tuaregs como un hermano. Su oración de abandono empieza así: «Padre, me pongo en tus manos». Una confianza que se aprende con los años."], "12-14": ["San Juan de la Cruz", "Presbítero y doctor de la Iglesia", "Atravesó la noche oscura y la cárcel, y de ahí brotaron sus versos más luminosos. Recuerda que al final de la vida «nos examinarán en el amor»."]};
+const SANTORAL={"01-24": ["San Francisco de Sales", "Obispo y doctor de la Iglesia", "Ganó más corazones con la mansedumbre que con la discusión. Nos recuerda que la paciencia también se ejerce con uno mismo, y que el pastor amable no es un pastor débil."], "01-28": ["Santo Tomás de Aquino", "Presbítero y doctor de la Iglesia", "Uno de los mayores pensadores de la Iglesia terminó diciendo que todo lo escrito le parecía paja frente a lo que había contemplado. El estudio sirve cuando lleva a la oración y a la humildad."], "01-31": ["San Juan Bosco", "Presbítero", "Hizo del patio un lugar de encuentro con Dios. Su alegría no negaba el cansancio: lo ponía al servicio de los jóvenes. ¿Dónde está hoy mi patio, el lugar donde simplemente estoy con la gente?"], "03-16": ["Santo Cura Brochero", "Presbítero", "Recorrió las sierras de Córdoba a lomo de mula para no dejar a nadie sin Dios. Terminó ciego y enfermo, y decía que su ocupación era pedirle a Dios por los hombres. La entrega también se vive en la fragilidad."], "03-19": ["San José", "Esposo de la Virgen María", "Custodió sin protagonismo, en silencio y con ternura. Una paternidad que no posee ni controla: cuida y deja crecer. Un buen espejo para quien acompaña a una comunidad."], "05-10": ["San Juan de Ávila", "Presbítero y doctor de la Iglesia", "Maestro de sacerdotes, insistía en que el pastor necesita ser antes discípulo y orante. Cuidar la propia vida interior no es egoísmo: es la fuente de la que beben los demás."], "05-26": ["San Felipe Neri", "Presbítero", "El santo de la alegría y del buen humor. No se tomaba demasiado en serio a sí mismo, y eso lo hacía libre. Reírse de uno mismo también puede ser una forma de humildad."], "06-29": ["San Pedro y San Pablo", "Apóstoles", "Dos historias muy distintas, ninguna sin caídas: la negación de uno y la persecución del otro. La Iglesia se apoya en hombres que se dejaron levantar. La debilidad reconocida también puede ser fundamento."], "07-11": ["San Benito", "Abad", "«Ora et labora»: un ritmo donde la oración y el trabajo se equilibran y se cuidan mutuamente. Vale la pregunta: ¿cómo está hoy el ritmo de mi vida?"], "07-31": ["San Ignacio de Loyola", "Presbítero", "Aprendió a leer sus movimientos interiores durante una larga convalecencia. Su examen diario nació de esa escucha. Buscar y hallar a Dios en todas las cosas, también en lo que no salió como quería."], "08-11": ["Santa Clara de Asís", "Virgen, fundadora de las Clarisas", "Eligió la pobreza como camino de libertad y la vida fraterna como lugar de encuentro con Dios. Desde el claustro, su oración sostuvo a muchos. La fecundidad no siempre se ve, pero es real."], "08-04": ["San Juan María Vianney, Cura de Ars", "Presbítero, patrono de los párrocos", "Llegó a una parroquia pequeña y olvidada, y se quedó. Pasaba horas en el confesonario y también conoció el desánimo y las ganas de irse. La santidad sacerdotal no lo eximió de la lucha."], "08-18": ["San Alberto Hurtado", "Presbítero", "Recorría Santiago en su camioneta verde buscando a los que dormían en la calle. A pesar de todo el trabajo, decía «Contento, Señor, contento». La alegría profunda no depende de que todo salga bien."], "08-28": ["San Agustín", "Obispo y doctor de la Iglesia", "Conoció la inquietud del corazón antes de encontrar descanso en Dios. Como obispo decía: «Para ustedes soy obispo, con ustedes soy cristiano». El ministerio no nos saca del camino común de la fe."], "09-05": ["Santa Teresa de Calcuta", "Virgen, fundadora de las Misioneras de la Caridad", "Sirvió a los más pobres mientras atravesaba durante años una profunda oscuridad interior. Siguió entregándose sin sentir consuelo. La fidelidad no depende de lo que se siente."], "09-23": ["San Pío de Pietrelcina", "Presbítero", "Vivió largas noches oscuras y muchas incomprensiones, también dentro de la Iglesia. Su consejo sigue siendo simple: rezá, esperá y no te preocupes."], "10-01": ["Santa Teresa del Niño Jesús", "Virgen y doctora de la Iglesia", "Rezaba de manera especial por los sacerdotes. Su «caminito» de lo pequeño y cotidiano nos recuerda que la santidad no está en lo extraordinario, sino en el amor puesto en lo de todos los días."], "10-04": ["San Francisco de Asís", "Diácono", "Se despojó de todo para quedarse con lo esencial. Su pobreza lo hizo libre y fraterno con todo lo creado. ¿Qué me sobra hoy para poder caminar más liviano?"], "10-15": ["Santa Teresa de Jesús", "Virgen y doctora de la Iglesia", "Definía la oración como «tratar de amistad» con quien sabemos que nos ama. Una invitación a rezar sin rendir examen, como quien conversa con un amigo."], "10-22": ["San Juan Pablo II", "Papa", "Empezó su pontificado diciendo «¡No tengan miedo!» y lo terminó mostrando su fragilidad sin esconderla. También en la debilidad se puede seguir anunciando."], "11-03": ["San Martín de Porres", "Religioso", "Barría los pasillos del convento y cuidaba enfermos con la misma dedicación. Ningún servicio le parecía menor. La humildad no es pensar poco de uno mismo, sino pensar menos en uno mismo."], "11-04": ["San Carlos Borromeo", "Obispo", "Impulsó la formación de los sacerdotes en tiempos de crisis. Decía que para cuidar a otros primero hay que cuidar el propio fuego interior. La formación permanente también es cuidado."], "12-01": ["San Carlos de Foucauld", "Presbítero", "Buscó el último lugar en el desierto, viviendo entre los tuaregs como un hermano. Su oración de abandono empieza así: «Padre, me pongo en tus manos». Una confianza que se aprende con los años."], "12-14": ["San Juan de la Cruz", "Presbítero y doctor de la Iglesia", "Atravesó la noche oscura y la cárcel, y de ahí brotaron sus versos más luminosos. Recuerda que al final de la vida «nos examinarán en el amor»."]};
 function santoralRender(d){const k=iso(lDate).slice(5);const own=SANTORAL[k];let h="";
   if(own){h=`<div class="saint"><h3>${esc(own[0])}</h3><span class="role">${esc(own[1])}</span><p class="refl">${esc(own[2])}</p></div>`}
   else{const t=((d&&d.santos)||[])[0];
