@@ -288,6 +288,21 @@ footer a{color:var(--cream)}
 .tc-alt{border:1.5px solid var(--line);color:var(--fg);background:transparent}
 .tc-btns{display:flex;flex-wrap:wrap;gap:8px}.tc-btns .btn{padding:8px 14px;font-size:.85rem}
 @media (max-width:760px){.tc-grid{grid-template-columns:1fr}.tc img{width:96px}}
+.hero-motto{margin-top:14px;font-family:var(--font-display);font-size:1.15rem;line-height:1.45;color:var(--cream);opacity:.92;max-width:40ch}.hero-motto b{color:var(--mustard);font-weight:400}
+.pablo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.pablo figure{margin:0;background:var(--petrol);color:var(--cream);border-radius:18px;padding:20px 18px;display:flex;flex-direction:column;gap:10px}
+.pablo figure:first-child{flex-direction:row;align-items:center;gap:18px}
+.pablo figure:first-child .ill-tile{flex:none;width:96px;height:96px}
+.pablo blockquote{margin:0;font-family:var(--font-display);font-size:1.08rem;line-height:1.45}
+.pablo figcaption{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mustard);font-weight:600}
+.pablo figure:first-child div{display:flex;flex-direction:column;gap:10px}
+.vr-h{margin-top:48px}
+.vr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+.vr{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:6px}
+.vr h4{margin:2px 0 0}.vr p{margin:0;font-size:.9rem;color:var(--muted);flex:1}
+.vr-link{font-weight:600;color:var(--accent);text-decoration:none;margin-top:6px}
+@media (max-width:900px){.vr-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.pablo{grid-template-columns:1fr}.vr-grid{grid-template-columns:1fr}}
 .sub-h{margin-top:72px;padding-top:48px;border-top:1px solid var(--line)}
 .sub-h h3{font-size:clamp(1.5rem,3vw,1.9rem);margin-top:6px}
 .sub-h p{margin-top:8px;color:var(--muted);max-width:62ch}
@@ -392,6 +407,7 @@ footer a{color:var(--cream)}
         <li><a href="#emaus">Como en Emaús</a></li>
         <li><a href="#camino">Para el camino</a></li>
         <li><a href="#vida-consagrada">Vida consagrada hoy</a></li>
+        <li><a href="#valoracion">Valoración personal</a></li>
         <li class="mm-h">Recursos</li>
         <li class="mm-sub"><a href="#recursos">Carruseles</a></li>
         <li class="mm-sub"><a href="#guia-cuidar-a-quien-cuida">Guías para completar</a></li>
@@ -418,11 +434,12 @@ footer a{color:var(--cream)}
       <p class="eyebrow" style="color:var(--terra);margin-top:22px">Para sacerdotes, religiosos, religiosas y quienes están en etapas de formación</p>
       <h1 style="margin-top:14px">Un lugar para quedarse <em>y seguir caminando</em>.</h1>
       <p class="common">Recursos para cuidar la vida interior en la formación, el ministerio y la vida consagrada: una app para el examen del día, la Palabra que consuela, lecturas y algunas claves para el camino.</p>
+      <p class="hero-motto">Orientado a favorecer el ser plenamente hombres y mujeres de Dios: <b>totalmente humanos y totalmente de Dios.</b></p>
       <div class="btns">
         <a class="btn btn-terra" href="app/" target="_blank" rel="noopener">Abrir la app</a>
         <a class="btn btn-ghost" href="#recursos">Ver los recursos</a>
       </div>
-      <p class="meta">De libre uso. No hace falta estar en terapia para aprovecharlos.</p>
+      <p class="meta">Totalmente gratuito y de libre uso. No hace falta registrarse ni estar en terapia para aprovecharlo.</p>
     </div>
     <div class="hero-mark" aria-hidden="true">
       <svg><use href="#simbolo"/></svg>
@@ -439,7 +456,7 @@ footer a{color:var(--cream)}
         <div>
           <p class="eyebrow">Para quien lo necesite</p>
           <h2>Un espacio abierto</h2>
-          <p>Todo lo que encontrás acá es de libre uso. No hace falta estar en terapia, ni hacerla conmigo. Podés usarlo:</p>
+          <p>Todo lo que encontrás acá es <b>totalmente gratuito</b> y de libre uso: no se paga nada, no hace falta registrarse, ni estar en terapia, ni hacerla conmigo. Está orientado a favorecer el ser plenamente hombres y mujeres de Dios: totalmente humanos y totalmente de Dios. Podés usarlo:</p>
           <ul>
             <li>en tu oración personal, como ayuda para el examen y la revisión de vida;</li>
             <li>con tu director espiritual, tu formador o tu terapeuta, compartiendo lo que quieras;</li>
@@ -544,6 +561,54 @@ footer a{color:var(--cream)}
     </div>
   </section>
 
+  <section class="block" id="valoracion">
+    <div class="wrap">
+      <p class="eyebrow">Valoración personal</p>
+      <h2>Estimarte con la mirada de Dios</h2>
+      <p class="po-lead">La autoestima es la valoración que hacemos de nosotros mismos: cuánto nos aceptamos, nos respetamos y confiamos en lo que podemos. En la vida sacerdotal y consagrada puede quedar atrapada entre dos extremos: medirse sólo por lo que se rinde, o despreciarse en nombre de una falsa humildad. San Pablo propone otro camino: una estima <em>sobria</em>, verdadera, que nace de saberse amado.</p>
+      <div class="pablo">
+        <figure><span class="ill-tile"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="58" r="34" fill="#E5B866" opacity=".14"/><path d="M48 30h24l-3 8c14 6 22 20 20 36-2 16-14 26-29 26S33 90 31 74c-2-16 6-30 20-36z" fill="#D9906F"/><path d="M45 26h30" stroke="#F2EBDB" stroke-width="4" stroke-linecap="round"/><path d="M56 46l6 12-8 10 10 12-4 12" stroke="#E5B866" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M62 58l12-4" stroke="#E5B866" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="92" cy="30" r="3" fill="#F2EBDB"/><circle cx="26" cy="40" r="2.2" fill="#F2EBDB"/><path d="M14 104h92" stroke="#3D7480" stroke-width="3" stroke-linecap="round"/></svg></span><div><blockquote>«No se estimen más de lo que conviene, sino estímense con sobriedad, según la medida de la fe que Dios dio a cada uno».</blockquote><figcaption>Rm 12,3</figcaption></div></figure>
+        <figure><blockquote>«Por la gracia de Dios soy lo que soy, y su gracia no fue estéril en mí».</blockquote><figcaption>1 Co 15,10</figcaption></figure>
+        <figure><blockquote>«Llevamos este tesoro en recipientes de barro, para que se vea que este poder extraordinario viene de Dios».</blockquote><figcaption>2 Co 4,7</figcaption></figure>
+        <figure><blockquote>«Te basta mi gracia, porque mi poder se manifiesta en la debilidad».</blockquote><figcaption>2 Co 12,9</figcaption></figure>
+      </div>
+      <div class="po-cols">
+        <div>
+          <h4>Ni más ni menos</h4>
+          <p>La sobriedad de la que habla Pablo corrige la soberbia, pero también el desprecio de uno mismo. Estimarse con sobriedad es mirarse con verdad: reconocer los dones sin apropiárselos, y los límites sin quedar definido por ellos.</p>
+          <h4>Ser y hacer</h4>
+          <p>Nuestra estima combina lo que hacemos y lo que somos. En el ministerio es fácil apoyarse sólo en lo primero: la agenda llena, los resultados, la aprobación. Pero si sólo me valoro por lo que hago, cada error me derrumba. El valor como persona, hijo o hija amado/a antes de cualquier tarea, es la base que sostiene lo demás.</p>
+          <h4>Vasijas de barro</h4>
+          <p>La fragilidad no anula el valor. Pablo no esconde sus debilidades: descubre en ellas el lugar donde la gracia se deja ver. Una humanidad reconciliada con sus límites puede entregarse con más libertad.</p>
+        </div>
+        <div>
+          <div class="po-box">
+            <h4>Para rezar o conversar</h4>
+            <ul class="care">
+              <li>¿Cómo me hablo cuando me equivoco? ¿Se lo diría así a alguien que acompaño?</li>
+              <li>¿Mi valor depende de lo que rindo, de lo que opinan de mí, o de saberme amado/a?</li>
+              <li>¿Qué dones reconozco en mí sin vergüenza ni vanidad?</li>
+              <li>¿Qué fragilidad puedo mirar hoy con más paciencia?</li>
+              <li>¿Cómo me mira Dios cuando me mira?</li>
+            </ul>
+          </div>
+          <p class="po-note">«Amarás a tu prójimo como a ti mismo» (Ga 5,14): el amor a uno mismo, bien entendido, es la medida del amor que podemos dar.</p>
+        </div>
+      </div>
+      <h3 class="vr-h">Recursos para este camino</h3>
+      <div class="vr-grid">
+        <article class="vr"><span class="pe-tag">Guía para completar</span><h4>Valoración personal</h4><p>Los cinco pilares de la autoestima, ser y hacer, la voz interior y un registro de la semana, a la luz de San Pablo.</p><a class="vr-link" href="recursos/guias/valoracion-personal.pdf" download>Descargar PDF →</a></article>
+        <article class="vr"><span class="pe-tag">Carrusel</span><h4>Estimarte con sobriedad</h4><p>Ni más ni menos de lo que sos: la autoestima en cuatro pasos, con la Palabra.</p><a class="vr-link" href="#recursos" data-opencar="9">Leer el carrusel →</a></article>
+        <article class="vr"><span class="pe-tag">Carrusel</span><h4>Tratarte con la misma calidez</h4><p>La autocompasión: tratarte como tratás a quienes acompañás.</p><a class="vr-link" href="#recursos" data-opencar="3">Leer el carrusel →</a></article>
+        <article class="vr"><span class="pe-tag">Carrusel</span><h4>El qué dirán</h4><p>Cuando la mirada ajena pesa demasiado, y preguntas para recuperar libertad.</p><a class="vr-link" href="#recursos" data-opencar="8">Leer el carrusel →</a></article>
+        <article class="vr"><span class="pe-tag">Dinámica</span><h4>Mi termómetro afectivo</h4><p>¿Me quiero? ¿Me escucho? Nueve frases y un termómetro para mirar cómo me trato.</p><a class="vr-link" href="recursos/dinamicas/mi-termometro-afectivo.pdf" download>Descargar PDF →</a></article>
+        <article class="vr"><span class="pe-tag">Dinámica</span><h4>Celular de la conexión conmigo</h4><p>Los mensajes amables que quiero recibir de mí cada día.</p><a class="vr-link" href="recursos/dinamicas/celular-de-la-conexion-conmigo.pdf" download>Descargar PDF →</a></article>
+        <article class="vr"><span class="pe-tag">Dinámica</span><h4>Vasija de mis cicatrices</h4><p>Inspirada en el kintsugi: las grietas reparadas con oro también son parte de mi belleza.</p><a class="vr-link" href="recursos/dinamicas/vasija-de-mis-cicatrices.pdf" download>Descargar PDF →</a></article>
+        <article class="vr"><span class="pe-tag">Tarjeta de calma</span><h4>Estoy acá. Estoy a salvo.</h4><p>«Mi valor no depende de cuánto hago, ni de cómo me siento hoy.»</p><a class="vr-link" href="#tarjetas">Ver la tarjeta →</a></article>
+      </div>
+    </div>
+  </section>
+
   <section class="block" id="recursos">
     <div class="wrap">
       <p class="eyebrow">Recursos</p>
@@ -555,7 +620,7 @@ footer a{color:var(--cream)}
         <iframe title="Piano instrumental de música católica en Spotify" src="https://open.spotify.com/embed/playlist/2DCDNodbIIleM7S3QmohAy?utm_source=generator&amp;theme=0" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
 
-      <div class="res-tabs" role="group" aria-label="Elegir carrusel"><button type="button" data-car="0" aria-pressed="true">Cuidar a quien cuida</button><button type="button" data-car="1" aria-pressed="false">Silencio y oración</button><button type="button" data-car="2" aria-pressed="false">El perdón</button><button type="button" data-car="3" aria-pressed="false">Tratarte con la misma calidez</button><button type="button" data-car="4" aria-pressed="false">Respetar tu propio proceso</button><button type="button" data-car="5" aria-pressed="false">Vivir con sentido</button><button type="button" data-car="6" aria-pressed="false">Vivir el presente</button><button type="button" data-car="7" aria-pressed="false">La emoción no es el problema</button><button type="button" data-car="8" aria-pressed="false">El qué dirán</button></div>
+      <div class="res-tabs" role="group" aria-label="Elegir carrusel"><button type="button" data-car="0" aria-pressed="true">Cuidar a quien cuida</button><button type="button" data-car="1" aria-pressed="false">Silencio y oración</button><button type="button" data-car="2" aria-pressed="false">El perdón</button><button type="button" data-car="3" aria-pressed="false">Tratarte con la misma calidez</button><button type="button" data-car="4" aria-pressed="false">Respetar tu propio proceso</button><button type="button" data-car="5" aria-pressed="false">Vivir con sentido</button><button type="button" data-car="6" aria-pressed="false">Vivir el presente</button><button type="button" data-car="7" aria-pressed="false">La emoción no es el problema</button><button type="button" data-car="8" aria-pressed="false">El qué dirán</button><button type="button" data-car="9" aria-pressed="false">Estimarte con sobriedad</button></div>
       <div class="pe-grid">
         <div class="pe-piece">
           <span class="pe-tag">Carrusel · <span id="car-n"></span> placas</span>
@@ -581,7 +646,7 @@ footer a{color:var(--cream)}
         <h3>Guías para el camino</h3>
         <p>PDF para leer con calma y completar en el celular o la compu. Incluyen una parte para comprender y hojas de registro.</p>
       </div>
-      <ul class="guides"><li class="guide" id="guia-cuidar-a-quien-cuida"><img src="recursos/guias/cuidar-a-quien-cuida.jpg" width="579" height="819" loading="lazy" alt="Portada de la guía Cuidar a quien cuida"><span class="pe-tag">Guía para completar · 6 páginas</span><h4>Cuidar a quien cuida</h4><p>Fatiga por compasión en el ministerio y la misión: señales, la trampa de tener que poder con todo, herramientas y un registro de la semana.</p><details><summary>¿Cómo se completa?</summary><p>Abrila en el celular o la compu con una app que permita completar formularios PDF, por ejemplo Adobe Acrobat Reader. Tocá las opciones o escribí en los recuadros y guardá los cambios. Es para vos: podés compartirla con quien te acompaña, si querés.</p></details><a class="btn btn-terra" href="recursos/guias/cuidar-a-quien-cuida.pdf" download>Descargar PDF</a></li><li class="guide" id="guia-cansancio-y-descanso"><img src="recursos/guias/cansancio-y-descanso.jpg" width="579" height="819" loading="lazy" alt="Portada de la guía Cansancio y descanso en el ministerio"><span class="pe-tag">Guía para completar · 5 páginas</span><h4>Cansancio y descanso en la misión</h4><p>El desgaste en la tarea pastoral y apostólica: de dónde viene, límites que sostienen, cómo recuperar energía y un plan sencillo.</p><details><summary>¿Cómo se completa?</summary><p>Abrila en el celular o la compu con una app que permita completar formularios PDF, por ejemplo Adobe Acrobat Reader. Tocá las opciones o escribí en los recuadros y guardá los cambios. Es para vos: podés compartirla con quien te acompaña, si querés.</p></details><a class="btn btn-terra" href="recursos/guias/cansancio-y-descanso.pdf" download>Descargar PDF</a></li><li class="guide" id="guia-duelos-y-transiciones"><img src="recursos/guias/duelos-y-transiciones.jpg" width="579" height="819" loading="lazy" alt="Portada de la guía Duelos y transiciones"><span class="pe-tag">Guía para completar · 5 páginas</span><h4>Duelos y transiciones</h4><p>Muertes, traslados, fin de etapas: cómo se transita un duelo, qué ayuda y un mapa de apoyos.</p><details><summary>¿Cómo se completa?</summary><p>Abrila en el celular o la compu con una app que permita completar formularios PDF, por ejemplo Adobe Acrobat Reader. Tocá las opciones o escribí en los recuadros y guardá los cambios. Es para vos: podés compartirla con quien te acompaña, si querés.</p></details><a class="btn btn-terra" href="recursos/guias/duelos-y-transiciones.pdf" download>Descargar PDF</a></li></ul>
+      <ul class="guides"><li class="guide" id="guia-cuidar-a-quien-cuida"><img src="recursos/guias/cuidar-a-quien-cuida.jpg" width="579" height="819" loading="lazy" alt="Portada de la guía Cuidar a quien cuida"><span class="pe-tag">Guía para completar · 6 páginas</span><h4>Cuidar a quien cuida</h4><p>Fatiga por compasión en el ministerio y la misión: señales, la trampa de tener que poder con todo, herramientas y un registro de la semana.</p><details><summary>¿Cómo se completa?</summary><p>Abrila en el celular o la compu con una app que permita completar formularios PDF, por ejemplo Adobe Acrobat Reader. Tocá las opciones o escribí en los recuadros y guardá los cambios. Es para vos: podés compartirla con quien te acompaña, si querés.</p></details><a class="btn btn-terra" href="recursos/guias/cuidar-a-quien-cuida.pdf" download>Descargar PDF</a></li><li class="guide" id="guia-cansancio-y-descanso"><img src="recursos/guias/cansancio-y-descanso.jpg" width="579" height="819" loading="lazy" alt="Portada de la guía Cansancio y descanso en el ministerio"><span class="pe-tag">Guía para completar · 5 páginas</span><h4>Cansancio y descanso en la misión</h4><p>El desgaste en la tarea pastoral y apostólica: de dónde viene, límites que sostienen, cómo recuperar energía y un plan sencillo.</p><details><summary>¿Cómo se completa?</summary><p>Abrila en el celular o la compu con una app que permita completar formularios PDF, por ejemplo Adobe Acrobat Reader. Tocá las opciones o escribí en los recuadros y guardá los cambios. Es para vos: podés compartirla con quien te acompaña, si querés.</p></details><a class="btn btn-terra" href="recursos/guias/cansancio-y-descanso.pdf" download>Descargar PDF</a></li><li class="guide" id="guia-duelos-y-transiciones"><img src="recursos/guias/duelos-y-transiciones.jpg" width="579" height="819" loading="lazy" alt="Portada de la guía Duelos y transiciones"><span class="pe-tag">Guía para completar · 5 páginas</span><h4>Duelos y transiciones</h4><p>Muertes, traslados, fin de etapas: cómo se transita un duelo, qué ayuda y un mapa de apoyos.</p><details><summary>¿Cómo se completa?</summary><p>Abrila en el celular o la compu con una app que permita completar formularios PDF, por ejemplo Adobe Acrobat Reader. Tocá las opciones o escribí en los recuadros y guardá los cambios. Es para vos: podés compartirla con quien te acompaña, si querés.</p></details><a class="btn btn-terra" href="recursos/guias/duelos-y-transiciones.pdf" download>Descargar PDF</a></li><li class="guide" id="guia-valoracion-personal"><img src="recursos/guias/valoracion-personal.jpg" width="579" height="819" loading="lazy" alt="Portada de la guía Valoración personal"><span class="pe-tag">Guía para completar · 5 páginas</span><h4>Valoración personal</h4><p>Estimarte con sobriedad, con la mirada de Dios: los cinco pilares de la autoestima, ser y hacer, la voz interior y la luz de San Pablo.</p><details><summary>¿Cómo se completa?</summary><p>Abrila en el celular o la compu con una app que permita completar formularios PDF, por ejemplo Adobe Acrobat Reader. Tocá las opciones o escribí en los recuadros y guardá los cambios. Es para vos: podés compartirla con quien te acompaña, si querés.</p></details><a class="btn btn-terra" href="recursos/guias/valoracion-personal.pdf" download>Descargar PDF</a></li></ul>
 
       <div class="sub-h" id="dinamicas">
         <span class="pe-tag">Para hacer con las manos</span>
@@ -699,6 +764,7 @@ footer a{color:var(--cream)}
           <h2>Algunas dudas</h2>
         </div>
         <div class="faq">
+          <details class="faq-q"><summary>¿Tiene algún costo?</summary><p>No. Todo es totalmente gratuito: la app, las guías, los carruseles, las dinámicas y las demás descargas. No hay que pagar ni registrarse, y no hay publicidad.</p></details>
           <details class="faq-q"><summary>¿Necesito hacer terapia para usar la app o los recursos?</summary><p>No. Son de libre uso, para cualquier sacerdote, religioso, religiosa o persona en etapa de formación que quiera aprovecharlos, esté o no en un proceso de acompañamiento.</p></details>
           <details class="faq-q"><summary>¿Puedo usar la app con mi director espiritual o mi terapeuta?</summary><p>Sí. La revisión semanal arma un resumen que podés compartir por WhatsApp con quien elijas, o copiar y llevarlo como prefieras.</p></details>
           <details class="faq-q"><summary>¿Lo que registro en la app queda guardado en algún lado?</summary><p>Sólo en tu celular. La app no envía tus datos a ningún servidor. Nadie más puede verlos, salvo lo que vos decidas compartir.</p></details>
@@ -735,7 +801,7 @@ footer a{color:var(--cream)}
 </section>
 
 <footer>
-  <div class="wrap"><span>Sígueme · Recursos de libre uso para la vida sacerdotal y consagrada · Lic. Eric Terlecki · Mat. N.º 4331</span><span>Emergencias: <a href="#emergencias">911 · 107 SIES · 0800-999-0091</a></span></div>
+  <div class="wrap"><span>Sígueme · Recursos gratuitos y de libre uso para la vida sacerdotal y consagrada · Lic. Eric Terlecki · Mat. N.º 4331</span><span>Emergencias: <a href="#emergencias">911 · 107 SIES · 0800-999-0091</a></span></div>
 </footer>
 
 <div class="toast" id="toast" hidden>Copiado</div>
@@ -758,7 +824,7 @@ document.querySelectorAll("[data-copy]").forEach(btn=>{
 document.querySelectorAll("[data-bf]").forEach(b=>b.addEventListener("click",()=>{const f=b.dataset.bf;document.querySelectorAll("[data-bf]").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));document.querySelectorAll(".book").forEach(li=>li.hidden=!!f&&li.dataset.cat!==f);}));
 
 /* Recursos: carruseles */
-(function(){const CAR=[{"slug": "cuidar-a-quien-cuida", "titulo": "Cuidar a quien cuida", "desc": "Cuando acompañar el dolor de otros desgasta: qué es, cómo reconocerlo y cómo cuidarse para poder seguir cuidando.", "n": 6, "pasos": ["¿Qué es?", "Algunas señales", "No es falta de vocación", "Cuidarte para poder cuidar"]}, {"slug": "silencio-y-oracion", "titulo": "Silencio y oración", "desc": "El valor del silencio en medio del ruido, y una práctica sencilla de tres minutos para volver a la Presencia.", "n": 6, "pasos": ["Vivimos con ruido", "¿Para qué sirve el silencio?", "No es dejar la mente en blanco", "Probá 3 minutos"]}, {"slug": "el-perdon", "titulo": "El perdón", "desc": "Lo que el perdón es y no es: perdonar a otro, pedir perdón y perdonarse a uno mismo.", "n": 6, "pasos": ["Lo que el perdón no es", "Perdonar a otro", "Pedir perdón", "Perdonarte a vos"]}, {"slug": "tratarte-como-a-un-hermano", "titulo": "Tratarte con la misma calidez", "desc": "La autocompasión en tres pasos: tratarte con la misma calidez que ofrecés a quienes acompañás.", "n": 6, "pasos": ["No es lástima ni conformismo", "1 · Darte cuenta", "2 · No sos el único", "3 · Ser amable con vos"]}, {"slug": "respetar-tu-proceso", "titulo": "Respetar tu propio proceso", "desc": "Cada camino de formación y maduración tiene su ritmo. Cómo acompañarte sin compararte.", "n": 6, "pasos": ["Cada proceso tiene su ritmo", "No es una línea recta", "La trampa de compararte", "Cómo acompañarte"]}, {"slug": "vivir-con-sentido", "titulo": "Vivir con sentido", "desc": "Metas y valores, el sentido según Viktor Frankl, y preguntas para orientarte aun en días de cansancio o aridez.", "n": 6, "pasos": ["Una idea de Viktor Frankl", "Metas y valores no son lo mismo", "Como un faro", "Preguntas para orientarte"]}, {"slug": "vivir-el-presente", "titulo": "Vivir el presente", "desc": "Salir del piloto automático: qué es estar presente y un ancla sencilla para volver al aquí y ahora.", "n": 6, "pasos": ["El piloto automático", "¿Qué es estar presente?", "Un ancla para volver", "En lo cotidiano"]}, {"slug": "emocion-y-reaccion", "titulo": "La emoción no es el problema", "desc": "Distinguir la emoción, el impulso y la necesidad: qué hacer con la culpa, la ansiedad, el enojo y la tristeza.", "n": 6, "pasos": ["Tres cosas distintas", "Culpa y ansiedad", "Enojo y tristeza", "Cuatro pasos"]}, {"slug": "el-que-diran", "titulo": "El qué dirán", "desc": "Cuando la mirada de la comunidad, los fieles o los superiores pesa demasiado, y preguntas que ayudan a recuperar libertad.", "n": 6, "pasos": ["Un miedo muy humano", "Cuando empieza a limitarte", "El efecto foco", "Preguntas que ayudan"]}];
+(function(){const CAR=[{"slug": "cuidar-a-quien-cuida", "titulo": "Cuidar a quien cuida", "desc": "Cuando acompañar el dolor de otros desgasta: qué es, cómo reconocerlo y cómo cuidarse para poder seguir cuidando.", "n": 6, "pasos": ["¿Qué es?", "Algunas señales", "No es falta de vocación", "Cuidarte para poder cuidar"]}, {"slug": "silencio-y-oracion", "titulo": "Silencio y oración", "desc": "El valor del silencio en medio del ruido, y una práctica sencilla de tres minutos para volver a la Presencia.", "n": 6, "pasos": ["Vivimos con ruido", "¿Para qué sirve el silencio?", "No es dejar la mente en blanco", "Probá 3 minutos"]}, {"slug": "el-perdon", "titulo": "El perdón", "desc": "Lo que el perdón es y no es: perdonar a otro, pedir perdón y perdonarse a uno mismo.", "n": 6, "pasos": ["Lo que el perdón no es", "Perdonar a otro", "Pedir perdón", "Perdonarte a vos"]}, {"slug": "tratarte-como-a-un-hermano", "titulo": "Tratarte con la misma calidez", "desc": "La autocompasión en tres pasos: tratarte con la misma calidez que ofrecés a quienes acompañás.", "n": 6, "pasos": ["No es lástima ni conformismo", "1 · Darte cuenta", "2 · No sos el único", "3 · Ser amable con vos"]}, {"slug": "respetar-tu-proceso", "titulo": "Respetar tu propio proceso", "desc": "Cada camino de formación y maduración tiene su ritmo. Cómo acompañarte sin compararte.", "n": 6, "pasos": ["Cada proceso tiene su ritmo", "No es una línea recta", "La trampa de compararte", "Cómo acompañarte"]}, {"slug": "vivir-con-sentido", "titulo": "Vivir con sentido", "desc": "Metas y valores, el sentido según Viktor Frankl, y preguntas para orientarte aun en días de cansancio o aridez.", "n": 6, "pasos": ["Una idea de Viktor Frankl", "Metas y valores no son lo mismo", "Como un faro", "Preguntas para orientarte"]}, {"slug": "vivir-el-presente", "titulo": "Vivir el presente", "desc": "Salir del piloto automático: qué es estar presente y un ancla sencilla para volver al aquí y ahora.", "n": 6, "pasos": ["El piloto automático", "¿Qué es estar presente?", "Un ancla para volver", "En lo cotidiano"]}, {"slug": "emocion-y-reaccion", "titulo": "La emoción no es el problema", "desc": "Distinguir la emoción, el impulso y la necesidad: qué hacer con la culpa, la ansiedad, el enojo y la tristeza.", "n": 6, "pasos": ["Tres cosas distintas", "Culpa y ansiedad", "Enojo y tristeza", "Cuatro pasos"]}, {"slug": "el-que-diran", "titulo": "El qué dirán", "desc": "Cuando la mirada de la comunidad, los fieles o los superiores pesa demasiado, y preguntas que ayudan a recuperar libertad.", "n": 6, "pasos": ["Un miedo muy humano", "Cuando empieza a limitarte", "El efecto foco", "Preguntas que ayudan"]}, {"slug": "estimarte-con-sobriedad", "titulo": "Estimarte con sobriedad", "desc": "La autoestima a la luz de San Pablo: ni más ni menos de lo que sos, ser y hacer, y el tesoro en vasijas de barro.", "n": 6, "pasos": ["¿Qué es la autoestima?", "Ni más ni menos", "Ser y hacer", "Vasijas de barro"]}];
 const FR=[{"a": "Viktor Frankl", "q": "Cuando ya no podemos cambiar una situación, tenemos el desafío de cambiarnos a nosotros mismos."}, {"a": "Albert Camus", "q": "En medio del invierno descubrí que había en mí un verano invencible."}, {"a": "Rainer Maria Rilke", "q": "Ten paciencia con todo lo que aún no está resuelto en tu corazón."}, {"a": "Carl Rogers", "q": "Cuando me acepto tal como soy, entonces puedo cambiar."}, {"a": "Friedrich Nietzsche", "q": "Quien tiene un porqué para vivir puede soportar casi cualquier cómo."}, {"a": "Antonio Machado", "q": "Caminante, no hay camino, se hace camino al andar."}, {"a": "Antoine de Saint-Exupéry", "q": "Lo esencial es invisible a los ojos."}, {"a": "Martin Buber", "q": "Toda vida verdadera es encuentro."}, {"a": "Carl Jung", "q": "Conoce todas las teorías, domina todas las técnicas, pero al tocar un alma humana sé apenas otra alma humana."}, {"a": "Jack Kornfield", "q": "Si tu compasión no te incluye a ti, está incompleta."}, {"a": "Pema Chödrön", "q": "Tú eres el cielo. Todo lo demás es solo el clima."}, {"a": "Susan David", "q": "Las emociones son datos, no órdenes."}, {"a": "Thich Nhat Hanh", "q": "La vida solo está disponible en el momento presente."}, {"a": "Alfred Adler", "q": "Ver con los ojos de otro, escuchar con los oídos de otro, sentir con el corazón de otro."}, {"a": "Martin Luther King Jr.", "q": "Debemos aceptar la decepción finita, pero nunca perder la esperanza infinita."}, {"a": "Lao Tsé", "q": "Un viaje de mil millas comienza con un solo paso."}];
 const $=s=>document.querySelector(s);const track=$("#car-track"),dots=$("#car-dots"),count=$("#car-count"),prev=$("#car-prev"),next=$("#car-next");
 let cur=0,n=0,sel=0;
@@ -778,6 +844,7 @@ let raf;track.addEventListener("scroll",()=>{cancelAnimationFrame(raf);raf=reque
 prev.addEventListener("click",()=>go(cur-1));next.addEventListener("click",()=>go(cur+1));
 track.addEventListener("keydown",e=>{if(e.key==="ArrowRight"){e.preventDefault();go(cur+1)}if(e.key==="ArrowLeft"){e.preventDefault();go(cur-1)}});
 document.querySelectorAll("[data-car]").forEach(b=>b.addEventListener("click",()=>load(+b.dataset.car)));
+document.querySelectorAll("[data-opencar]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();load(+a.dataset.opencar);const t=document.querySelector(".res-tabs");if(t)t.scrollIntoView({behavior:"smooth",block:"start"})}));
 $("#car-share").addEventListener("click",()=>{const c=CAR[sel],url=location.origin+location.pathname+"#recursos";const data={title:c.titulo+" · Sígueme",text:c.desc,url};
   if(navigator.share){navigator.share(data).catch(()=>{});return}try{navigator.clipboard.writeText(url).then(()=>flash("Enlace copiado"),()=>flash(url))}catch(e){flash(url)}});
 load(0);
