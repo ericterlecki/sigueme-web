@@ -355,6 +355,23 @@ nav.tabs a{font-size:.7rem}
 .wordmark .si{color:var(--terra,#D9906F);font-weight:700}
 .wordmark .ii{position:relative;display:inline-block}
 .wordmark .tilde{position:absolute;left:50%;bottom:.73em;width:.26em;height:.32em;transform:translateX(-46%);overflow:visible}
+/* Lecturas del día */
+.lect{display:grid;gap:12px}
+.lect-nav{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.lect-nav .t{font-weight:600;text-align:center;flex:1;font-size:.95rem}
+.lect .lit{font-family:var(--display);font-size:1.15rem;line-height:1.3}
+.lect .lit-d{font-size:.88rem;color:var(--muted)}
+details.reading{border:1px solid var(--line);border-radius:12px;background:var(--bg)}
+details.reading summary{list-style:none;cursor:pointer;padding:12px 14px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+details.reading summary::-webkit-details-marker{display:none}
+details.reading summary b{font-size:.95rem}
+details.reading summary span{font-size:.8rem;color:var(--muted);text-align:right}
+details.reading[open] summary{border-bottom:1px solid var(--line)}
+details.reading .rt{padding:12px 14px 14px;font-family:var(--quote);font-size:1.08rem;line-height:1.55;display:grid;gap:8px}
+details.reading .rt h4{margin:0;font-family:var(--body);font-size:.85rem;color:var(--warm-ink);font-weight:700}
+details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)}
+.lect-credit{font-size:.75rem;color:var(--muted)}
+.lect-credit a{color:var(--brand);font-weight:600}
 </style>
 </head>
 <body>
@@ -415,6 +432,7 @@ nav.tabs a{font-size:.7rem}
 
       <div class="card presence">
         <div class="step-h"><span class="step-n">·</span><div class="tt"><span class="k" style="color:var(--logo-b)">Para empezar</span><h3>Ponerme en presencia</h3></div><span class="ill"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="44" fill="none" stroke="#9fb7bd" stroke-width="2" opacity=".5"/><circle cx="60" cy="60" r="31" fill="none" stroke="#F2EBDB" stroke-width="2.5" opacity=".7"/><circle cx="60" cy="60" r="18" fill="#E5B866" opacity=".85"/><circle cx="60" cy="60" r="7" fill="#F2EBDB"/></svg></span></div>
+        <a class="linkbtn" href="#palabra" style="text-decoration:none;color:var(--logo-b);justify-self:start">Leer las lecturas de hoy →</a>
         <p>Busco un lugar tranquilo. Apoyo los pies, aflojo los hombros y respiro despacio. Recuerdo que Dios me mira con amor, también en este día tal como fue.</p>
         <div class="breath"><div class="ring" id="ring"><span id="ring-t">Respirar</span></div>
           <button class="btn" id="breath-btn" type="button">Empezar 1 minuto · inhalo 4 s / exhalo 6 s</button></div>
@@ -561,7 +579,13 @@ nav.tabs a{font-size:.7rem}
       <div class="lead">
         <span class="eyebrow">Para consolar</span>
         <h2>La Palabra</h2>
-        <p class="muted">Palabras de la Escritura y de los santos para volver a ellas, sobre todo en tiempos de cansancio o desolación. Elija una categoría.</p>
+        <p class="muted">Las lecturas de la misa de cada día y palabras de la Escritura y de los santos para volver a ellas, sobre todo en tiempos de cansancio o desolación.</p>
+      </div>
+      <div class="card lect" id="lecturas">
+        <div class="wd-top"><div><span class="eyebrow">Lecturas de la misa</span><h3 style="margin-top:4px">Lecturas del día</h3></div></div>
+        <div class="lect-nav"><button class="dotbtn" id="l-prev" type="button" aria-label="Día anterior">‹</button><span class="t" id="l-fecha"></span><button class="dotbtn" id="l-next" type="button" aria-label="Día siguiente">›</button></div>
+        <div id="l-body" aria-live="polite"><p class="small muted">Cargando las lecturas…</p></div>
+        <p class="lect-credit">Las lecturas las provee el proyecto <a href="https://evangeliodeldia.org" target="_blank" rel="noopener">Evangelio del día (Evangelizo)</a>. Este sitio no reclama derechos sobre esos textos.</p>
       </div>
       <div class="word-day" id="p-hoy"></div>
       <div class="chips" id="p-cats"></div>
@@ -926,6 +950,28 @@ function loadPalabra(){$("#p-hoy").innerHTML=wordBlock(PALABRA[pToday],true);
 document.addEventListener("click",e=>{const s=e.target.closest("[data-pshare]"),c=e.target.closest("[data-pcopy]"),n=e.target.closest("[data-pnext]");
   if(s)pShare(PALABRA[+s.dataset.pshare]);if(c)copy(pText(PALABRA[+c.dataset.pcopy]),"Frase copiada");if(n){pToday=(pToday+1)%PALABRA.length;$("#p-hoy").innerHTML=wordBlock(PALABRA[pToday],true)}});
 
+
+/* ---------- LECTURAS DEL DÍA ---------- */
+let lDate=new Date();
+const NOMBRES={reading:["Primera lectura","Segunda lectura","Tercera lectura"],psalm:["Salmo"],gospel:["Evangelio"]};
+function lectText(t){t=String(t||"").replace(/<br\s*\/?>/gi,"\n").replace(/<\/p>\s*<p[^>]*>/gi,"\n\n").replace(/<[^>]+>/g,"");
+  const ta=document.createElement("textarea");ta.innerHTML=t;t=ta.value.trim();
+  return esc(t).replace(/\n{2,}/g,"</p><p>").replace(/\n/g,"<br>")}
+function lectRender(d){if(!d||!d.lecturas||!d.lecturas.length){lectFail();return}
+  const cnt={reading:0,psalm:0,gospel:0};
+  let h="";if(d.liturgia&&d.liturgia.titulo)h+=`<p class="lit">${esc(d.liturgia.titulo)}</p>`;
+  h+=d.lecturas.map(l=>{const k=NOMBRES[l.tipo]?l.tipo:"reading";const n=(NOMBRES[k][cnt[k]]||NOMBRES[k][0]);cnt[k]++;
+    return`<details class="reading"${l.tipo==="gospel"?" open":""}><summary><b>${n}</b><span>${esc(l.cita||"")}</span></summary><div class="rt">${l.titulo?`<h4>${esc(l.titulo)}</h4>`:""}<p>${lectText(l.texto)}</p>${l.fuente?`<span class="src">${esc(l.fuente)}</span>`:""}</div></details>`}).join("");
+  $("#l-body").innerHTML=h}
+function lectFail(){$("#l-body").innerHTML=`<p class="small muted">No se pudieron cargar las lecturas ahora. Revise su conexión o léalas en <a href="https://evangeliodeldia.org" target="_blank" rel="noopener" style="color:var(--brand);font-weight:600">evangeliodeldia.org</a>.</p>`}
+async function loadLecturas(){const k=iso(lDate);$("#l-fecha").textContent=fmtLong(lDate);
+  const today=iso(new Date());$("#l-next").disabled=k>=iso(addDays(new Date(),7));
+  const cached=store.get("lect_"+k,null);if(cached){lectRender(cached)}else{$("#l-body").innerHTML='<p class="small muted">Cargando las lecturas…</p>'}
+  try{const r=await fetch(new URL("../api/lecturas?fecha="+k,location.href));if(!r.ok)throw 0;const d=await r.json();if(iso(lDate)!==k)return;
+    store.set("lect_"+k,d);lectRender(d);
+    Object.keys(localStorage).filter(x=>x.startsWith("qd_lect_")).sort().slice(0,-10).forEach(x=>{try{localStorage.removeItem(x)}catch(e){}})}
+  catch(e){if(!cached&&iso(lDate)===k)lectFail()}}
+
 /* ---------- respiración ---------- */
 let breathT=null;
 function breath(){const ring=$("#ring"),t=$("#ring-t"),btn=$("#breath-btn");
@@ -949,7 +995,7 @@ const VIEWS=["hoy","semana","recorrido","palabra","guia","contacto","ajustes"];
 function route(){let v=(location.hash||"#hoy").slice(1);if(!VIEWS.includes(v))v="hoy";
   VIEWS.forEach(x=>$("#v-"+x).hidden=x!==v);
   $$("[data-nav]").forEach(a=>{if(a.dataset.nav===v)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
-  if(v==="hoy")loadDay();if(v==="semana")loadWeek();if(v==="recorrido")loadHist();if(v==="palabra")loadPalabra();if(v==="ajustes")$("#a-nombre").value=prefs.nombre||"";
+  if(v==="hoy")loadDay();if(v==="semana")loadWeek();if(v==="recorrido")loadHist();if(v==="palabra"){loadPalabra();loadLecturas()}if(v==="ajustes")$("#a-nombre").value=prefs.nombre||"";
   scrollTo(0,0)}
 
 /* ---------- inicio ---------- */
@@ -967,6 +1013,8 @@ $("#w-copiar").addEventListener("click",()=>copy(weekText(),"Resumen copiado"));
 $("#sem-prev").addEventListener("click",()=>{wStart=addDays(wStart,-7);loadWeek()});
 $("#sem-next").addEventListener("click",()=>{if(addDays(wStart,7)<=new Date()){wStart=addDays(wStart,7);loadWeek()}});
 $("#breath-btn").addEventListener("click",breath);
+$("#l-prev").addEventListener("click",()=>{lDate=addDays(lDate,-1);loadLecturas()});
+$("#l-next").addEventListener("click",()=>{lDate=addDays(lDate,1);loadLecturas()});
 $("#install-btn").addEventListener("click",async()=>{if(!deferred)return;deferred.prompt();try{await deferred.userChoice}catch(e){}deferred=null;$("#install-btn").hidden=true});
 $("#a-install").addEventListener("click",async()=>{if(deferred){deferred.prompt();try{await deferred.userChoice}catch(e){}deferred=null;$("#install-btn").hidden=true}else{location.hash="#guia";setTimeout(()=>{const g=document.getElementById("guia-instalar");g.open=true;g.scrollIntoView({behavior:"smooth"})},80)}});
 $("#install-later").addEventListener("click",()=>{prefs.instHide=true;store.set("prefs",prefs);$("#install-card").hidden=true});
