@@ -322,6 +322,22 @@ footer a{color:var(--cream)}
 .idea-nav{display:flex;justify-content:space-between;margin-top:22px;gap:10px}
 .idea-nav button{background:none;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font:inherit;font-size:.88rem;color:var(--fg);cursor:pointer}
 @media (max-width:560px){.idea-in{padding:24px 18px 18px}.idea-in h3{font-size:1.35rem}}
+.cv-more{margin-top:40px;border-top:1px solid var(--line);padding-top:16px}
+.cv-more > summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:8px;font-size:.9rem;font-weight:600;color:var(--muted)}
+.cv-more > summary::-webkit-details-marker{display:none}
+.cv-more > summary::after{content:"+";font-size:1.1rem;color:var(--accent);transition:transform .2s}
+.cv-more[open] > summary::after{transform:rotate(45deg)}
+.cv-head{display:flex;gap:20px;align-items:center;margin-top:24px}
+.who-photo{width:120px;flex:none;aspect-ratio:238/250;border-radius:14px;overflow:hidden;background:var(--surface)}
+.who-photo img{display:block;width:100%;height:100%;object-fit:cover}
+.who-name{margin:0;font-family:var(--font-display);font-size:1.25rem}.who-mat{margin:2px 0 0;font-size:.85rem;color:var(--muted)}
+.now{margin:10px 0 0;display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0}.now li{font-size:.82rem;padding:5px 11px;border-radius:999px;background:var(--surface)}
+.cv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 48px;margin-top:24px}.cv-grid > *{min-width:0}
+.cv-grid h3{color:var(--accent);font-family:var(--font-body);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.75rem;margin:22px 0 0}
+.tl{list-style:none;padding:0;margin:8px 0 0}.tl li{display:grid;grid-template-columns:7.5em 1fr;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.9rem}
+.tl li b{font-weight:600;color:var(--muted);font-size:.82rem}
+.cv-dl{margin-top:20px;font-size:.9rem}.cv-dl a{color:var(--accent);font-weight:600}
+@media (max-width:760px){.cv-grid{grid-template-columns:1fr}}@media (max-width:420px){.tl li{grid-template-columns:1fr;gap:2px}.cv-head{align-items:flex-start}}
 .sub-h{margin-top:72px;padding-top:48px;border-top:1px solid var(--line)}
 .sub-h h3{font-size:clamp(1.5rem,3vw,1.9rem);margin-top:6px}
 .sub-h p{margin-top:8px;color:var(--muted);max-width:62ch}
@@ -846,6 +862,63 @@ footer a{color:var(--cream)}
         <p class="po-note">Es un espacio hermano de <a href="https://entre-nosotros-web.vercel.app/" target="_blank" rel="noopener">Entre Nosotros</a> y de <a href="https://a-tu-lado-web.vercel.app/" target="_blank" rel="noopener">A tu Lado</a>.</p>
       </div>
     </div>
+    <div class="wrap">
+      <details class="cv-more">
+        <summary>Ver trayectoria</summary>
+        <div class="cv-head">
+          <div class="who-photo"><img src="cv/eric-terlecki.jpg" width="238" height="250" loading="lazy" alt="Eric Terlecki"></div>
+          <div>
+            <p class="who-name">Lic. Eric Terlecki</p>
+            <p class="who-mat">Licenciado en Psicología · Mat. N.º 4331</p>
+            <ul class="now">
+              <li>Psicoterapeuta clínico</li>
+              <li>Docente universitario</li>
+              <li>Psicólogo del Seminario «San Carlos Borromeo»</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cv-grid">
+          <div>
+            <h3>Clínica</h3>
+            <ul class="tl">
+              <li><b>Desde 2005</b><span>Psicoterapia individual, de pareja, familiar y grupal en consultorio particular: niños, adolescentes, adultos, adultos mayores.</span></li>
+              <li><b>2025–2026</b><span>Psicólogo del Seminario Arquidiocesano «San Carlos Borromeo», Capitán Bermúdez.</span></li>
+              <li><b>2010–2024</b><span>Tratamientos psicoterapéuticos con pacientes oncológicos y sus familias.</span></li>
+              <li><b>2020–2024</b><span>Procesos psicoterapéuticos virtuales internacionales durante la pandemia de Covid-19.</span></li>
+              <li><b>2017–2022</b><span>Psicoterapia grupal para trastornos de ansiedad y depresión.</span></li>
+              <li><b>2008–2019</b><span>Evaluación de pacientes con deterioro cognitivo. Asociación Rorschach.</span></li>
+              <li><b>2004–2018</b><span>Psicodiagnósticos y talleres grupales. Pre-noviciado, Seminario Salesiano de Funes.</span></li>
+              <li><b>2007</b><span>Gabinete psicopedagógico. Colegio Nuestra Señora de la Asunción, Rosario.</span></li>
+            </ul>
+            <h3>Talleres y trabajo comunitario</h3>
+            <ul class="tl">
+              <li><b>2022</b><span>Taller para padres en proceso de duelo. Fundación Cuatro Vientos, Rosario.</span></li>
+              <li><b>2010–2021</b><span>Talleres de ESI en instituciones educativas de Santa Fe, Entre Ríos, Córdoba y Formosa.</span></li>
+              <li><b>2018–2019</b><span>Comunidad Padre Misericordioso: talleres en el Centro de vida del barrio Ludueña y equipo terapéutico para el tratamiento de adicciones. Rosario.</span></li>
+              <li><b>2010–2013</b><span>Taller grupal para pacientes con leucemia y sus familias. Fundación ALMA.</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Formación</h3>
+            <ul class="tl">
+              <li><b>En curso</b><span>Maestría en Psicooncología. Universidad Favaloro, CABA.</span></li>
+              <li><b>2021</b><span>Taller de Gestalt con Joan Garriga. CABA.</span></li>
+              <li><b>2010–2012</b><span>Posgrado de especialización en psicología cognitiva, modelo integrativo. Fundación Aiglé, dir. Héctor Fernández Álvarez.</span></li>
+              <li><b>2004</b><span>Licenciatura en Psicología. Universidad Católica de La Plata, unidad académica Rosario.</span></li>
+              <li><b>2001</b><span>Formación en terapia gestáltica. Instituto Tendrel, Rosario.</span></li>
+              <li><b>2000</b><span>Seminario de terapia cognitiva posracionalista con el Lic. Juan Balbi. Rosario.</span></li>
+            </ul>
+            <h3>Docencia</h3>
+            <ul class="tl">
+              <li><b>2022–2025</b><span>Docente de Psicología. UCA Rosario, curso de acompañantes de adultos mayores.</span></li>
+              <li><b>2020–2025</b><span>Docente de antropología y psicología. Proyecto de acompañamiento salesiano de jóvenes, Córdoba.</span></li>
+              <li><b>2018–2022</b><span>Docente de antropología. Curso de formación misionera, Arquidiócesis de Rosario.</span></li>
+            </ul>
+          </div>
+        </div>
+        <p class="cv-dl"><a href="cv/eric-terlecki-cv.pdf" download="eric-terlecki-cv.pdf">Descargar CV (PDF)</a></p>
+      </details>
+    </div>
   </section>
 
   <section class="block" id="preguntas">
@@ -877,8 +950,10 @@ footer a{color:var(--cream)}
     <div class="channels">
       <div class="channel"><span class="lbl">WhatsApp</span><span class="val">341 660-1847</span><span class="acts"><a href="https://wa.me/5493416601847?text=Hola%20Eric%2C%20quisiera%20consultar." target="_blank" rel="noopener">Abrir chat</a><button type="button" data-copy="341 660-1847">Copiar</button></span></div>
       <div class="channel"><span class="lbl">Mail</span><span class="val">ericterlecki@gmail.com</span><span class="acts"><button type="button" data-copy="ericterlecki@gmail.com">Copiar</button></span></div>
+      <div class="channel"><span class="lbl">Consultorio</span><span class="val">Pasaje Rizzuto 3451, Rosario</span><span class="acts"><span style="color:rgba(242,235,219,.75)">A la altura de Uruguay al 1150</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Pasaje+Rizzuto+3451+Rosario+Santa+Fe" target="_blank" rel="noopener">Ver en el mapa</a></span></div>
+      <div class="channel"><span class="lbl">Instagram</span><span class="val">@entrenosotros.psicoterapia</span><span class="acts"><a href="https://www.instagram.com/entrenosotros.psicoterapia/" target="_blank" rel="noopener">Ver perfil</a></span></div>
     </div>
-    <p class="conv-steps">Consultorio en Pasaje Rizzuto 3451, Rosario, o virtual por Meet. Lunes a viernes de 8 a 21 h y sábados de 8 a 13 h.</p>
+    <p class="conv-steps">Presencial en el consultorio o virtual por Meet. Lunes a viernes de 8 a 21 h y sábados de 8 a 13 h.</p>
     <div class="sos" id="emergencias">
       <span class="lbl">Ante una emergencia</span>
       <h3>Si estás en peligro o en una crisis, no esperes</h3>
