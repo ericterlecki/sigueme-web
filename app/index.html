@@ -378,6 +378,17 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
 .saint p.refl{font-family:var(--quote);font-style:italic;font-size:1.08rem;line-height:1.5}
 .saint .tag2{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--warm-ink)}
 .saint + .saint{border-top:1px solid var(--line);padding-top:12px}
+/* Bienvenida */
+.intro{display:grid;gap:12px}
+.intro-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.intro-list li{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start}
+.intro-list .ic{width:34px;height:34px;border-radius:50%;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center}
+.intro-list .ic svg{width:18px;height:18px}
+.intro-list b{display:block;font-size:.95rem}
+.intro-list span.t{font-size:.88rem;color:var(--muted);line-height:1.45}
+.intro .row .btn{flex:0 1 auto}
+.howto h4{margin:10px 0 2px;font-size:.95rem}
+.howto h4:first-child{margin-top:0}
 </style>
 </head>
 <body>
@@ -419,6 +430,17 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
         <p class="muted">Una revisión de vida en cinco pasos, al modo de san Ignacio de Loyola. Unos quince minutos, idealmente a la noche. Casi todo se responde tocando una opción.</p>
       </div>
 
+      <div class="card intro" id="intro-card" hidden>
+        <span class="eyebrow">Antes de empezar</span>
+        <h3>Cómo usar esta app</h3>
+        <ul class="intro-list">
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></span><span><b>Es algo personal</b><span class="t">Es una ayuda para su oración y su camino. No es una tarea ni un examen para aprobar: complete sólo lo que le sirva.</span></span></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span><b>Diario, semanal o las dos cosas</b><span class="t">Puede hacer el examen cada noche (entre 5 y 15 minutos), sólo la revisión semanal, o ambos. Si un día no lo hace, no pasa nada: se retoma cuando pueda.</span></span></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></span><span><b>Compartirlo es opcional</b><span class="t">Puede guardarlo sólo para usted o compartirlo con quien lo acompaña: su director espiritual, su formador, su terapeuta o un hermano de confianza. Usted elige qué, cuándo y con quién.</span></span></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><span><b>Es confidencial</b><span class="t">Todo queda guardado sólo en este celular. La app no envía nada a ningún servidor y nadie más puede verlo, ni siquiera quien la hizo. Sólo sale lo que usted decida compartir.</span></span></li>
+        </ul>
+        <div class="row"><button class="btn" id="intro-ok" type="button">Entendido</button><a class="btn ghost" href="#guia" data-goto="guia-uso">Ver la guía completa</a></div>
+      </div>
       <div class="install" id="install-card" hidden>
         <h3>Tenga la app a mano en su celular</h3>
         <p>Instálela en la pantalla de inicio: se abre como cualquier aplicación y funciona sin conexión.</p>
@@ -611,15 +633,33 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
         <p class="muted">Recursos para acompañar el examen y la revisión de vida. Puede usarlos solo o con quien lo acompaña.</p>
       </div>
 
-      <details class="guide" open>
+      <details class="guide" id="guia-uso" open>
         <summary>Cómo usar esta aplicación</summary>
-        <div class="body"><ul>
-          <li><b>Hoy:</b> el examen del día, en cinco pasos, idealmente a la noche.</li>
-          <li><b>Semana:</b> una revisión de la semana, que puede guardar o compartir con quien lo acompaña.</li>
-          <li><b>La Palabra:</b> frases de la Escritura y de los santos para volver a ellas.</li>
-          <li><b>Recorrido:</b> cómo fueron variando su ánimo y sus consolaciones y desolaciones.</li>
-          <li>Sus respuestas quedan guardadas <b>sólo en este dispositivo</b>.</li>
-        </ul></div>
+        <div class="body howto">
+          <h4>Es algo personal</h4>
+          <p>Esta app es una ayuda para su oración y su camino personal. No es una tarea, ni una evaluación, ni un reemplazo de la dirección espiritual. Puede completar todo o sólo lo que le sirva: con lo que pueda, alcanza.</p>
+          <h4>Diario, semanal o las dos cosas</h4>
+          <ul>
+            <li><b>Hoy:</b> el examen del día, en cinco pasos, idealmente a la noche. Lleva entre 5 y 15 minutos.</li>
+            <li><b>Semana:</b> una revisión para mirar la semana entera, por ejemplo el domingo o antes de un encuentro de acompañamiento. Reúne automáticamente lo que registró cada día.</li>
+            <li>Puede usar sólo el examen diario, sólo la revisión semanal, o ambos. Si un día no lo hace, no pasa nada: se retoma cuando pueda.</li>
+          </ul>
+          <h4>Otras secciones</h4>
+          <ul>
+            <li><b>Recorrido:</b> cómo fueron variando su ánimo y sus consolaciones y desolaciones en los últimos 14 días.</li>
+            <li><b>La Palabra:</b> las lecturas de la misa del día, el santoral y frases de la Escritura y de los santos.</li>
+            <li><b>Guía:</b> el examen ignaciano, la consolación y la desolación, y cómo examinarse sin dureza.</li>
+          </ul>
+          <h4>Compartirlo es opcional</h4>
+          <p>Puede guardar todo sólo para usted. Si quiere compartir algo, el botón «Compartir por WhatsApp» arma un resumen con lo que completó y usted elige a quién mandarlo: su director espiritual, su formador, su terapeuta o un hermano de confianza. También puede copiar el resumen y llevarlo como prefiera. Nada se envía si usted no lo decide.</p>
+          <h4>Es confidencial</h4>
+          <ul>
+            <li>Todo queda guardado <b>sólo en este celular</b>. La app no tiene cuentas ni contraseñas, y no envía sus datos a ningún servidor.</li>
+            <li>Nadie más puede ver lo que registra, <b>ni siquiera quien hizo la app</b>.</li>
+            <li>Si otra persona usa su celular, podría abrirla: téngalo en cuenta. Puede borrar todo cuando quiera desde <a href="#ajustes" style="color:var(--brand);font-weight:600">Ajustes</a>.</li>
+            <li>Si cambia de teléfono o borra los datos del navegador, los registros se pierden. En Ajustes puede copiar un respaldo para guardarlo.</li>
+          </ul>
+        </div>
       </details>
 
       <details class="guide">
@@ -1051,6 +1091,8 @@ $("#a-borrar").addEventListener("click",()=>{$("#a-confirm").hidden=false});
 $("#a-borrar-no").addEventListener("click",()=>{$("#a-confirm").hidden=true});
 $("#a-borrar-si").addEventListener("click",()=>{daily={};weekly={};prefs={nombre:""};["daily","weekly","prefs"].forEach(k=>{try{localStorage.removeItem("qd_"+k)}catch(e){}});$("#a-confirm").hidden=true;toast("Datos borrados")});
 installUI();
+$("#intro-card").hidden=!!prefs.introHide;
+$("#intro-ok").addEventListener("click",()=>{prefs.introHide=true;store.set("prefs",prefs);$("#intro-card").hidden=true;toast("Puede volver a leerlo en la Guía")});
 window.addEventListener("hashchange",route);route();
 if("serviceWorker" in navigator&&location.protocol==="https:")navigator.serviceWorker.register("sw.js").catch(()=>{});
 })();
