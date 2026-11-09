@@ -5,24 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta property="og:title" content="Quédate · Acompañamiento integral">
+<meta property="og:title" content="Sígueme · Acompañamiento integral">
 <meta property="og:description" content="Recursos de libre uso para seminaristas y sacerdotes: examen del día, la Palabra, lecturas y claves para el camino.">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Quédate">
+<meta property="og:site_name" content="Sígueme">
 <meta property="og:locale" content="es_AR">
 <meta property="og:url" content="https://quedate-web.vercel.app/">
 <meta property="og:image" content="https://quedate-web.vercel.app/og-imagen.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Quédate · Acompañamiento integral para seminaristas y sacerdotes. Lic. Eric Terlecki.">
+<meta property="og:image:alt" content="Sígueme · Acompañamiento integral para seminaristas y sacerdotes. Lic. Eric Terlecki.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://quedate-web.vercel.app/">
 <meta name="theme-color" content="#1F4955">
-<title>Quédate · Acompañamiento integral para seminaristas y sacerdotes</title>
-<meta name="description" content="Quédate · Recursos de libre uso para seminaristas y sacerdotes: examen del día, la Palabra, lecturas y claves para el camino.">
+<title>Sígueme · Acompañamiento integral para seminaristas y sacerdotes</title>
+<meta name="description" content="Sígueme · Recursos de libre uso para seminaristas y sacerdotes: examen del día, la Palabra, lecturas y claves para el camino.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;500;600&family=Playfair+Display:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap">
 <style>
 html,body{margin:0}body{-webkit-font-smoothing:antialiased}img{max-width:100%}[hidden]{display:none!important}
 :root{
@@ -245,6 +245,11 @@ footer a{color:var(--cream)}
 .conv-steps{margin-top:18px;color:rgba(242,235,219,.8);max-width:62ch}
 .nav .nav-quiet{font-size:.85rem;text-decoration:none;color:var(--cream);opacity:.8;border:1px solid rgba(242,235,219,.35);padding:7px 14px;border-radius:999px;white-space:nowrap}
 .nav .nav-quiet:hover{opacity:1}
+
+/* Marca Sígueme: el «Sí» resaltado y la tilde como cruz que late */
+.wordmark .si{color:var(--terra,#D9906F);font-weight:700}
+.wordmark .ii{position:relative;display:inline-block}
+.wordmark .tilde{position:absolute;left:50%;bottom:.73em;width:.26em;height:.32em;transform:translateX(-46%);overflow:visible}
 </style>
 </head>
 <body>
@@ -262,7 +267,8 @@ footer a{color:var(--cream)}
       <circle cx="36" cy="85" r="15.5" fill="#E5B866"/>
       <circle cx="114" cy="85" r="15.5" fill="#D9906F"/>
     </symbol>
-    <!-- La t de Quédate, como cruz -->
+    <!-- La t de Sígueme, como cruz -->
+    <symbol id="cruz-tilde" viewBox="0 0 44 72"><g class="latido" fill="#D9906F"><rect x="15" y="0" width="14" height="72" rx="3"/><rect x="0" y="18" width="44" height="13" rx="3"/></g></symbol>
     <symbol id="cruz" viewBox="0 0 44 84">
       <g class="latido" fill="#D9906F"><rect x="16.5" y="0" width="11" height="84" rx="2"/><rect x="0" y="22" width="44" height="10" rx="2"/></g>
     </symbol>
@@ -271,7 +277,7 @@ footer a{color:var(--cream)}
 
 <nav class="nav" aria-label="Principal">
   <div class="wrap">
-    <a class="brand" href="#inicio" aria-label="Quédate, inicio"><svg aria-hidden="true"><use href="#simbolo"/></svg><span class="wordmark" aria-hidden="true">Quéda<svg class="t"><use href="#cruz"/></svg>e</span></a>
+    <a class="brand" href="#inicio" aria-label="Sígueme, inicio"><svg aria-hidden="true"><use href="#simbolo"/></svg><span class="wordmark" aria-hidden="true"><span class="si">S<span class="ii">ı<svg class="tilde" aria-hidden="true"><use href="#cruz-tilde"/></svg></span></span>gueme</span></a>
     <ul>
       <li><a href="#emaus">Como en Emaús</a></li>
       <li><a href="#camino">Para el camino</a></li>
@@ -303,7 +309,7 @@ footer a{color:var(--cream)}
 <header class="hero" id="inicio">
   <div class="wrap">
     <div>
-      <p class="hero-tag">«Quédate con nosotros, porque ya es tarde»<small>Lc 24,29</small></p>
+      <p class="hero-tag">«Sígueme»<small>Jn 21,19</small></p>
       <p class="eyebrow" style="color:var(--terra);margin-top:22px">Para seminaristas y sacerdotes</p>
       <h1 style="margin-top:14px">Un lugar para quedarse <em>y seguir caminando</em>.</h1>
       <p class="common">Recursos para cuidar la vida interior en la formación y en el ministerio: una app para el examen del día, la Palabra que consuela, lecturas y algunas claves para el camino.</p>
@@ -315,7 +321,7 @@ footer a{color:var(--cream)}
     </div>
     <div class="hero-mark" aria-hidden="true">
       <svg><use href="#simbolo"/></svg>
-      <span class="wordmark">Quéda<svg class="t"><use href="#cruz"/></svg>e</span>
+      <span class="wordmark"><span class="si">S<span class="ii">ı<svg class="tilde" aria-hidden="true"><use href="#cruz-tilde"/></svg></span></span>gueme</span>
     </div>
   </div>
 </header>
@@ -465,7 +471,7 @@ footer a{color:var(--cream)}
       <div>
         <p class="po-lead" style="margin-top:0">Soy psicólogo y trabajo desde la psicoterapia clínica con un enfoque humanista, integrativo y trascendente.</p>
         <p style="margin-top:16px">Quien acompaña a otros también necesita ser acompañado. Detrás de cada vocación hay una persona con su historia, sus afectos, su cansancio y sus preguntas.</p>
-        <p>«Quédate» nace como un aporte para quienes sostienen a tantos: un lugar con recursos para el camino, abierto a quien lo necesite.</p>
+        <p>«Sígueme» nace como un aporte para quienes sostienen a tantos: un lugar con recursos para el camino, abierto a quien lo necesite.</p>
         <p class="po-note">Es un espacio hermano de <a href="https://entre-nosotros-web.vercel.app/" target="_blank" rel="noopener">Entre Nosotros</a> y de <a href="https://a-tu-lado-web.vercel.app/" target="_blank" rel="noopener">A tu Lado</a>.</p>
       </div>
     </div>
@@ -515,7 +521,7 @@ footer a{color:var(--cream)}
 </section>
 
 <footer>
-  <div class="wrap"><span>Quédate · Recursos de libre uso para seminaristas y sacerdotes · Lic. Eric Terlecki · Mat. N.º 4331</span><span>Emergencias: <a href="#emergencias">911 · 107 SIES · 0800-999-0091</a></span></div>
+  <div class="wrap"><span>Sígueme · Recursos de libre uso para seminaristas y sacerdotes · Lic. Eric Terlecki · Mat. N.º 4331</span><span>Emergencias: <a href="#emergencias">911 · 107 SIES · 0800-999-0091</a></span></div>
 </footer>
 
 <div class="toast" id="toast" hidden>Copiado</div>

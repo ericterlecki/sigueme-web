@@ -1,6 +1,6 @@
 {
-  "name": "Quédate · Examen del día",
-  "short_name": "Quédate",
+  "name": "Sígueme · Examen del día",
+  "short_name": "Sígueme",
   "description": "Examen del día al modo ignaciano y revisión semanal, de libre uso.",
   "lang": "es-AR",
   "start_url": "./#hoy",

@@ -10,12 +10,12 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Quédate">
+<meta name="apple-mobile-web-app-title" content="Sígueme">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>Quédate · Examen del día</title>
+<title>Sígueme · Examen del día</title>
 <meta name="theme-color" content="#1f4955">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&family=Figtree:wght@400;500;600;700&family=Playfair+Display:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&family=Figtree:wght@400;500;600;700&family=Playfair+Display:wght@500;700&display=swap">
 <style>
 /* Layout: app de una columna, encabezado de marca arriba, pestañas fijas abajo; cada vista es una "hoja" tranquila */
 :root{
@@ -279,7 +279,7 @@ dl.kv dd{margin:0;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;
 .sos-list small{color:var(--muted);font-size:.82rem;grid-column:2}
 footer.sig{padding-block:26px 6px;text-align:center;font-size:.8rem;color:var(--muted)}
 
-/* ---- Quédate: ajustes propios ---- */
+/* ---- Sígueme: ajustes propios ---- */
 nav.tabs .in{grid-template-columns:repeat(5,1fr)}
 nav.tabs a{font-size:.7rem}
 .brand > svg{width:40px;height:40px}
@@ -351,6 +351,10 @@ nav.tabs a{font-size:.7rem}
 .word-day .ill,.mini-word .ill{width:72px;height:72px;border-radius:16px;padding:6px;background:color-mix(in srgb,var(--head-fg) 10%,transparent)}
 .mini-word .ill{width:60px;height:60px;background:var(--head-bg)}
 .quote .qtop .ill{width:60px;height:60px}
+/* Marca Sígueme: el «Sí» resaltado y la tilde como cruz que late */
+.wordmark .si{color:var(--terra,#D9906F);font-weight:700}
+.wordmark .ii{position:relative;display:inline-block}
+.wordmark .tilde{position:absolute;left:50%;bottom:.73em;width:.26em;height:.32em;transform:translateX(-46%);overflow:visible}
 </style>
 </head>
 <body>
@@ -364,6 +368,7 @@ nav.tabs a{font-size:.7rem}
       <circle cx="36" cy="85" r="15.5" fill="#E5B866"/>
       <circle cx="114" cy="85" r="15.5" fill="#D9906F"/>
     </symbol>
+    <symbol id="cruz-tilde" viewBox="0 0 44 72"><g class="latido" fill="#D9906F"><rect x="15" y="0" width="14" height="72" rx="3"/><rect x="0" y="18" width="44" height="13" rx="3"/></g></symbol>
     <symbol id="cruz" viewBox="0 0 44 84">
       <g class="latido" fill="#D9906F"><rect x="16.5" y="0" width="11" height="84" rx="2"/><rect x="0" y="22" width="44" height="10" rx="2"/></g>
     </symbol>
@@ -372,9 +377,9 @@ nav.tabs a{font-size:.7rem}
 
 <div class="wrap">
   <header class="top">
-    <a class="brand" href="#hoy" aria-label="Quédate, inicio">
+    <a class="brand" href="#hoy" aria-label="Sígueme, inicio">
       <svg aria-hidden="true"><use href="#simbolo"/></svg>
-      <div><div class="name wordmark" aria-hidden="true">Quéda<svg class="t"><use href="#cruz"/></svg>e</div><div class="sub">Examen del día</div></div>
+      <div><div class="name wordmark" aria-hidden="true"><span class="si">S<span class="ii">ı<svg class="tilde" aria-hidden="true"><use href="#cruz-tilde"/></svg></span></span>gueme</div><div class="sub">Examen del día</div></div>
     </a>
     <div class="top-actions">
       <a class="icon-btn" href="#contacto" data-nav="contacto">Acerca de</a>
@@ -627,7 +632,7 @@ nav.tabs a{font-size:.7rem}
         <summary>Instalar la app en el celular</summary>
         <div class="body">
           <div class="inst-ios-g"><b>En iPhone (Safari)</b><ol><li>Abra este enlace en <b>Safari</b>.</li><li>Toque el botón Compartir, en la barra de abajo.</li><li>Elija <b>«Agregar a inicio»</b> y toque <b>«Agregar»</b>.</li></ol></div>
-          <div class="inst-android-g"><b>En Android (Chrome)</b><ol><li>Abra este enlace en <b>Chrome</b>.</li><li>Toque el menú <b>⋮</b> (tres puntos), arriba a la derecha.</li><li>Elija <b>«Instalar aplicación»</b> o <b>«Agregar a la pantalla principal»</b>.</li><li>Confirme con <b>«Instalar»</b>. El ícono de Quédate aparece en su pantalla de inicio.</li></ol><p class="small muted">¿Usa Samsung Internet? Toque el menú <b>☰</b> abajo a la derecha, elija <b>«Agregar página a»</b> y luego <b>«Pantalla de inicio»</b>.</p></div>
+          <div class="inst-android-g"><b>En Android (Chrome)</b><ol><li>Abra este enlace en <b>Chrome</b>.</li><li>Toque el menú <b>⋮</b> (tres puntos), arriba a la derecha.</li><li>Elija <b>«Instalar aplicación»</b> o <b>«Agregar a la pantalla principal»</b>.</li><li>Confirme con <b>«Instalar»</b>. El ícono de Sígueme aparece en su pantalla de inicio.</li></ol><p class="small muted">¿Usa Samsung Internet? Toque el menú <b>☰</b> abajo a la derecha, elija <b>«Agregar página a»</b> y luego <b>«Pantalla de inicio»</b>.</p></div>
           <p class="small muted">Si ya la instaló, se actualiza sola cada vez que la abre con internet.</p>
         </div>
       </details>
@@ -681,7 +686,7 @@ nav.tabs a{font-size:.7rem}
       <div class="lead"><h2>Ajustes</h2><p class="muted">Todo se guarda sólo en este dispositivo.</p></div>
       <div class="card">
         <h3>Instalar en el celular</h3>
-        <p class="small muted">Tenga la app en la pantalla de inicio, con el logo de Quédate. Se abre como cualquier aplicación y funciona sin conexión.</p>
+        <p class="small muted">Tenga la app en la pantalla de inicio, con el logo de Sígueme. Se abre como cualquier aplicación y funciona sin conexión.</p>
         <div class="row"><button class="btn" id="a-install" type="button">Instalar la app</button><a class="btn ghost" href="#guia" data-goto="guia-instalar">Ver los pasos</a></div>
       </div>
       <div class="card">
@@ -706,7 +711,7 @@ nav.tabs a{font-size:.7rem}
     </section>
   </main>
 
-  <footer class="sig">Quédate · Lic. Eric Terlecki · Mat. 4331 · Rosario</footer>
+  <footer class="sig">Sígueme · Lic. Eric Terlecki · Mat. 4331 · Rosario</footer>
 </div>
 
 <nav class="tabs" aria-label="Secciones">
@@ -801,7 +806,7 @@ function loadDay(){const k=curDate(),d=daily[k]||{};
   const b=$("#hoy-estado");b.textContent=daily[k]?"Guardado":"Sin registrar";updateDayWA();paintHoyPalabra()}
 function paintHoyPalabra(){let p=PALABRA[pIdx()];if(mocion!==null&&mocion<0){const ds=PALABRA.filter(x=>x.c==="En la desolación");p=ds[pIdx()%ds.length]}$("#hoy-palabra").innerHTML=wordBlock(p,false)}
 function dayText(){const d=dayFromForm(),k=curDate(),L=[];
-  L.push("*Quédate · Examen del día*");if(prefs.nombre)L.push(prefs.nombre);L.push(fmtLong(parse(k)));L.push("");
+  L.push("*Sígueme · Examen del día*");if(prefs.nombre)L.push(prefs.nombre);L.push(fmtLong(parse(k)));L.push("");
   const g=[...d.gracias];if(d.graciasTxt)g.push(d.graciasTxt);if(g.length)L.push("*Doy gracias por:* "+g.join(", "));
   if(d.animo!==null)L.push("*Ánimo:* "+moodName(d.animo));
   const e=[...d.emociones];if(d.otra)e.push(d.otra);if(e.length)L.push("*Emociones:* "+e.join(", "));
@@ -838,7 +843,7 @@ function loadWeek(){const ks=weekDays();
 function weekFromForm(){return{proxima:$("#w-proxima").value,cons:$("#w-cons").value.trim(),deso:$("#w-deso").value.trim(),cansancio:getSeg($("#w-cansancio")),
   gad1:getSeg($("#w-gad1")),gad2:getSeg($("#w-gad2")),sostuvo:getChips($("#w-sostuvo")),sesion:$("#w-sesion").value.trim(),gracia:$("#w-gracia").value.trim()}}
 function weekText(){const w=weekFromForm(),ks=weekDays(),L=[];
-  L.push("*Quédate · Revisión semanal*");if(prefs.nombre)L.push(prefs.nombre);L.push("Semana del "+fmtShort(wStart)+" al "+fmtShort(addDays(wStart,6)));
+  L.push("*Sígueme · Revisión semanal*");if(prefs.nombre)L.push(prefs.nombre);L.push("Semana del "+fmtShort(wStart)+" al "+fmtShort(addDays(wStart,6)));
   if(w.proxima)L.push("Próximo encuentro: "+fmtShort(parse(w.proxima)));L.push("");
   const lines=ks.map((k,i)=>{const d=daily[k];return d?`${DIAS[i]}: ${moodName(d.animo)} · ${mocName(d.mocion)}`:null}).filter(Boolean);
   if(lines.length){L.push("*Exámenes de la semana*");L.push(...lines);L.push("")}
