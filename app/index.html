@@ -332,6 +332,11 @@ nav.tabs a{font-size:.7rem}
 @media (max-width:440px){.twocol{grid-template-columns:1fr}.moc{grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}.moc button{font-size:.68rem;padding:8px 2px}}
 
 /* La Palabra */
+.music summary{display:flex;align-items:center;gap:10px;cursor:pointer;font-weight:600;list-style:none}
+.music summary::-webkit-details-marker{display:none}.music summary svg{width:22px;height:22px;color:var(--logo-b);flex:none}
+.music summary:after{content:"＋";margin-left:auto;opacity:.6}.music[open] summary:after{content:"－"}
+.music iframe{display:block;width:100%;height:152px;border:0;border-radius:12px;margin-top:12px}
+
 .word-day{background:var(--head-bg);color:var(--head-fg);border-radius:var(--r);padding:20px 18px;display:grid;gap:12px}
 .word-day .eyebrow{color:var(--logo-b)}
 .word-day blockquote{margin:0;font-family:var(--quote);font-style:italic;font-size:1.35rem;line-height:1.4}
@@ -620,6 +625,11 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
         <h2>La Palabra</h2>
         <p class="muted">Las lecturas de la misa de cada día y palabras de la Escritura y de los santos para volver a ellas, sobre todo en tiempos de cansancio o desolación.</p>
       </div>
+      <details class="card music" id="musica">
+        <summary><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="16" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span>Música para leer: piano instrumental católico</span></summary>
+        <div class="music-frame" data-src="https://open.spotify.com/embed/playlist/2DCDNodbIIleM7S3QmohAy?utm_source=generator&amp;theme=0"></div>
+        <p class="small muted">Se reproduce con Spotify. Podés seguir leyendo mientras suena.</p>
+      </details>
       <div class="card lect" id="lecturas">
         <div class="wd-top"><div><span class="eyebrow">Lecturas de la misa</span><h3 style="margin-top:4px">Lecturas del día</h3></div></div>
         <div class="lect-nav"><button class="dotbtn" id="l-prev" type="button" aria-label="Día anterior">‹</button><span class="t" id="l-fecha"></span><button class="dotbtn" id="l-next" type="button" aria-label="Día siguiente">›</button></div>
@@ -1176,5 +1186,6 @@ window.addEventListener("hashchange",route);route();
 if("serviceWorker" in navigator&&location.protocol==="https:")navigator.serviceWorker.register("sw.js").catch(()=>{});
 })();
 </script>
+<script>(function(){const d=document.getElementById("musica");if(!d)return;d.addEventListener("toggle",()=>{const f=d.querySelector(".music-frame");if(d.open&&!f.firstChild){const i=document.createElement("iframe");i.title="Piano instrumental de música católica en Spotify";i.src=f.dataset.src.replace(/&amp;/g,"&");i.allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";i.loading="lazy";f.appendChild(i)}})})();</script>
 </body>
 </html>
