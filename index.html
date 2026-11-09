@@ -190,9 +190,9 @@ section.block + section.block{border-top:1px solid var(--line)}
 footer{background:var(--petrol-deep);color:rgba(242,235,219,.7);font-size:.85rem}
 footer .wrap{padding-block:22px calc(22px + 64px);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 footer a{color:var(--cream)}
-.wa-float{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:7;display:inline-flex;align-items:center;gap:8px;background:var(--terra);color:var(--petrol);text-decoration:none;font-weight:600;font-size:.92rem;padding:12px 16px;border-radius:999px;box-shadow:0 6px 18px rgba(14,49,56,.28);transition:opacity .25s,transform .25s}
-.wa-float svg{width:20px;height:20px}
-.wa-float.is-hidden{opacity:0;pointer-events:none;transform:translateY(12px)}
+.wa-x{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:7;display:inline-flex;align-items:center;gap:8px;background:var(--terra);color:var(--petrol);text-decoration:none;font-weight:600;font-size:.92rem;padding:12px 16px;border-radius:999px;box-shadow:0 6px 18px rgba(14,49,56,.28);transition:opacity .25s,transform .25s}
+.wa-x svg{width:20px;height:20px}
+.wa-x.h{opacity:0;pointer-events:none;transform:translateY(12px)}
 .toast{position:fixed;left:50%;bottom:calc(76px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--terra);color:var(--petrol);padding:10px 18px;border-radius:999px;font-size:.9rem;font-weight:600;z-index:20}
 
 /* App */
@@ -229,6 +229,22 @@ footer a{color:var(--cream)}
 .ill-tile svg{width:100%;height:100%;display:block}
 .libre-list .ill-tile{width:52px;height:52px;background:rgba(242,235,219,.08);margin-bottom:4px}
 .first-steps .ill-tile{width:52px;height:52px;margin-bottom:8px}
+
+/* Libre uso y conversar */
+.free{background:var(--surface);border-radius:18px;padding:clamp(22px,3.5vw,34px);display:grid;grid-template-columns:auto 1fr;gap:20px 28px;align-items:start}
+.free .ill-tile{width:72px;height:72px;margin:0}
+.free h2{font-size:clamp(1.5rem,3vw,1.9rem);margin-top:6px}
+.free p{margin-top:10px;color:var(--muted);max-width:70ch}
+.free ul{margin:12px 0 0;padding-left:1.1em;color:var(--fg);display:grid;gap:4px}
+.free a{color:var(--accent);font-weight:600}
+@media (max-width:620px){.free{grid-template-columns:1fr}}
+.care{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
+.care li{display:flex;gap:10px;align-items:baseline;font-size:.97rem}
+.care li::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--terra);transform:translateY(-2px)}
+.po-box .care li{color:var(--cream)}
+.conv-steps{margin-top:18px;color:rgba(242,235,219,.8);max-width:62ch}
+.nav .nav-quiet{font-size:.85rem;text-decoration:none;color:var(--cream);opacity:.8;border:1px solid rgba(242,235,219,.35);padding:7px 14px;border-radius:999px;white-space:nowrap}
+.nav .nav-quiet:hover{opacity:1}
 </style>
 </head>
 <body>
@@ -257,16 +273,14 @@ footer a{color:var(--cream)}
   <div class="wrap">
     <a class="brand" href="#inicio" aria-label="Quédate, inicio"><svg aria-hidden="true"><use href="#simbolo"/></svg><span class="wordmark" aria-hidden="true">Quéda<svg class="t"><use href="#cruz"/></svg>e</span></a>
     <ul>
-      <li><a href="#acompanamiento">El acompañamiento</a></li>
       <li><a href="#emaus">Como en Emaús</a></li>
-      <li><a href="#como-empezar">Cómo empezar</a></li>
-      <li><a href="#quien-soy">Quién soy</a></li>
+      <li><a href="#camino">Para el camino</a></li>
+      <li><a href="#app">La app</a></li>
       <li><a href="#lecturas">Lecturas</a></li>
-      <li><a href="#app">App</a></li>
+      <li><a href="#quien-soy">Quién soy</a></li>
       <li><a href="#preguntas">Preguntas</a></li>
-      <li><a href="#contacto">Contacto</a></li>
     </ul>
-    <a class="cta-mini" href="https://wa.me/5493416601847?text=Hola%20Eric%2C%20quisiera%20consultar%20por%20el%20espacio%20Qu%C3%A9date." target="_blank" rel="noopener">Consultar</a>
+    <a class="nav-quiet" href="#conversar">Conversar</a>
     <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
     </button>
@@ -274,14 +288,13 @@ footer a{color:var(--cream)}
   <div class="mobile-menu" id="mobile-menu" hidden>
     <div class="wrap">
       <ul>
-        <li><a href="#acompanamiento">El acompañamiento</a></li>
         <li><a href="#emaus">Como en Emaús</a></li>
-        <li><a href="#como-empezar">Cómo empezar</a></li>
-        <li><a href="#quien-soy">Quién soy</a></li>
+        <li><a href="#camino">Para el camino</a></li>
+        <li><a href="#app">La app</a></li>
         <li><a href="#lecturas">Lecturas</a></li>
-        <li><a href="#app">App</a></li>
+        <li><a href="#quien-soy">Quién soy</a></li>
         <li><a href="#preguntas">Preguntas</a></li>
-        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#conversar">Si querés conversar</a></li>
       </ul>
     </div>
   </div>
@@ -291,14 +304,14 @@ footer a{color:var(--cream)}
   <div class="wrap">
     <div>
       <p class="hero-tag">«Quédate con nosotros, porque ya es tarde»<small>Lc 24,29</small></p>
-      <p class="eyebrow" style="color:var(--terra);margin-top:22px">Acompañamiento integral · Seminaristas y sacerdotes</p>
-      <h1 style="margin-top:14px">Para quien sostiene a tantos, <em>un lugar donde ser sostenido</em>.</h1>
-      <p class="common">Un espacio de acompañamiento psicológico para poner en palabras lo que se vive en la formación y en el ministerio. Desde un enfoque humanista, integrativo y trascendente, presencial en Rosario o virtual.</p>
+      <p class="eyebrow" style="color:var(--terra);margin-top:22px">Para seminaristas y sacerdotes</p>
+      <h1 style="margin-top:14px">Un lugar para quedarse <em>y seguir caminando</em>.</h1>
+      <p class="common">Recursos para cuidar la vida interior en la formación y en el ministerio: una app para el examen del día, la Palabra que consuela, lecturas y algunas claves para el camino.</p>
       <div class="btns">
-        <a class="btn btn-terra" href="https://wa.me/5493416601847?text=Hola%20Eric%2C%20quisiera%20consultar%20por%20el%20espacio%20Qu%C3%A9date." target="_blank" rel="noopener">Escribir por WhatsApp</a>
-        <a class="btn btn-ghost" href="#acompanamiento">Conocer el espacio</a>
+        <a class="btn btn-terra" href="app/" target="_blank" rel="noopener">Abrir la app</a>
+        <a class="btn btn-ghost" href="#camino">Ver los recursos</a>
       </div>
-      <p class="meta">Eric Terlecki · Lic. en Psicología · Esp. en Psicoterapia Clínica · Mg. en Psicooncología · Mat. Nro. 4331</p>
+      <p class="meta">De libre uso. No hace falta estar en terapia para aprovecharlos.</p>
     </div>
     <div class="hero-mark" aria-hidden="true">
       <svg><use href="#simbolo"/></svg>
@@ -308,37 +321,20 @@ footer a{color:var(--cream)}
 </header>
 
 <main>
-  <section class="block" id="acompanamiento">
+  <section class="block first" id="libre-uso">
     <div class="wrap">
-      <p class="eyebrow">El acompañamiento</p>
-      <h2>Cuidar a la persona que sostiene la vocación</h2>
-      <p class="po-lead">La vocación se vive con todo lo que uno es: la historia, el cuerpo, los afectos, los vínculos, la fe. Quédate es un espacio para cuidar esa trama, en la formación y a lo largo del ministerio.</p>
-      <div class="services">
-        <article class="service"><span class="ill-tile"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="92" cy="30" r="10" fill="#E5B866"/><ellipse cx="60" cy="96" rx="34" ry="10" fill="#D9906F"/><path d="M60 94V58" stroke="#7E9A5A" stroke-width="4" stroke-linecap="round"/><path d="M60 70c-4-14-16-18-26-16 2 12 12 18 26 16z" fill="#7E9A5A"/><path d="M60 62c4-14 16-18 26-16-2 12-12 18-26 16z" fill="#a8b86a"/></svg></span><span class="tag">Seminaristas</span><h3>El camino de la formación</h3><p>Conocerse, integrar la propia historia, crecer en libertad interior. Un espacio propio que acompaña el discernimiento sin reemplazarlo.</p></article>
-        <article class="service"><span class="ill-tile"><svg viewBox="0 0 120 120" aria-hidden="true"><path d="M14 104h92" stroke="#3D7480" stroke-width="3" stroke-linecap="round"/><path d="M32 104V42c0-16 24-16 24-2" stroke="#E5B866" stroke-width="5" fill="none" stroke-linecap="round"/><rect x="70" y="88" width="4" height="15" rx="2" fill="#3D7480"/><rect x="88" y="88" width="4" height="15" rx="2" fill="#3D7480"/><circle cx="70" cy="78" r="13" fill="#F2EBDB"/><circle cx="84" cy="74" r="13" fill="#F2EBDB"/><circle cx="92" cy="84" r="11" fill="#F2EBDB"/><circle cx="78" cy="88" r="12" fill="#F2EBDB"/><ellipse cx="102" cy="72" rx="7" ry="9" fill="#3D7480"/></svg></span><span class="tag">Sacerdotes</span><h3>El peso del ministerio</h3><p>La demanda pastoral, el cansancio, la soledad, la sensación de no llegar. Lo que se carga en silencio también necesita un lugar.</p></article>
-        <article class="service"><span class="ill-tile"><svg viewBox="0 0 120 120" aria-hidden="true"><path d="M60 70C40 56 34 46 36 38c2-8 12-11 18-6 3 2 5 5 6 8 1-3 3-6 6-8 6-5 16-2 18 6 2 8-4 18-24 32z" fill="#D9906F"/><path d="M20 64c8 16 24 28 40 28s32-12 40-28c-6-2-12 2-16 6-6 6-14 12-24 12s-18-6-24-12c-4-4-10-8-16-6z" fill="#F2EBDB"/></svg></span><span class="tag">Afectividad</span><h3>Los afectos y los vínculos</h3><p>La amistad, la vida comunitaria, el celibato vivido con madurez, la relación con la familia. Una afectividad integrada sostiene la entrega.</p></article>
-        <article class="service"><span class="ill-tile"><svg viewBox="0 0 120 120" aria-hidden="true"><path d="M86 16a13 13 0 1 0 12 22a11 11 0 1 1-12-22z" fill="#F2EBDB"/><circle cx="24" cy="26" r="1.8" fill="#F2EBDB"/><circle cx="44" cy="16" r="1.4" fill="#F2EBDB"/><circle cx="58" cy="34" r="1.6" fill="#F2EBDB"/><path d="M0 100C30 82 72 82 120 96V120H0Z" fill="#3D7480"/><circle cx="46" cy="72" r="22" fill="#E5B866" opacity=".18"/><rect x="45" y="80" width="2.5" height="18" fill="#F2EBDB"/><rect x="39" y="64" width="14" height="17" rx="3" fill="#E5B866"/><path d="M41 64l5-6 5 6" stroke="#F2EBDB" stroke-width="2" fill="none" stroke-linejoin="round"/></svg></span><span class="tag">Momentos de cambio</span><h3>Crisis y transiciones</h3><p>Un traslado, un duelo, un problema de salud, una crisis de sentido o de vocación. Momentos para no atravesar a solas.</p></article>
-      </div>
-      <div class="po-cols">
+      <div class="free">
+        <span class="ill-tile"><svg viewBox="0 0 120 120" aria-hidden="true"><path d="M40 100l-18 20h76L80 100z" fill="#E5B866" opacity=".25"/><path d="M38 100V46a22 22 0 0 1 44 0v54z" fill="#E5B866"/><path d="M38 100V40l-14 9v56z" fill="#3D7480"/><path d="M38 100V46a22 22 0 0 1 44 0v54" stroke="#F2EBDB" stroke-width="4" fill="none"/><path d="M8 100h104" stroke="#F2EBDB" stroke-width="3" stroke-linecap="round"/></svg></span>
         <div>
-          <h4>Cómo trabajo</h4>
-          <p>Desde la psicoterapia clínica, con un enfoque humanista, integrativo y trascendente: la dimensión espiritual forma parte de la persona y tiene lugar en la conversación. El acompañamiento se adapta a cada etapa y a cada historia.</p>
-          <h4>Algunos temas frecuentes</h4>
+          <p class="eyebrow">Para quien lo necesite</p>
+          <h2>Un espacio abierto</h2>
+          <p>Todo lo que encontrás acá es de libre uso. No hace falta estar en terapia, ni hacerla conmigo. Podés usarlo:</p>
           <ul>
-            <li>Estrés, agotamiento y desgaste en la tarea pastoral.</li>
-            <li>Ansiedad, tristeza, dificultades para descansar.</li>
-            <li>Soledad, vida comunitaria y vínculos con otros sacerdotes.</li>
-            <li>La propia historia familiar y lo que se pone en juego en la vocación.</li>
-            <li>Preguntas por el sentido, la fe, el lugar de cada uno.</li>
+            <li>en tu oración personal, como ayuda para el examen y la revisión de vida;</li>
+            <li>con tu director espiritual, tu formador o tu terapeuta, compartiendo lo que quieras;</li>
+            <li>en tu comunidad, en el seminario o en un encuentro de sacerdotes.</li>
           </ul>
-        </div>
-        <div>
-          <div class="po-box">
-            <h4>Para quién</h4>
-            <p>Para seminaristas en cualquier etapa de la formación y para sacerdotes, diocesanos o religiosos. También para formadores que quieran pensar su tarea. Presencial en Rosario o virtual, por Meet.</p>
-            <a class="btn btn-terra" href="https://wa.me/5493416601847?text=Hola%20Eric%2C%20quisiera%20consultar%20por%20el%20espacio%20Qu%C3%A9date." target="_blank" rel="noopener">Consultar por WhatsApp</a>
-          </div>
-          <p class="po-note">El acompañamiento psicológico no reemplaza la dirección espiritual ni el discernimiento propio de la formación: los complementa.</p>
+          <p>Si en algún momento querés un espacio propio para conversar, también está esa posibilidad. <a href="#conversar">Ver cómo consultar</a>.</p>
         </div>
       </div>
     </div>
@@ -362,35 +358,66 @@ footer a{color:var(--cream)}
     </div>
   </section>
 
-  <section class="block" id="como-empezar">
+  <section class="block" id="camino">
     <div class="wrap">
-      <p class="eyebrow">Cómo empezar</p>
-      <h2>Tres entrevistas iniciales</h2>
-      <p class="po-lead">El proceso empieza con una serie de tres entrevistas. Ahí exploramos qué te trae y después definimos juntos el camino.</p>
-      <ol class="first-steps">
-        <li><span class="ill-tile"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="40" cy="40" r="12" fill="#F2EBDB"/><circle cx="80" cy="44" r="11" fill="#D9906F"/><path d="M18 100c0-28 8-44 22-44 10 0 16 8 16 22v22z" fill="#F2EBDB"/><path d="M102 100c0-26-8-40-22-40-10 0-16 8-16 20v20z" fill="#D9906F"/><path d="M54 30q6-6 12 0M50 22q10-10 20 0" stroke="#E5B866" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg></span><span class="n">1</span><b>Escuchar</b>Qué te trae, qué estás viviendo, qué esperás de este espacio.</li>
-        <li><span class="ill-tile"><svg viewBox="0 0 120 120" aria-hidden="true"><rect y="88" width="120" height="32" fill="#3D7480"/><path d="M22 88a38 38 0 0 1 76 0" stroke="#F2EBDB" stroke-width="2.5" stroke-dasharray="3 7" fill="none" stroke-linecap="round"/><circle cx="26" cy="70" r="9" fill="#E5B866"/><path d="M92 58a9 9 0 1 0 8 15a7 7 0 1 1-8-15z" fill="#F2EBDB"/><circle cx="60" cy="50" r="6" fill="#D9906F"/></svg></span><span class="n">2</span><b>Comprender</b>Tu historia, tu momento vocacional, lo que te sostiene.</li>
-        <li><span class="ill-tile"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="92" cy="30" r="10" fill="#E5B866"/><ellipse cx="60" cy="96" rx="34" ry="10" fill="#D9906F"/><path d="M60 94V58" stroke="#7E9A5A" stroke-width="4" stroke-linecap="round"/><path d="M60 70c-4-14-16-18-26-16 2 12 12 18 26 16z" fill="#7E9A5A"/><path d="M60 62c4-14 16-18 26-16-2 12-12 18-26 16z" fill="#a8b86a"/></svg></span><span class="n">3</span><b>Acordar</b>El diseño, las metas y los medios del proceso. Encuentros de una hora, semanales o quincenales.</li>
-      </ol>
+      <p class="eyebrow">Para el camino</p>
+      <h2>Cuidar a la persona que sostiene la vocación</h2>
+      <p class="po-lead">La vocación se vive con todo lo que uno es: la historia, el cuerpo, los afectos, los vínculos, la fe. Algunas dimensiones que vale la pena cuidar, en la formación y a lo largo del ministerio.</p>
+      <div class="services">
+        <article class="service"><span class="ill-tile"><svg viewBox="0 0 120 120" aria-hidden="true"><path d="M10 84h100" stroke="#3D7480" stroke-width="3"/><rect x="56" y="54" width="8" height="30" fill="#b8724f"/><circle cx="60" cy="42" r="22" fill="#7E9A5A"/><circle cx="43" cy="52" r="13" fill="#a8b86a"/><circle cx="77" cy="52" r="13" fill="#a8b86a"/><g stroke="#b8724f" stroke-width="2.5" stroke-linecap="round" fill="none"><path d="M60 84v22"/><path d="M60 88c-8 4-14 10-18 18"/><path d="M60 88c8 4 14 10 18 18"/></g></svg></span><span class="tag">Formación</span><h3>El camino de la formación</h3><p>Conocerse, integrar la propia historia, crecer en libertad interior. La formación humana es la base sobre la que se apoya todo lo demás.</p></article>
+        <article class="service"><span class="ill-tile"><svg viewBox="0 0 120 120" aria-hidden="true"><path d="M14 104h92" stroke="#3D7480" stroke-width="3" stroke-linecap="round"/><path d="M32 104V42c0-16 24-16 24-2" stroke="#E5B866" stroke-width="5" fill="none" stroke-linecap="round"/><rect x="70" y="88" width="4" height="15" rx="2" fill="#3D7480"/><rect x="88" y="88" width="4" height="15" rx="2" fill="#3D7480"/><circle cx="70" cy="78" r="13" fill="#F2EBDB"/><circle cx="84" cy="74" r="13" fill="#F2EBDB"/><circle cx="92" cy="84" r="11" fill="#F2EBDB"/><circle cx="78" cy="88" r="12" fill="#F2EBDB"/><ellipse cx="102" cy="72" rx="7" ry="9" fill="#3D7480"/></svg></span><span class="tag">Ministerio</span><h3>El peso del ministerio</h3><p>La demanda pastoral, el cansancio, la soledad, la sensación de no llegar. Lo que se carga en silencio también necesita un lugar.</p></article>
+        <article class="service"><span class="ill-tile"><svg viewBox="0 0 120 120" aria-hidden="true"><path d="M14 100h92" stroke="#3D7480" stroke-width="3" stroke-linecap="round"/><path d="M38 56c-4-6 4-8 0-14M82 56c-4-6 4-8 0-14" stroke="#9fb7bd" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M60 52c-6-4-8-8-6-11 1-2 4-2 6 1 2-3 5-3 6-1 2 3 0 7-6 11z" fill="#E5B866"/><path d="M24 64h28v26a8 8 0 0 1-8 8H32a8 8 0 0 1-8-8z" fill="#F2EBDB"/><path d="M24 70c-8 0-8 14 0 14" stroke="#F2EBDB" stroke-width="4" fill="none"/><path d="M68 64h28v26a8 8 0 0 1-8 8H76a8 8 0 0 1-8-8z" fill="#D9906F"/><path d="M96 70c8 0 8 14 0 14" stroke="#D9906F" stroke-width="4" fill="none"/></svg></span><span class="tag">Afectividad</span><h3>Los afectos y los vínculos</h3><p>La amistad, la vida comunitaria, el celibato vivido con madurez, la relación con la familia. Una afectividad integrada sostiene la entrega.</p></article>
+        <article class="service"><span class="ill-tile"><svg viewBox="0 0 120 120" aria-hidden="true"><path d="M86 16a13 13 0 1 0 12 22a11 11 0 1 1-12-22z" fill="#F2EBDB"/><circle cx="24" cy="26" r="1.8" fill="#F2EBDB"/><circle cx="44" cy="16" r="1.4" fill="#F2EBDB"/><circle cx="58" cy="34" r="1.6" fill="#F2EBDB"/><path d="M0 100C30 82 72 82 120 96V120H0Z" fill="#3D7480"/><circle cx="46" cy="72" r="22" fill="#E5B866" opacity=".18"/><rect x="45" y="80" width="2.5" height="18" fill="#F2EBDB"/><rect x="39" y="64" width="14" height="17" rx="3" fill="#E5B866"/><path d="M41 64l5-6 5 6" stroke="#F2EBDB" stroke-width="2" fill="none" stroke-linejoin="round"/></svg></span><span class="tag">Momentos de cambio</span><h3>Crisis y transiciones</h3><p>Un traslado, un duelo, un problema de salud, una crisis de sentido o de vocación. Momentos para no atravesar a solas.</p></article>
+      </div>
+      <div class="po-cols">
+        <div>
+          <h4>Señales para no pasar por alto</h4>
+          <ul class="care">
+            <li>Un cansancio que no se va ni con el descanso.</li>
+            <li>Ganas de aislarse, de evitar a los hermanos o a la gente.</li>
+            <li>Tristeza, irritabilidad o ansiedad que se sostienen en el tiempo.</li>
+            <li>Dificultad para dormir, para rezar o para disfrutar de lo que antes hacía bien.</li>
+            <li>La sensación de estar viviendo en automático.</li>
+          </ul>
+          <p class="po-note">Si alguna se sostiene, hablarlo con alguien de confianza (un hermano sacerdote, tu director espiritual o un profesional) es un acto de cuidado, no de debilidad.</p>
+        </div>
+        <div>
+          <div class="po-box">
+            <h4>Pequeños cuidados que sostienen</h4>
+            <ul class="care">
+              <li>Un día de descanso real cada semana.</li>
+              <li>La amistad sacerdotal y algún grupo de pertenencia.</li>
+              <li>La dirección espiritual, con regularidad.</li>
+              <li>El cuerpo: sueño, alimentación, movimiento.</li>
+              <li>Un rato de silencio que no sea para preparar nada.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="block" id="quien-soy">
-    <div class="wrap about">
-      <div>
-        <p class="eyebrow">Quién soy</p>
-        <h2>Eric Terlecki</h2>
-        <ul class="facts">
-          <li><b>Formación</b>Lic. en Psicología · Esp. en Psicoterapia Clínica · Mg. en Psicooncología</li>
-          <li><b>Matrícula</b>Mat. Nro. 4331</li>
-          <li><b>Dónde</b>Consultorio en Rosario o virtual, por Meet</li>
-        </ul>
-      </div>
-      <div>
-        <p class="po-lead" style="margin-top:0">Acompaño a personas, parejas y familias en psicoterapia clínica desde un enfoque humanista, integrativo y trascendente.</p>
-        <p style="margin-top:16px">Quien acompaña a otros también necesita ser acompañado. Detrás de cada vocación hay una persona con su historia, sus afectos, su cansancio y sus preguntas.</p>
-        <p>«Quédate» nace para eso: para que seminaristas y sacerdotes tengan un espacio propio donde poner en palabras lo que viven, y seguir caminando.</p>
-        <p class="po-note">Es un espacio hermano de <a href="https://entre-nosotros-web.vercel.app/" target="_blank" rel="noopener">Entre Nosotros</a>, el espacio de psicoterapia general, y de <a href="https://a-tu-lado-web.vercel.app/" target="_blank" rel="noopener">A tu Lado</a>, de psicooncología.</p>
+  <section class="block" id="app">
+    <div class="wrap">
+      <div class="app-card">
+        <div>
+          <p class="eyebrow">De libre uso</p>
+          <h2 style="margin-top:10px;font-size:clamp(1.7rem,3.5vw,2.3rem)">Examen del día</h2>
+          <p style="margin-top:12px;color:var(--muted)">Una app sencilla para hacer cada noche la revisión de vida al modo de san Ignacio de Loyola y compartir, si querés, lo que se fue moviendo con quien te acompaña. Se instala en el celular como cualquier aplicación.</p>
+          <ul>
+            <li>Los cinco pasos del examen ignaciano</li>
+            <li>Estado de ánimo, emociones, consolación y desolación</li>
+            <li>La Palabra: frases de la Escritura y de los santos para consolar</li>
+            <li>Revisión semanal para compartir con tu director espiritual o tu terapeuta</li>
+          </ul>
+          <div class="btns"><a class="btn btn-terra" href="app/" target="_blank" rel="noopener">Abrir la app</a></div>
+        </div>
+        <div class="phone" aria-hidden="true">
+          <div class="ph-top"><svg><use href="#simbolo"/></svg>Examen del día</div>
+          <div class="ph-row"><b>1 · Dar gracias</b>Por la misa de la tarde</div>
+          <div class="ph-row"><b>3 · Revisar el día</b>Algo de consolación<div class="scale"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div></div>
+          <div class="ph-row"><b>5 · Mañana</b>La gracia que pido: paciencia</div>
+        </div>
       </div>
     </div>
   </section>
@@ -421,30 +448,25 @@ footer a{color:var(--cream)}
           <li class="book b-cui" data-cat="Cansancio y cuidado"><span class="book-tag">Cansancio y cuidado</span><h3>Sacerdotes rotos</h3><span class="book-au">Gérard Daucourt</span><p>Una mirada cargada de amor sobre los curas: la debilidad de lo humano y la fortaleza de la gracia, sin esquivar los temas difíciles.</p></li>
           <li class="book b-sen" data-cat="Sentido"><span class="book-tag">Sentido</span><h3>El hombre en busca de sentido</h3><span class="book-au">Viktor Frankl</span><p>Un clásico de la psicología humanista: aun en el sufrimiento, la vida puede tener sentido.</p></li>
       </ul>
-      <p class="po-note">Se consiguen en librerías religiosas o en formato digital. Si querés, lo conversamos en sesión para elegir por dónde empezar.</p>
+      <p class="po-note">Se consiguen en librerías religiosas o en formato digital.</p>
     </div>
   </section>
 
-  <section class="block" id="app">
-    <div class="wrap">
-      <div class="app-card">
-        <div>
-          <p class="eyebrow">Para quienes están en acompañamiento</p>
-          <h2 style="margin-top:10px;font-size:clamp(1.7rem,3.5vw,2.3rem)">Examen del día</h2>
-          <p style="margin-top:12px;color:var(--muted)">Una app sencilla para hacer cada noche la revisión de vida al modo de san Ignacio de Loyola y llevar a la sesión lo que se fue moviendo en la semana. Se instala en el celular como cualquier aplicación.</p>
-          <ul>
-            <li>Los cinco pasos del examen ignaciano</li>
-            <li>Estado de ánimo, emociones, consolación y desolación</li>
-            <li>Revisión semanal para enviar antes de la sesión</li>
-          </ul>
-          <div class="btns"><a class="btn btn-terra" href="app/" target="_blank" rel="noopener">Abrir la app</a></div>
-        </div>
-        <div class="phone" aria-hidden="true">
-          <div class="ph-top"><svg><use href="#simbolo"/></svg>Examen del día</div>
-          <div class="ph-row"><b>1 · Dar gracias</b>Por la misa de la tarde</div>
-          <div class="ph-row"><b>3 · Revisar el día</b>Algo de consolación<div class="scale"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div></div>
-          <div class="ph-row"><b>5 · Mañana</b>La gracia que pido: paciencia</div>
-        </div>
+  <section class="block" id="quien-soy">
+    <div class="wrap about">
+      <div>
+        <p class="eyebrow">Quién soy</p>
+        <h2>Eric Terlecki</h2>
+        <ul class="facts">
+          <li><b>Formación</b>Lic. en Psicología · Esp. en Psicoterapia Clínica · Mg. en Psicooncología</li>
+          <li><b>Matrícula</b>Mat. Nro. 4331</li>
+        </ul>
+      </div>
+      <div>
+        <p class="po-lead" style="margin-top:0">Soy psicólogo y trabajo desde la psicoterapia clínica con un enfoque humanista, integrativo y trascendente.</p>
+        <p style="margin-top:16px">Quien acompaña a otros también necesita ser acompañado. Detrás de cada vocación hay una persona con su historia, sus afectos, su cansancio y sus preguntas.</p>
+        <p>«Quédate» nace como un aporte para quienes sostienen a tantos: un lugar con recursos para el camino, abierto a quien lo necesite.</p>
+        <p class="po-note">Es un espacio hermano de <a href="https://entre-nosotros-web.vercel.app/" target="_blank" rel="noopener">Entre Nosotros</a> y de <a href="https://a-tu-lado-web.vercel.app/" target="_blank" rel="noopener">A tu Lado</a>.</p>
       </div>
     </div>
   </section>
@@ -454,37 +476,35 @@ footer a{color:var(--cream)}
       <div class="split">
         <div>
           <p class="eyebrow">Preguntas frecuentes</p>
-          <h2>Antes de empezar</h2>
-          <p style="margin-top:12px;color:var(--muted);max-width:40ch">Si tenés otra duda, escribime.</p>
+          <h2>Algunas dudas</h2>
         </div>
         <div class="faq">
-          <details class="faq-q"><summary>¿Lo que hablo es confidencial?</summary><p>Sí. Lo que conversamos está protegido por el secreto profesional. No se comparte información con el seminario, la diócesis o la congregación sin tu consentimiento expreso.</p></details>
-          <details class="faq-q"><summary>¿Reemplaza la dirección espiritual?</summary><p>No. Son espacios distintos que pueden convivir. La psicoterapia trabaja lo psicológico y lo vincular; la dirección espiritual acompaña la vida de fe. Muchas veces se enriquecen mutuamente.</p></details>
-          <details class="faq-q"><summary>¿Hace falta estar en crisis para consultar?</summary><p>No. Se puede consultar para cuidarse, para conocerse mejor o para atravesar una etapa nueva. No hace falta esperar a «estar mal».</p></details>
-          <details class="faq-q"><summary>¿Puedo hacerlo de forma virtual?</summary><p>Sí. Además del consultorio de Pasaje Rizzuto 3451, en Rosario, atiendo por Meet. Es útil si vivís en otra ciudad o tu agenda pastoral cambia mucho.</p></details>
-          <details class="faq-q"><summary>¿Cómo es la primera entrevista?</summary><p>Es la primera de una serie de tres entrevistas iniciales. Ahí exploramos qué te trae, qué estás viviendo, qué esperás. Después definimos juntos las metas y los medios del proceso.</p></details>
-          <details class="faq-q"><summary>¿Trabajás con obras sociales?</summary><p>No trabajo con obras sociales. Para los honorarios, consultame por WhatsApp. Están disponibles todos los medios de pago.</p></details>
+          <details class="faq-q"><summary>¿Necesito hacer terapia para usar la app o los recursos?</summary><p>No. Son de libre uso, para cualquier seminarista o sacerdote que quiera aprovecharlos, esté o no en un proceso de acompañamiento.</p></details>
+          <details class="faq-q"><summary>¿Puedo usar la app con mi director espiritual o mi terapeuta?</summary><p>Sí. La revisión semanal arma un resumen que podés compartir por WhatsApp con quien elijas, o copiar y llevarlo como prefieras.</p></details>
+          <details class="faq-q"><summary>¿Lo que registro en la app queda guardado en algún lado?</summary><p>Sólo en tu celular. La app no envía tus datos a ningún servidor. Nadie más puede verlos, salvo lo que vos decidas compartir.</p></details>
+          <details class="faq-q"><summary>¿Esto reemplaza la dirección espiritual?</summary><p>No. Son espacios distintos que pueden convivir. Lo psicológico y lo espiritual se enriquecen mutuamente.</p></details>
+          <details class="faq-q"><summary>Si consulto, ¿es confidencial?</summary><p>Sí. Lo que conversamos está protegido por el secreto profesional. No se comparte información con el seminario, la diócesis o la congregación sin tu consentimiento expreso.</p></details>
+          <details class="faq-q"><summary>Si consulto, ¿cómo es?</summary><p>Empezamos con tres entrevistas iniciales para conocernos y ver juntos qué te serviría. Puede ser presencial en Rosario o virtual, por Meet. No trabajo con obras sociales; los honorarios se conversan por WhatsApp.</p></details>
         </div>
       </div>
     </div>
   </section>
 </main>
 
-<section class="contact" id="contacto">
+<section class="contact" id="conversar">
   <div class="wrap">
-    <p class="eyebrow" style="color:var(--terra)">Contacto</p>
-    <h2 style="margin-top:10px">Quedate a conversar</h2>
-    <p class="intro">Escribime para coordinar una primera entrevista. Respondo personalmente.</p>
+    <p class="eyebrow" style="color:var(--terra)">Si querés conversar</p>
+    <h2 style="margin-top:10px">Un espacio propio, cuando lo necesites</h2>
+    <p class="intro">Además de estos recursos, ofrezco acompañamiento psicológico para seminaristas y sacerdotes, presencial en Rosario o virtual. Si en algún momento querés consultar, podés escribirme.</p>
     <div class="channels">
-      <div class="channel"><span class="lbl">WhatsApp</span><span class="val">341 660-1847</span><span class="acts"><a href="https://wa.me/5493416601847?text=Hola%20Eric%2C%20quisiera%20consultar%20por%20el%20espacio%20Qu%C3%A9date." target="_blank" rel="noopener">Abrir chat</a><button type="button" data-copy="341 660-1847">Copiar</button></span></div>
+      <div class="channel"><span class="lbl">WhatsApp</span><span class="val">341 660-1847</span><span class="acts"><a href="https://wa.me/5493416601847?text=Hola%20Eric%2C%20quisiera%20consultar." target="_blank" rel="noopener">Abrir chat</a><button type="button" data-copy="341 660-1847">Copiar</button></span></div>
       <div class="channel"><span class="lbl">Mail</span><span class="val">ericterlecki@gmail.com</span><span class="acts"><button type="button" data-copy="ericterlecki@gmail.com">Copiar</button></span></div>
-      <div class="channel"><span class="lbl">Consultorio</span><span class="val">Pasaje Rizzuto 3451, Rosario</span><span class="acts">A la altura de Uruguay al 1150 · También virtual</span></div>
-      <div class="channel"><span class="lbl">Horarios</span><span class="val">Lun a vie 8 a 21 h · Sáb 8 a 13 h</span><span class="acts">Encuentros de una hora aproximadamente</span></div>
     </div>
+    <p class="conv-steps">Consultorio en Pasaje Rizzuto 3451, Rosario, o virtual por Meet. Lunes a viernes de 8 a 21 h y sábados de 8 a 13 h.</p>
     <div class="sos" id="emergencias">
       <span class="lbl">Ante una emergencia</span>
-      <h3>Si estás en peligro o en una crisis, no esperes a la sesión</h3>
-      <p>Llamá a alguno de estos números o acercate a la guardia más cercana. Este espacio no atiende urgencias.</p>
+      <h3>Si estás en peligro o en una crisis, no esperes</h3>
+      <p>Llamá a alguno de estos números o acercate a la guardia más cercana.</p>
       <ul class="sos-list">
         <li><span class="num">911</span><span class="what">Emergencias</span><span class="det">Policía, bomberos y urgencias en general.</span></li>
         <li><span class="num">107</span><span class="what">SIES · Emergencias médicas</span><span class="det">Ambulancia y urgencias de salud en la provincia de Santa Fe.</span></li>
@@ -495,10 +515,9 @@ footer a{color:var(--cream)}
 </section>
 
 <footer>
-  <div class="wrap"><span>Quédate · Lic. Eric Terlecki · Mat. N.º 4331 · Un espacio hermano de <a href="https://entre-nosotros-web.vercel.app/" target="_blank" rel="noopener">Entre Nosotros</a> y <a href="https://a-tu-lado-web.vercel.app/" target="_blank" rel="noopener">A tu Lado</a></span><span>Emergencias: <a href="#emergencias">911 · 107 SIES · 0800-999-0091</a></span></div>
+  <div class="wrap"><span>Quédate · Recursos de libre uso para seminaristas y sacerdotes · Lic. Eric Terlecki · Mat. N.º 4331</span><span>Emergencias: <a href="#emergencias">911 · 107 SIES · 0800-999-0091</a></span></div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/5493416601847?text=Hola%20Eric%2C%20quisiera%20consultar%20por%20el%20espacio%20Qu%C3%A9date." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp para pedir una primera entrevista"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg><span>Pedir primera entrevista</span></a>
 <div class="toast" id="toast" hidden>Copiado</div>
 <script>
 (function(){
@@ -516,9 +535,6 @@ document.querySelectorAll("[data-copy]").forEach(btn=>{
   });
 });
 (function(){const n=document.querySelector(".nav");if(!n)return;const set=()=>document.documentElement.style.setProperty("--navh",n.offsetHeight+"px");set();addEventListener("resize",set);if(window.ResizeObserver)new ResizeObserver(set).observe(n);})();
-(()=>{const f=document.querySelector(".wa-float"),c=document.getElementById("contacto");if(!f||!c||!("IntersectionObserver" in window))return;
-new IntersectionObserver(e=>f.classList.toggle("is-hidden",e[0].isIntersecting),{threshold:.15}).observe(c);})();
-(()=>{const mm=document.getElementById("mobile-menu"),wf=document.querySelector(".wa-float");if(mm&&wf)new MutationObserver(()=>wf.style.display=mm.hidden?"":"none").observe(mm,{attributes:true,attributeFilter:["hidden"]});})();
 document.querySelectorAll("[data-bf]").forEach(b=>b.addEventListener("click",()=>{const f=b.dataset.bf;document.querySelectorAll("[data-bf]").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));document.querySelectorAll(".book").forEach(li=>li.hidden=!!f&&li.dataset.cat!==f);}));
 </script>
 </body>
