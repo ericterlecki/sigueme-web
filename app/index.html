@@ -263,7 +263,7 @@ dl.kv dd{margin:0;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;
 .install .btn{background:var(--logo-b);color:#1f2f33}
 .install .btn.ghost{background:transparent;color:var(--head-fg);border-color:color-mix(in srgb,var(--head-fg) 40%,transparent)}
 .ico{display:inline-block;width:1.15em;height:1.15em;vertical-align:-.2em}
-.inst-ios + .inst-android,.inst-android + .inst-ios{margin-top:18px}
+.inst-ios + .inst-android,.inst-android + .inst-ios,.inst-ios-g + .inst-android-g{margin-top:18px}
 .privacy{display:flex;gap:10px;align-items:flex-start;font-size:.86rem;color:var(--muted);background:var(--sunk);border-radius:12px;padding:10px 12px}
 .privacy svg{width:18px;height:18px;flex:none;margin-top:2px;color:var(--brand)}
 .privacy a{color:var(--brand);font-weight:600}
@@ -280,7 +280,8 @@ dl.kv dd{margin:0;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;
 footer.sig{padding-block:26px 6px;text-align:center;font-size:.8rem;color:var(--muted)}
 
 /* ---- Quédate: ajustes propios ---- */
-nav.tabs .in{grid-template-columns:repeat(4,1fr)}
+nav.tabs .in{grid-template-columns:repeat(5,1fr)}
+nav.tabs a{font-size:.7rem}
 .brand > svg{width:40px;height:40px}
 .wordmark{font-family:"Playfair Display",Georgia,serif;font-weight:500;letter-spacing:-.01em;white-space:nowrap;display:inline-flex;align-items:baseline}
 .wordmark .t{display:inline-block;width:.39em;height:.75em;margin:0 .03em 0 .01em;overflow:visible}
@@ -330,6 +331,18 @@ nav.tabs .in{grid-template-columns:repeat(4,1fr)}
 .twocol b{font-size:.95rem}
 @media (max-width:440px){.twocol{grid-template-columns:1fr}.moc{grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}.moc button{font-size:.68rem;padding:8px 2px}}
 
+/* La Palabra */
+.word-day{background:var(--head-bg);color:var(--head-fg);border-radius:var(--r);padding:20px 18px;display:grid;gap:12px}
+.word-day .eyebrow{color:var(--logo-b)}
+.word-day blockquote{margin:0;font-family:var(--quote);font-style:italic;font-size:1.35rem;line-height:1.4}
+.word-day cite{font-style:normal;font-weight:600;font-size:.9rem;color:color-mix(in srgb,var(--head-fg) 80%,transparent)}
+.word-day .row .btn{flex:0 1 auto;background:var(--logo-b);color:#1f2f33;padding:10px 16px}
+.word-day .row .btn.ghost{background:transparent;color:var(--head-fg);border-color:color-mix(in srgb,var(--head-fg) 40%,transparent)}
+.quote .src{font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.quote .acts{display:flex;gap:12px}
+.mini-word{background:var(--sunk);border-radius:var(--r);padding:16px 18px;display:grid;gap:8px}
+.mini-word blockquote{margin:0;font-family:var(--quote);font-style:italic;font-size:1.12rem;line-height:1.4}
+.mini-word cite{font-style:normal;font-size:.85rem;font-weight:600;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -373,8 +386,8 @@ nav.tabs .in{grid-template-columns:repeat(4,1fr)}
       <div class="install" id="install-card" hidden>
         <h3>Tenga la app a mano en su celular</h3>
         <p>Instálela en la pantalla de inicio: se abre como cualquier aplicación y funciona sin conexión.</p>
-        <div class="inst-ios" hidden><b>En iPhone (Safari)</b><ol><li>Abra este enlace en <b>Safari</b>.</li><li>Toque el botón Compartir, en la barra de abajo.</li><li>Elija <b>«Agregar a inicio»</b> y toque <b>«Agregar»</b>.</li></ol></div>
-        <div class="inst-android" hidden><b>En Android (Chrome)</b><ol><li>Abra este enlace en <b>Chrome</b>.</li><li>Toque el menú de tres puntos, arriba a la derecha.</li><li>Elija <b>«Instalar aplicación»</b> o <b>«Agregar a la pantalla principal»</b>.</li></ol></div>
+        <div class="inst-ios"><b>En iPhone (Safari)</b><ol><li>Abra este enlace en <b>Safari</b>.</li><li>Toque el botón Compartir, en la barra de abajo.</li><li>Elija <b>«Agregar a inicio»</b> y toque <b>«Agregar»</b>.</li></ol></div>
+        <div class="inst-android"><b>En Android (Chrome)</b><ol><li>Abra este enlace en <b>Chrome</b>.</li><li>Toque el menú <b>⋮</b> (tres puntos), arriba a la derecha.</li><li>Elija <b>«Instalar aplicación»</b> o <b>«Agregar a la pantalla principal»</b>.</li><li>Confirme con <b>«Instalar»</b>.</li></ol><p class="small muted">¿Usa Samsung Internet? Menú <b>☰</b> abajo a la derecha → <b>«Agregar página a»</b> → <b>«Pantalla de inicio»</b>.</p></div>
         <div class="row"><button class="btn" id="install-btn" type="button" hidden>Instalar la app</button><button class="btn ghost" id="install-later" type="button">Ahora no</button></div>
       </div>
 
@@ -437,7 +450,8 @@ nav.tabs .in{grid-template-columns:repeat(4,1fr)}
         <button class="btn" id="d-guardar" type="button">Guardar el examen del día</button>
         <a class="btn ghost" id="d-wa" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a>
       </div>
-      <p class="closing">«Quédate con nosotros, porque ya es tarde». Gracias por darse este momento.</p>
+      <p class="closing">Gracias por darse este momento.</p>
+      <div class="mini-word" id="hoy-palabra"></div>
     </section>
 
     <!-- SEMANA -->
@@ -530,6 +544,19 @@ nav.tabs .in{grid-template-columns:repeat(4,1fr)}
       <div class="list" id="h-semanas"></div>
     </section>
 
+    <!-- LA PALABRA -->
+    <section class="view" id="v-palabra" hidden>
+      <div class="lead">
+        <span class="eyebrow">Para consolar</span>
+        <h2>La Palabra</h2>
+        <p class="muted">Palabras de la Escritura y de los santos para volver a ellas, sobre todo en tiempos de cansancio o desolación. Elija una categoría.</p>
+      </div>
+      <div class="word-day" id="p-hoy"></div>
+      <div class="chips" id="p-cats"></div>
+      <div class="list" id="p-list"></div>
+      <p class="small muted">Las citas bíblicas están traducidas de forma libre a partir de las versiones habituales en la liturgia.</p>
+    </section>
+
     <!-- GUIA -->
     <section class="view" id="v-guia" hidden>
       <div class="lead">
@@ -592,7 +619,7 @@ nav.tabs .in{grid-template-columns:repeat(4,1fr)}
         <summary>Instalar la app en el celular</summary>
         <div class="body">
           <div class="inst-ios-g"><b>En iPhone (Safari)</b><ol><li>Abra este enlace en <b>Safari</b>.</li><li>Toque el botón Compartir, en la barra de abajo.</li><li>Elija <b>«Agregar a inicio»</b> y toque <b>«Agregar»</b>.</li></ol></div>
-          <div class="inst-android-g"><b>En Android (Chrome)</b><ol><li>Abra este enlace en <b>Chrome</b>.</li><li>Toque el menú de tres puntos, arriba a la derecha.</li><li>Elija <b>«Instalar aplicación»</b> o <b>«Agregar a la pantalla principal»</b>.</li></ol></div>
+          <div class="inst-android-g"><b>En Android (Chrome)</b><ol><li>Abra este enlace en <b>Chrome</b>.</li><li>Toque el menú <b>⋮</b> (tres puntos), arriba a la derecha.</li><li>Elija <b>«Instalar aplicación»</b> o <b>«Agregar a la pantalla principal»</b>.</li><li>Confirme con <b>«Instalar»</b>. El ícono de Quédate aparece en su pantalla de inicio.</li></ol><p class="small muted">¿Usa Samsung Internet? Toque el menú <b>☰</b> abajo a la derecha, elija <b>«Agregar página a»</b> y luego <b>«Pantalla de inicio»</b>.</p></div>
           <p class="small muted">Si ya la instaló, se actualiza sola cada vez que la abre con internet.</p>
         </div>
       </details>
@@ -645,6 +672,11 @@ nav.tabs .in{grid-template-columns:repeat(4,1fr)}
     <section class="view" id="v-ajustes" hidden>
       <div class="lead"><h2>Ajustes</h2><p class="muted">Todo se guarda sólo en este dispositivo.</p></div>
       <div class="card">
+        <h3>Instalar en el celular</h3>
+        <p class="small muted">Tenga la app en la pantalla de inicio, con el logo de Quédate. Se abre como cualquier aplicación y funciona sin conexión.</p>
+        <div class="row"><button class="btn" id="a-install" type="button">Instalar la app</button><a class="btn ghost" href="#guia" data-goto="guia-instalar">Ver los pasos</a></div>
+      </div>
+      <div class="card">
         <div class="q"><label for="a-nombre">Mi nombre <span class="hint">· aparece en el resumen que envía</span></label>
           <input type="text" id="a-nombre" placeholder="Nombre o iniciales"></div>
         <button class="btn" id="a-guardar" type="button">Guardar</button>
@@ -674,7 +706,8 @@ nav.tabs .in{grid-template-columns:repeat(4,1fr)}
     <a href="#hoy" data-nav="hoy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3v18M5 9h14"/></svg>Hoy</a>
     <a href="#semana" data-nav="semana"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Semana</a>
     <a href="#recorrido" data-nav="recorrido"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 19V11M10 19V5M16 19v-6M22 19H2"/></svg>Recorrido</a>
-    <a href="#guia" data-nav="guia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg>Guía</a>
+    <a href="#palabra" data-nav="palabra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.5c3-1.2 6.5-1.2 10 1 3.5-2.2 7-2.2 10-1V19c-3-1.2-6.5-1.2-10 1-3.5-2.2-7-2.2-10-1z"/><path d="M12 6.5V20"/></svg>La Palabra</a>
+    <a href="#guia" data-nav="guia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>Guía</a>
   </div>
 </nav>
 
@@ -735,7 +768,7 @@ function buildMoods(){const el=$("#d-animo");el.innerHTML="";MOODS.forEach(m=>{c
   b.addEventListener("click",()=>{animo=animo===m.v?null:m.v;paintMoods();updateDayWA()});el.appendChild(b)})}
 const paintMoods=()=>$$("#d-animo .mood").forEach(b=>b.setAttribute("aria-pressed",+b.dataset.v===animo?"true":"false"));
 function buildMoc(){const el=$("#d-mocion");el.innerHTML="";MOC.forEach(m=>{const b=document.createElement("button");b.type="button";b.dataset.v=m.v;b.setAttribute("aria-pressed","false");
-  b.innerHTML=`<i style="background:${mocColor(m.v)}"></i>${m.t}`;b.addEventListener("click",()=>{mocion=mocion===m.v?null:m.v;paintMoc();updateDayWA()});el.appendChild(b)})}
+  b.innerHTML=`<i style="background:${mocColor(m.v)}"></i>${m.t}`;b.addEventListener("click",()=>{mocion=mocion===m.v?null:m.v;paintMoc();updateDayWA();paintHoyPalabra()});el.appendChild(b)})}
 const paintMoc=()=>$$("#d-mocion button").forEach(b=>b.setAttribute("aria-pressed",+b.dataset.v===mocion?"true":"false"));
 function buildAreas(){const el=$("#d-areas");el.innerHTML='<div class="scale-head"><span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>';
   AREAS.forEach((a,i)=>{const r=document.createElement("div");r.className="scale-row";r.innerHTML=`<span>${a}</span>`;
@@ -757,7 +790,8 @@ function loadDay(){const k=curDate(),d=daily[k]||{};
   setChips($("#d-gracias"),d.gracias);setChips($("#d-emociones"),d.emociones);setSeg($("#d-luz"),d.luz||"");setSeg($("#d-voz"),d.voz||"");setAreas(d.areas);
   $("#d-gracias-txt").value=d.graciasTxt||"";$("#d-otra").value=d.otra||"";$("#d-paz").value=d.paz||"";$("#d-inquietud").value=d.inquietud||"";
   $("#d-perdon").value=d.perdon||"";$("#d-manana").value=d.manana||"";$("#d-gracia").value=d.gracia||"";$("#d-sesion").value=d.sesion||"";
-  const b=$("#hoy-estado");b.textContent=daily[k]?"Guardado":"Sin registrar";updateDayWA()}
+  const b=$("#hoy-estado");b.textContent=daily[k]?"Guardado":"Sin registrar";updateDayWA();paintHoyPalabra()}
+function paintHoyPalabra(){let p=PALABRA[pIdx()];if(mocion!==null&&mocion<0){const ds=PALABRA.filter(x=>x.c==="En la desolación");p=ds[pIdx()%ds.length]}$("#hoy-palabra").innerHTML=wordBlock(p,false)}
 function dayText(){const d=dayFromForm(),k=curDate(),L=[];
   L.push("*Quédate · Examen del día*");if(prefs.nombre)L.push(prefs.nombre);L.push(fmtLong(parse(k)));L.push("");
   const g=[...d.gracias];if(d.graciasTxt)g.push(d.graciasTxt);if(g.length)L.push("*Doy gracias por:* "+g.join(", "));
@@ -822,6 +856,59 @@ function loadHist(){const today=new Date(),ks=[];for(let i=13;i>=0;i--)ks.push(i
   $("#h-semanas").innerHTML=wk.length?wk.map(k=>{const w=weekly[k];const rows=[["Consolación",w.cons],["Desolación",w.deso],["Agotamiento",w.cansancio],["Me sostuvo",(w.sostuvo||[]).join(", ")],["Para la sesión",w.sesion],["Gracia que pido",w.gracia]].filter(r=>r[1]);
     return`<details class="entry"><summary><span><b>Semana del ${fmtShort(parse(k))}</b></span></summary><dl class="body">${rows.map(r=>`<dt>${r[0]}</dt><dd>${esc(r[1])}</dd>`).join("")||'<dd class="muted">Sin detalles.</dd>'}</dl></details>`}).join(""):'<p class="empty">Todavía no hay revisiones semanales.</p>'}
 
+
+/* ---------- LA PALABRA ---------- */
+const PALABRA=[
+ {c:"En la desolación",t:"El que está en desolación piense que será pronto consolado.",a:"San Ignacio de Loyola",r:"Ejercicios Espirituales, 321"},
+ {c:"En la desolación",t:"El Señor está cerca de los que tienen el corazón herido.",a:"Salmo 34,19",b:1},
+ {c:"En la desolación",t:"Nada te turbe, nada te espante, todo se pasa, Dios no se muda. La paciencia todo lo alcanza; quien a Dios tiene nada le falta: sólo Dios basta.",a:"Santa Teresa de Jesús"},
+ {c:"En la desolación",t:"¿Acaso una madre se olvida de su niño? Aunque ella se olvidara, yo no te olvidaré.",a:"Isaías 49,15",b:1},
+ {c:"En la desolación",t:"Quédate con nosotros, porque ya es tarde y el día se acaba.",a:"Lucas 24,29",b:1},
+ {c:"Cansancio",t:"Vengan a mí todos los que están afligidos y agobiados, y yo los aliviaré.",a:"Mateo 11,28",b:1},
+ {c:"Cansancio",t:"Los que esperan en el Señor renuevan sus fuerzas: corren y no se cansan, caminan y no se fatigan.",a:"Isaías 40,31",b:1},
+ {c:"Cansancio",t:"Sólo en Dios descansa mi alma; de él viene mi salvación.",a:"Salmo 62,2",b:1},
+ {c:"Cansancio",t:"Nos hiciste, Señor, para ti, y nuestro corazón está inquieto hasta que descanse en ti.",a:"San Agustín",r:"Confesiones I,1"},
+ {c:"Cansancio",t:"Contento, Señor, contento.",a:"San Alberto Hurtado"},
+ {c:"Confianza",t:"No temas, porque yo estoy contigo; no te angusties, porque yo soy tu Dios.",a:"Isaías 41,10",b:1},
+ {c:"Confianza",t:"El Señor es mi pastor, nada me puede faltar.",a:"Salmo 23,1",b:1},
+ {c:"Confianza",t:"Descarguen en él todas sus preocupaciones, porque él cuida de ustedes.",a:"1 Pedro 5,7",b:1},
+ {c:"Confianza",t:"Yo estoy con ustedes todos los días, hasta el fin del mundo.",a:"Mateo 28,20",b:1},
+ {c:"Confianza",t:"Padre, me pongo en tus manos. Haz de mí lo que quieras.",a:"San Carlos de Foucauld",r:"Oración de abandono"},
+ {c:"Confianza",t:"Reza, espera y no te preocupes.",a:"San Pío de Pietrelcina"},
+ {c:"Debilidad",t:"Te basta mi gracia, porque mi poder se manifiesta en la debilidad.",a:"2 Corintios 12,9",b:1},
+ {c:"Debilidad",t:"Llevamos este tesoro en recipientes de barro, para que se vea que este poder extraordinario viene de Dios.",a:"2 Corintios 4,7",b:1},
+ {c:"Debilidad",t:"Cuando soy débil, entonces soy fuerte.",a:"2 Corintios 12,10",b:1},
+ {c:"Debilidad",t:"Señor, tú lo sabes todo; tú sabes que te quiero.",a:"Juan 21,17",b:1},
+ {c:"Vocación",t:"No son ustedes los que me eligieron a mí, sino yo el que los elegí a ustedes.",a:"Juan 15,16",b:1},
+ {c:"Vocación",t:"Antes de formarte en el vientre materno, yo te conocía.",a:"Jeremías 1,5",b:1},
+ {c:"Vocación",t:"El que comenzó en ustedes la buena obra la llevará a término.",a:"Filipenses 1,6",b:1},
+ {c:"Vocación",t:"El sacerdocio es el amor del corazón de Jesús.",a:"San Juan María Vianney, Cura de Ars"},
+ {c:"Vocación",t:"Para ustedes soy obispo, con ustedes soy cristiano.",a:"San Agustín",r:"Sermón 340"},
+ {c:"Vocación",t:"En mi corazón, en el corazón de la Iglesia, mi vocación será el amor.",a:"Santa Teresa del Niño Jesús"},
+ {c:"Vocación",t:"¡No tengan miedo! ¡Abran de par en par las puertas a Cristo!",a:"San Juan Pablo II"},
+ {c:"Misericordia",t:"A la tarde te examinarán en el amor.",a:"San Juan de la Cruz",r:"Dichos de luz y amor"},
+ {c:"Misericordia",t:"Donde no hay amor, pon amor, y sacarás amor.",a:"San Juan de la Cruz"},
+ {c:"Misericordia",t:"Dame tu amor y gracia, que esta me basta.",a:"San Ignacio de Loyola",r:"Tomad, Señor, y recibid"},
+ {c:"Misericordia",t:"Yo no he venido a llamar a los justos, sino a los pecadores.",a:"Marcos 2,17",b:1},
+ {c:"Paz",t:"Les dejo la paz, les doy mi paz. No se inquieten ni teman.",a:"Juan 14,27",b:1},
+ {c:"Paz",t:"¿No ardía nuestro corazón mientras nos hablaba en el camino?",a:"Lucas 24,32",b:1},
+ {c:"Paz",t:"Señor, ¿a quién iremos? Tú tienes palabras de vida eterna.",a:"Juan 6,68",b:1},
+ {c:"Paz",t:"En todo amar y servir.",a:"San Ignacio de Loyola",r:"Ejercicios Espirituales, 233"}
+];
+const PCATS=["Todas",...new Set(PALABRA.map(p=>p.c))];
+let pcat="Todas";
+const pIdx=()=>{const d=new Date(),n=Math.floor((new Date(d.getFullYear(),d.getMonth(),d.getDate())-new Date(2026,0,1))/864e5);return((n%PALABRA.length)+PALABRA.length)%PALABRA.length};
+const pCite=p=>p.a+(p.r?" · "+p.r:"");
+const pText=p=>"«"+p.t+"»\n— "+pCite(p);
+async function pShare(p){const text=pText(p);if(navigator.share){try{await navigator.share({text});return}catch(e){if(e&&e.name==="AbortError")return}}copy(text,"Frase copiada")}
+function wordBlock(p,big){return`<span class="eyebrow">Una palabra para hoy</span><blockquote>${esc(p.t)}</blockquote><cite>${esc(pCite(p))}</cite>`+(big?`<div class="row"><button class="btn" type="button" data-pshare="${PALABRA.indexOf(p)}">Compartir</button><button class="btn ghost" type="button" data-pnext>Otra palabra</button></div>`:`<a class="linkbtn" href="#palabra" style="text-decoration:none">Más palabras para consolar →</a>`)}
+let pToday=pIdx();
+function loadPalabra(){$("#p-hoy").innerHTML=wordBlock(PALABRA[pToday],true);
+  const cats=$("#p-cats");cats.innerHTML="";PCATS.forEach(c=>{const b=document.createElement("button");b.type="button";b.className="chip";b.textContent=c;b.setAttribute("aria-pressed",c===pcat?"true":"false");b.addEventListener("click",()=>{pcat=c;loadPalabra()});cats.appendChild(b)});
+  $("#p-list").innerHTML=PALABRA.filter(p=>pcat==="Todas"||p.c===pcat).map(p=>`<article class="quote"><span class="src">${p.b?"Palabra de Dios":"Los santos"} · ${esc(p.c)}</span><blockquote>${esc(p.t)}</blockquote><div class="meta"><cite>${esc(pCite(p))}</cite><span class="acts"><button class="linkbtn" type="button" data-pcopy="${PALABRA.indexOf(p)}">Copiar</button><button class="linkbtn" type="button" data-pshare="${PALABRA.indexOf(p)}">Compartir</button></span></div></article>`).join("")}
+document.addEventListener("click",e=>{const s=e.target.closest("[data-pshare]"),c=e.target.closest("[data-pcopy]"),n=e.target.closest("[data-pnext]");
+  if(s)pShare(PALABRA[+s.dataset.pshare]);if(c)copy(pText(PALABRA[+c.dataset.pcopy]),"Frase copiada");if(n){pToday=(pToday+1)%PALABRA.length;$("#p-hoy").innerHTML=wordBlock(PALABRA[pToday],true)}});
+
 /* ---------- respiración ---------- */
 let breathT=null;
 function breath(){const ring=$("#ring"),t=$("#ring-t"),btn=$("#breath-btn");
@@ -837,14 +924,14 @@ const standalone=()=>matchMedia("(display-mode: standalone)").matches||navigator
 const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
 window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferred=e;$("#install-btn").hidden=false});
 function installUI(){const c=$("#install-card");c.hidden=standalone()||!!prefs.instHide;
-  c.querySelector(".inst-ios").hidden=!isIOS;c.querySelector(".inst-android").hidden=isIOS}
+  if(isIOS){c.querySelector(".inst-android").hidden=true}else if(/android/i.test(navigator.userAgent)){c.querySelector(".inst-ios").hidden=true}}
 
 /* ---------- navegación ---------- */
-const VIEWS=["hoy","semana","recorrido","guia","contacto","ajustes"];
+const VIEWS=["hoy","semana","recorrido","palabra","guia","contacto","ajustes"];
 function route(){let v=(location.hash||"#hoy").slice(1);if(!VIEWS.includes(v))v="hoy";
   VIEWS.forEach(x=>$("#v-"+x).hidden=x!==v);
   $$("[data-nav]").forEach(a=>{if(a.dataset.nav===v)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
-  if(v==="hoy")loadDay();if(v==="semana")loadWeek();if(v==="recorrido")loadHist();if(v==="ajustes")$("#a-nombre").value=prefs.nombre||"";
+  if(v==="hoy")loadDay();if(v==="semana")loadWeek();if(v==="recorrido")loadHist();if(v==="palabra")loadPalabra();if(v==="ajustes")$("#a-nombre").value=prefs.nombre||"";
   scrollTo(0,0)}
 
 /* ---------- inicio ---------- */
@@ -863,6 +950,7 @@ $("#sem-prev").addEventListener("click",()=>{wStart=addDays(wStart,-7);loadWeek(
 $("#sem-next").addEventListener("click",()=>{if(addDays(wStart,7)<=new Date()){wStart=addDays(wStart,7);loadWeek()}});
 $("#breath-btn").addEventListener("click",breath);
 $("#install-btn").addEventListener("click",async()=>{if(!deferred)return;deferred.prompt();try{await deferred.userChoice}catch(e){}deferred=null;$("#install-btn").hidden=true});
+$("#a-install").addEventListener("click",async()=>{if(deferred){deferred.prompt();try{await deferred.userChoice}catch(e){}deferred=null;$("#install-btn").hidden=true}else{location.hash="#guia";setTimeout(()=>{const g=document.getElementById("guia-instalar");g.open=true;g.scrollIntoView({behavior:"smooth"})},80)}});
 $("#install-later").addEventListener("click",()=>{prefs.instHide=true;store.set("prefs",prefs);$("#install-card").hidden=true});
 $$("[data-copy]").forEach(b=>b.addEventListener("click",()=>copy(b.dataset.copy)));
 $$("[data-goto]").forEach(a=>a.addEventListener("click",()=>setTimeout(()=>{const el=document.getElementById(a.dataset.goto);if(el){if(el.tagName==="DETAILS")el.open=true;el.scrollIntoView({behavior:"smooth"})}},60)));
