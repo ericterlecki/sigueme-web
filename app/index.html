@@ -503,13 +503,13 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
         <textarea id="d-gracias-txt" rows="2" placeholder="Hoy agradezco…" aria-label="Hoy agradezco"></textarea>
       </div>
 
-      <a class="hr-link" href="#herramientas"><div><b>¿La ansiedad subió?</b><span>Herramientas para regular la emoción</span></div><span class="go" aria-hidden="true">›</span></a>
-
       <div class="card step">
         <div class="step-h"><span class="step-n">2</span><div class="tt"><span class="k">Pedir luz</span><h3>Pido mirar con otros ojos</h3><p>Antes de revisar, pido la gracia de ver el día con verdad y sin dureza.</p></div><span class="ill"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="46" r="26" fill="#E5B866" opacity=".16"/><rect x="50" y="58" width="20" height="44" rx="3" fill="#F2EBDB"/><path d="M60 26c8 12 8 20 0 26-8-6-8-14 0-26z" fill="#E5B866"/><path d="M60 38c3 5 3 9 0 12-3-3-3-7 0-12z" fill="#D9906F"/><rect x="40" y="100" width="40" height="6" rx="3" fill="#D9906F"/></svg></span></div>
         <p class="prayer">Señor, dame luz para ver mi día como tú lo ves: con verdad, con paciencia, con misericordia.<small>Puede usar estas palabras o las suyas.</small></p>
         <div class="q"><span class="small">Hoy pude hacer esta petición:</span><div class="seg" id="d-luz" style="--n:3"></div></div>
       </div>
+
+      <a class="hr-link" href="#herramientas"><div><b>¿La ansiedad subió?</b><span>Herramientas para regular la emoción</span></div><span class="go" aria-hidden="true">›</span></a>
 
       <div class="card step">
         <div class="step-h"><span class="step-n">3</span><div class="tt"><span class="k">Revisar el día</span><h3>Recorro el día con calma</h3><p>Desde la mañana hasta ahora: personas, tareas, oración, momentos a solas. Noto qué se movió por dentro.</p></div><span class="ill"><svg viewBox="0 0 120 120" aria-hidden="true"><rect y="88" width="120" height="32" fill="#3D7480"/><path d="M22 88a38 38 0 0 1 76 0" stroke="#F2EBDB" stroke-width="2.5" stroke-dasharray="3 7" fill="none" stroke-linecap="round"/><circle cx="26" cy="70" r="9" fill="#E5B866"/><path d="M92 58a9 9 0 1 0 8 15a7 7 0 1 1-8-15z" fill="#F2EBDB"/><circle cx="60" cy="50" r="6" fill="#D9906F"/></svg></span></div>
@@ -884,26 +884,21 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
         <div class="q"><label for="hr-situacion">¿Qué pasó?</label><input type="text" id="hr-situacion" placeholder="Por ejemplo: antes de una entrevista"></div>
       </div>
       <div class="card">
-        <div class="qn"><span class="num">1</span><span class="txt">Emoción que sentí<span class="hint">Puede elegir más de una.</span></span></div>
-        <div class="chips" id="hr-emos"></div>
-        <input type="text" id="hr-otra" placeholder="Otra emoción…">
-      </div>
-      <div class="card">
-        <div class="qn"><span class="num">2</span><span class="txt">¿Qué tan intensa era antes?<span class="hint">0 = nada, 10 = máxima.</span></span></div>
+        <div class="qn"><span class="num">1</span><span class="txt">¿Qué tan intensa era antes?<span class="hint">0 = nada, 10 = máxima.</span></span></div>
         <div class="hr-scale" id="hr-antes"></div>
       </div>
       <div class="card">
-        <div class="qn"><span class="num">3</span><span class="txt">Herramienta utilizada<span class="hint">Puede elegir más de una. Al elegirla, le recuerdo cómo se usa.</span></span></div>
+        <div class="qn"><span class="num">2</span><span class="txt">Herramienta utilizada<span class="hint">Puede elegir más de una. Al elegirla, le recuerdo cómo se usa.</span></span></div>
         <div class="chips" id="hr-tools"></div>
         <div class="hr-tips" id="hr-tips"></div>
         <input type="text" id="hr-otra-tool" placeholder="Otra herramienta…">
       </div>
       <div class="card">
-        <div class="qn"><span class="num">4</span><span class="txt">Cómo usé la herramienta<span class="hint">Paso a paso, con sus palabras: qué hizo, cuánto tiempo, cómo le resultó.</span></span></div>
+        <div class="qn"><span class="num">3</span><span class="txt">Cómo usé la herramienta<span class="hint">Paso a paso, con sus palabras: qué hizo, cuánto tiempo, cómo le resultó.</span></span></div>
         <textarea id="hr-como" placeholder="Por ejemplo: me senté, conté 4 al inhalar y 6 al exhalar durante unos cinco minutos."></textarea>
       </div>
       <div class="card">
-        <div class="qn"><span class="num">5</span><span class="txt">¿Cómo quedó la emoción después?<span class="hint">0 = nada, 10 = máxima.</span></span></div>
+        <div class="qn"><span class="num">4</span><span class="txt">¿Cómo quedó la emoción después?<span class="hint">0 = nada, 10 = máxima.</span></span></div>
         <div class="hr-scale" id="hr-despues"></div>
         <p class="small hr-res" id="hr-res" hidden></p>
       </div>
@@ -1276,7 +1271,7 @@ function scale(el){el.innerHTML="";for(let i=0;i<=10;i++){const b=document.creat
 const getS=el=>{const b=el.querySelector('[aria-pressed="true"]');return b?+b.textContent:null};
 const setS=(el,v)=>el.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",+b.textContent===v&&v!==null&&v!==undefined?"true":"false"));
 function tips(){const sel=getC($("#hr-tools"));$("#hr-tips").innerHTML=C.tools.filter(t=>sel.includes(t[0])).map(t=>`<div class="hr-tip"><b>${esc(t[0])}</b><span>${esc(t[2])}</span></div>`).join("")}
-function data(){return{fecha:$("#hr-fecha").value,situacion:$("#hr-situacion").value.trim(),emos:getC($("#hr-emos")),otra:$("#hr-otra").value.trim(),
+function data(){return{fecha:$("#hr-fecha").value,situacion:$("#hr-situacion").value.trim(),emos:[],otra:"",
   antes:getS($("#hr-antes")),tools:getC($("#hr-tools")),otraTool:$("#hr-otra-tool").value.trim(),como:$("#hr-como").value.trim(),despues:getS($("#hr-despues"))}}
 function text(e){const emo=[...e.emos,e.otra].filter(Boolean),tl=[...e.tools,e.otraTool].filter(Boolean);
   return["*Registro de herramientas · "+C.app+"*",e.fecha&&"Fecha: "+fmt(e.fecha),e.situacion&&"Qué pasó: "+e.situacion,emo.length&&"Emoción: "+emo.join(", "),
@@ -1284,10 +1279,10 @@ function text(e){const emo=[...e.emos,e.otra].filter(Boolean),tl=[...e.tools,e.o
 function upd(){const e=data();$("#hr-wa").href="https://wa.me/"+C.wa+"?text="+encodeURIComponent(text(e));
   const r=$("#hr-res");if(e.antes!==null&&e.despues!==null){const d=e.antes-e.despues;r.hidden=false;
     r.textContent=d>0?`La emoción bajó ${d} punto${d>1?"s":""} (de ${e.antes} a ${e.despues}).`:d===0?"La emoción quedó igual. A veces lleva más tiempo, o conviene probar otra herramienta.":"La emoción subió. Puede probar otra herramienta o pedir ayuda."}else r.hidden=true}
-function reset(){editing=null;$("#hr-fecha").value=iso(new Date());["#hr-situacion","#hr-otra","#hr-otra-tool","#hr-como"].forEach(s=>$(s).value="");
-  setC($("#hr-emos"),[]);setC($("#hr-tools"),[]);setS($("#hr-antes"),null);setS($("#hr-despues"),null);$("#hr-estado").textContent="Nuevo registro";tips();upd()}
-function fill(e){$("#hr-fecha").value=e.fecha;$("#hr-situacion").value=e.situacion||"";$("#hr-otra").value=e.otra||"";$("#hr-otra-tool").value=e.otraTool||"";$("#hr-como").value=e.como||"";
-  setC($("#hr-emos"),e.emos);setC($("#hr-tools"),e.tools);setS($("#hr-antes"),e.antes);setS($("#hr-despues"),e.despues);$("#hr-estado").textContent="Editando registro";tips();upd()}
+function reset(){editing=null;$("#hr-fecha").value=iso(new Date());["#hr-situacion","#hr-otra-tool","#hr-como"].forEach(s=>$(s).value="");
+  setC($("#hr-tools"),[]);setS($("#hr-antes"),null);setS($("#hr-despues"),null);$("#hr-estado").textContent="Nuevo registro";tips();upd()}
+function fill(e){$("#hr-fecha").value=e.fecha;$("#hr-situacion").value=e.situacion||"";$("#hr-otra-tool").value=e.otraTool||"";$("#hr-como").value=e.como||"";
+  setC($("#hr-tools"),e.tools);setS($("#hr-antes"),e.antes);setS($("#hr-despues"),e.despues);$("#hr-estado").textContent="Editando registro";tips();upd()}
 function hist(){const h=$("#hr-hist");if(!list.length){h.innerHTML='<p class="small muted">Todavía no hay registros guardados.</p>';return}
   h.innerHTML=list.slice().sort((a,b)=>b.id-a.id).slice(0,30).map(e=>{const tl=[...e.tools,e.otraTool].filter(Boolean).join(", ")||"Sin herramienta marcada";
     const ch=e.antes!==null&&e.despues!==null?` · ${e.antes} → ${e.despues}`:"";
@@ -1297,7 +1292,7 @@ function hist(){const h=$("#hr-hist");if(!list.length){h.innerHTML='<p class="sm
 $("#hr-hist").addEventListener("click",ev=>{const ed=ev.target.closest("[data-ed]"),del=ev.target.closest("[data-del]");
   if(ed){const e=list.find(x=>x.id==ed.dataset.ed);if(e){editing=e.id;fill(e);window.scrollTo(0,0)}}
   if(del){if(del.dataset.ok){list=list.filter(x=>x.id!=del.dataset.del);save(list);if(editing==del.dataset.del)reset();hist()}else{del.dataset.ok=1;del.textContent="¿Seguro/a? Tocar de nuevo"}}});
-chips($("#hr-emos"),C.emos);chips($("#hr-tools"),C.tools.map(t=>t[0]),tips);scale($("#hr-antes"));scale($("#hr-despues"));
+chips($("#hr-tools"),C.tools.map(t=>t[0]),tips);scale($("#hr-antes"));scale($("#hr-despues"));
 $("#hr-fecha").max=iso(new Date());
 $("#v-herramientas").addEventListener("input",upd);
 $("#hr-guardar").onclick=()=>{const e=data();
