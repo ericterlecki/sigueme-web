@@ -11,7 +11,21 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Sígueme">
-<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+/* ---------- Herramientas para regular la emoción ---------- */
+.hr-link{display:flex;gap:12px;align-items:center;text-decoration:none;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--warm);border-radius:var(--r);padding:14px 16px}
+.hr-link b{display:block}.hr-link span{font-size:.86rem;color:var(--muted)}.hr-link .go{margin-left:auto;color:var(--brand);font-weight:700;font-size:1.2rem}
+.hr-scale{display:grid;grid-template-columns:repeat(11,1fr);gap:4px}
+.hr-scale button{height:36px;border-radius:8px;border:1px solid var(--line);background:var(--bg);cursor:pointer;font-weight:700;font-size:.82rem;color:var(--muted);padding:0;font-variant-numeric:tabular-nums}
+.hr-scale button[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
+.hr-ends{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted)}
+.hr-tip{background:var(--sunk);border-radius:12px;padding:10px 12px;font-size:.9rem;display:grid;gap:4px}
+.hr-tip b{color:var(--brand)}
+.hr-tips{display:grid;gap:8px}
+.hr-res{font-weight:700;color:var(--brand)}
+nav.tabs .in{grid-template-columns:repeat(6,1fr)!important}
+nav.tabs a{font-size:.72rem}
+</style>
 <title>Sígueme · Examen del día</title>
 <meta name="theme-color" content="#1f4955">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -446,6 +460,7 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
         <h2>Examen del día</h2>
         <p class="muted">Una revisión de vida en cinco pasos, al modo de san Ignacio de Loyola. Unos quince minutos, idealmente a la noche. Casi todo se responde tocando una opción.</p>
       </div>
+      <a class="hr-link" href="#herramientas"><div><b>¿La ansiedad subió?</b><span>Herramientas para regular la emoción</span></div><span class="go" aria-hidden="true">›</span></a>
 
       <div class="card intro" id="intro-card" hidden>
         <span class="eyebrow">Antes de empezar</span>
@@ -680,6 +695,7 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
         <h2>Guía breve</h2>
         <p class="muted">Recursos para acompañar el examen y la revisión de vida. Puede usarlos solo/a o con quien lo/la acompaña. <a href="#contacto" style="color:var(--brand);font-weight:600">Acerca de esta app</a></p>
       </div>
+      <a class="hr-link" href="#herramientas"><div><b>Herramientas para regular la emoción</b><span>Las 12 habilidades explicadas y un registro para practicarlas</span></div><span class="go" aria-hidden="true">›</span></a>
 
       <details class="guide" id="guia-uso" open>
         <summary>Cómo usar esta aplicación</summary>
@@ -854,6 +870,53 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
         <div id="a-confirm" hidden class="row"><span class="small">¿Seguro/a?</span><button class="btn danger" id="a-borrar-si" type="button">Sí, borrar</button><button class="btn ghost" id="a-borrar-no" type="button">Cancelar</button></div>
       </div>
     </section>
+  
+    <!-- HERRAMIENTAS -->
+    <section class="view" id="v-herramientas" hidden>
+      <div class="lead">
+        <span class="eyebrow">Cuando la ansiedad sube</span>
+        <h2>Herramientas para regular la emoción</h2>
+        <p class="muted">Habilidades para bajar la intensidad de la emoción. No hace falta usarlas todas: elija la que más le sirva en cada momento y pruébelas primero en momentos de calma.</p>
+      </div>
+      <div class="card">
+        <div class="datebar"><label class="small muted">Fecha <input type="date" id="hr-fecha"></label><span class="badge" id="hr-estado">Nuevo registro</span></div>
+        <div class="q"><label for="hr-situacion">¿Qué pasó?</label><input type="text" id="hr-situacion" placeholder="Por ejemplo: antes de una entrevista"></div>
+      </div>
+      <div class="card">
+        <div class="qn"><span class="num">1</span><span class="txt">Emoción que sentí<span class="hint">Puede elegir más de una.</span></span></div>
+        <div class="chips" id="hr-emos"></div>
+        <input type="text" id="hr-otra" placeholder="Otra emoción…">
+      </div>
+      <div class="card">
+        <div class="qn"><span class="num">2</span><span class="txt">¿Qué tan intensa era antes?<span class="hint">0 = nada, 10 = máxima.</span></span></div>
+        <div class="hr-scale" id="hr-antes"></div>
+      </div>
+      <div class="card">
+        <div class="qn"><span class="num">3</span><span class="txt">Herramienta utilizada<span class="hint">Puede elegir más de una. Al elegirla, le recuerdo cómo se usa.</span></span></div>
+        <div class="chips" id="hr-tools"></div>
+        <div class="hr-tips" id="hr-tips"></div>
+        <input type="text" id="hr-otra-tool" placeholder="Otra herramienta…">
+      </div>
+      <div class="card">
+        <div class="qn"><span class="num">4</span><span class="txt">Cómo usé la herramienta<span class="hint">Paso a paso, con sus palabras: qué hizo, cuánto tiempo, cómo le resultó.</span></span></div>
+        <textarea id="hr-como" placeholder="Por ejemplo: me senté, conté 4 al inhalar y 6 al exhalar durante unos cinco minutos."></textarea>
+      </div>
+      <div class="card">
+        <div class="qn"><span class="num">5</span><span class="txt">¿Cómo quedó la emoción después?<span class="hint">0 = nada, 10 = máxima.</span></span></div>
+        <div class="hr-scale" id="hr-despues"></div>
+        <p class="small hr-res" id="hr-res" hidden></p>
+      </div>
+      <div class="row">
+        <button class="btn" id="hr-guardar" type="button">Guardar registro</button>
+        <a class="btn ghost" id="hr-wa" href="#" target="_blank" rel="noopener">Compartir por WhatsApp</a>
+      </div>
+      <p class="note">Estas herramientas no reemplazan la oración ni el acompañamiento: los complementan. Si le sirve, puede compartir el registro con quien lo/a acompaña.</p>
+      <h3>Cómo se usa cada herramienta</h3>
+      <details class="guide"><summary>1. Respiración diafragmática</summary><div class="body"><p class="muted"><i>Baja la activación del cuerpo.</i></p><p>Ponga una mano en el pecho y otra en la panza. Inhale por la nariz contando 4, llevando el aire a la panza; exhale más lento, contando 6. Repita de 3 a 5 minutos.</p></div></details><details class="guide"><summary>2. Atención plena</summary><div class="body"><p class="muted"><i>Lo/a trae de vuelta al presente.</i></p><p>Lleve la atención a lo que ve, oye y siente en este momento. Cuando la mente se vaya a otro lado, nótelo sin juzgarse y vuelva con amabilidad.</p></div></details><details class="guide"><summary>3. Mente sabia</summary><div class="body"><p class="muted"><i>Une lo que siente con lo que razona.</i></p><p>Haga una pausa, respire hondo y pregúntese: «¿qué me diría mi parte más sabia y serena?». Espere la respuesta sin apurarse.</p></div></details><details class="guide"><summary>4. Verificar los hechos</summary><div class="body"><p class="muted"><i>Ajusta la emoción a lo que realmente pasó.</i></p><p>Separe lo que pasó de lo que interpreta. ¿Qué datos tengo? ¿Hay otra explicación posible? ¿Qué es lo más probable que ocurra?</p></div></details><details class="guide"><summary>5. Acción opuesta</summary><div class="body"><p class="muted"><i>Cambia la emoción cuando no lo/a ayuda.</i></p><p>Si la emoción no se ajusta a los hechos, haga lo contrario de lo que lo/a impulsa: acérquese de a poco a lo que el miedo le lleva a evitar.</p></div></details><details class="guide"><summary>6. TIPP</summary><div class="body"><p class="muted"><i>Baja rápido una emoción muy intensa.</i></p><p>Temperatura: agua fría en la cara. Ejercicio intenso y breve. Respiración pausada. Relajación muscular progresiva: tense y suelte cada grupo de músculos.</p></div></details><details class="guide"><summary>7. STOP</summary><div class="body"><p class="muted"><i>Frena el impulso antes de actuar.</i></p><p>Pare: no reaccione. Tome distancia y respire. Observe qué pasa dentro y fuera de usted. Proceda con conciencia: elija lo que lo/a acerca a lo que valora.</p></div></details><details class="guide"><summary>8. Distracción (ACCEPTS)</summary><div class="body"><p class="muted"><i>Le da un respiro hasta que la emoción baje.</i></p><p>Cambie el foco por un rato: haga una actividad, ayude a alguien, busque algo que le genere otra emoción, ocupe la mente con otra cosa.</p></div></details><details class="guide"><summary>9. Autoconsuelo con los sentidos</summary><div class="body"><p class="muted"><i>Calma el cuerpo con suavidad.</i></p><p>Use los cinco sentidos: mire algo lindo, escuche música suave, huela un aroma agradable, saboree algo despacio, abríguese con algo cálido.</p></div></details><details class="guide"><summary>10. Validación</summary><div class="body"><p class="muted"><i>Baja la pelea con lo que siente.</i></p><p>Reconozca su emoción sin juzgarla: «tiene sentido que me sienta así por lo que estoy viviendo». Validar no es darse la razón en todo: es comprenderse.</p></div></details><details class="guide"><summary>11. Resolución de problemas</summary><div class="body"><p class="muted"><i>Sirve cuando hay un problema real para resolver.</i></p><p>Defina el problema, anote varias opciones, piense ventajas y desventajas, elija una y dé el primer paso. Después, evalúe cómo resultó.</p></div></details><details class="guide"><summary>12. Cuidado del cuerpo (PLEASE)</summary><div class="body"><p class="muted"><i>Un cuerpo cuidado regula mejor.</i></p><p>Atienda su salud física, coma de forma equilibrada, evite el alcohol y otras sustancias, duerma lo necesario y muévase un poco cada día.</p></div></details>
+      <p class="small muted">Si tiene un problema de salud, consulte con su médico/a antes de usar TIPP. Varias de estas habilidades provienen de la Terapia Dialéctico Conductual (DBT) de Marsha Linehan.</p>
+      <h3>Mis registros</h3>
+      <div id="hr-hist" style="display:grid;gap:8px"></div>
+    </section>
   </main>
 
   <footer class="sig">Sígueme · Lic. Eric Terlecki · Mat. 4331 · Rosario</footer>
@@ -866,6 +929,7 @@ details.reading .src{font-family:var(--body);font-size:.75rem;color:var(--muted)
     <a href="#cuaderno" data-nav="cuaderno"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11a3 3 0 0 1 3 3v15H8a3 3 0 0 1-3-3z"/><path d="M9 8h6M9 12h6"/></svg>Cuaderno</a>
     <a href="#palabra" data-nav="palabra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.5c3-1.2 6.5-1.2 10 1 3.5-2.2 7-2.2 10-1V19c-3-1.2-6.5-1.2-10 1-3.5-2.2-7-2.2-10-1z"/><path d="M12 6.5V20"/></svg>La Palabra</a>
     <a href="#recorrido" data-nav="recorrido"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 19V11M10 19V5M16 19v-6M22 19H2"/></svg>Recorrido</a>
+      <a href="#herramientas" data-nav="herramientas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/><path d="M8 12h2l1-2 2 4 1-2h2"/></svg>Herramientas</a>
   </div>
 </nav>
 
@@ -1142,7 +1206,7 @@ function installUI(){const c=$("#install-card");c.hidden=standalone()||!!prefs.i
   if(/android/i.test(navigator.userAgent)){const i=c.querySelector(".inst-ios"),an=c.querySelector(".inst-android");an.after(i)}}
 
 /* ---------- navegación ---------- */
-const VIEWS=["hoy","semana","cuaderno","recorrido","palabra","guia","contacto","ajustes"];
+const VIEWS=["herramientas","hoy","semana","cuaderno","recorrido","palabra","guia","contacto","ajustes"];
 function route(){let v=(location.hash||"#hoy").slice(1);if(!VIEWS.includes(v))v="hoy";
   VIEWS.forEach(x=>$("#v-"+x).hidden=x!==v);
   $$("[data-nav]").forEach(a=>{if(a.dataset.nav===v)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
@@ -1195,6 +1259,61 @@ window.addEventListener("hashchange",route);route();
 if("serviceWorker" in navigator&&location.protocol==="https:")navigator.serviceWorker.register("sw.js").catch(()=>{});
 })();
 </script>
+<script>
+/* Herramientas para regular la emoción: registro propio, guardado sólo en este celular */
+(function(){
+const C={"key": "qd_herr", "wa": "", "tools": [["Respiración diafragmática", "Baja la activación del cuerpo.", "Ponga una mano en el pecho y otra en la panza. Inhale por la nariz contando 4, llevando el aire a la panza; exhale más lento, contando 6. Repita de 3 a 5 minutos."], ["Atención plena", "Lo/a trae de vuelta al presente.", "Lleve la atención a lo que ve, oye y siente en este momento. Cuando la mente se vaya a otro lado, nótelo sin juzgarse y vuelva con amabilidad."], ["Mente sabia", "Une lo que siente con lo que razona.", "Haga una pausa, respire hondo y pregúntese: «¿qué me diría mi parte más sabia y serena?». Espere la respuesta sin apurarse."], ["Verificar los hechos", "Ajusta la emoción a lo que realmente pasó.", "Separe lo que pasó de lo que interpreta. ¿Qué datos tengo? ¿Hay otra explicación posible? ¿Qué es lo más probable que ocurra?"], ["Acción opuesta", "Cambia la emoción cuando no lo/a ayuda.", "Si la emoción no se ajusta a los hechos, haga lo contrario de lo que lo/a impulsa: acérquese de a poco a lo que el miedo le lleva a evitar."], ["TIPP", "Baja rápido una emoción muy intensa.", "Temperatura: agua fría en la cara. Ejercicio intenso y breve. Respiración pausada. Relajación muscular progresiva: tense y suelte cada grupo de músculos."], ["STOP", "Frena el impulso antes de actuar.", "Pare: no reaccione. Tome distancia y respire. Observe qué pasa dentro y fuera de usted. Proceda con conciencia: elija lo que lo/a acerca a lo que valora."], ["Distracción (ACCEPTS)", "Le da un respiro hasta que la emoción baje.", "Cambie el foco por un rato: haga una actividad, ayude a alguien, busque algo que le genere otra emoción, ocupe la mente con otra cosa."], ["Autoconsuelo con los sentidos", "Calma el cuerpo con suavidad.", "Use los cinco sentidos: mire algo lindo, escuche música suave, huela un aroma agradable, saboree algo despacio, abríguese con algo cálido."], ["Validación", "Baja la pelea con lo que siente.", "Reconozca su emoción sin juzgarla: «tiene sentido que me sienta así por lo que estoy viviendo». Validar no es darse la razón en todo: es comprenderse."], ["Resolución de problemas", "Sirve cuando hay un problema real para resolver.", "Defina el problema, anote varias opciones, piense ventajas y desventajas, elija una y dé el primer paso. Después, evalúe cómo resultó."], ["Cuidado del cuerpo (PLEASE)", "Un cuerpo cuidado regula mejor.", "Atienda su salud física, coma de forma equilibrada, evite el alcohol y otras sustancias, duerma lo necesario y muévase un poco cada día."]], "emos": ["Ansiedad", "Miedo", "Tristeza", "Enojo", "Angustia", "Vergüenza", "Culpa", "Soledad", "Frustración", "Celos"], "app": "Sígueme"};
+const $=s=>document.querySelector(s);
+const load=()=>{try{return JSON.parse(localStorage.getItem(C.key))||[]}catch(e){return[]}};
+const save=v=>{try{localStorage.setItem(C.key,JSON.stringify(v));return true}catch(e){return false}};
+const pad=n=>String(n).padStart(2,"0"),iso=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
+const fmt=s=>{const[y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d).toLocaleDateString("es-AR",{weekday:"long",day:"numeric",month:"long"})};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let list=load(),editing=null;
+function chips(el,opts,cb){el.innerHTML="";opts.forEach(o=>{const b=document.createElement("button");b.type="button";b.className="chip";b.textContent=o;b.setAttribute("aria-pressed","false");
+  b.onclick=()=>{b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");cb&&cb();upd()};el.appendChild(b)})}
+const getC=el=>[...el.querySelectorAll('.chip[aria-pressed="true"]')].map(b=>b.textContent);
+const setC=(el,v)=>el.querySelectorAll(".chip").forEach(b=>b.setAttribute("aria-pressed",(v||[]).includes(b.textContent)?"true":"false"));
+function scale(el){el.innerHTML="";for(let i=0;i<=10;i++){const b=document.createElement("button");b.type="button";b.textContent=i;b.setAttribute("aria-pressed","false");b.setAttribute("aria-label",i+" de 10");
+  b.onclick=()=>{const on=b.getAttribute("aria-pressed")==="true";el.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed",on?"false":"true");upd()};el.appendChild(b)}}
+const getS=el=>{const b=el.querySelector('[aria-pressed="true"]');return b?+b.textContent:null};
+const setS=(el,v)=>el.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",+b.textContent===v&&v!==null&&v!==undefined?"true":"false"));
+function tips(){const sel=getC($("#hr-tools"));$("#hr-tips").innerHTML=C.tools.filter(t=>sel.includes(t[0])).map(t=>`<div class="hr-tip"><b>${esc(t[0])}</b><span>${esc(t[2])}</span></div>`).join("")}
+function data(){return{fecha:$("#hr-fecha").value,situacion:$("#hr-situacion").value.trim(),emos:getC($("#hr-emos")),otra:$("#hr-otra").value.trim(),
+  antes:getS($("#hr-antes")),tools:getC($("#hr-tools")),otraTool:$("#hr-otra-tool").value.trim(),como:$("#hr-como").value.trim(),despues:getS($("#hr-despues"))}}
+function text(e){const emo=[...e.emos,e.otra].filter(Boolean),tl=[...e.tools,e.otraTool].filter(Boolean);
+  return["*Registro de herramientas · "+C.app+"*",e.fecha&&"Fecha: "+fmt(e.fecha),e.situacion&&"Qué pasó: "+e.situacion,emo.length&&"Emoción: "+emo.join(", "),
+    e.antes!==null&&"Intensidad antes: "+e.antes+"/10",tl.length&&"Herramienta: "+tl.join(", "),e.como&&"Cómo la usé: "+e.como,e.despues!==null&&"Intensidad después: "+e.despues+"/10"].filter(Boolean).join("\n")}
+function upd(){const e=data();$("#hr-wa").href="https://wa.me/"+C.wa+"?text="+encodeURIComponent(text(e));
+  const r=$("#hr-res");if(e.antes!==null&&e.despues!==null){const d=e.antes-e.despues;r.hidden=false;
+    r.textContent=d>0?`La emoción bajó ${d} punto${d>1?"s":""} (de ${e.antes} a ${e.despues}).`:d===0?"La emoción quedó igual. A veces lleva más tiempo, o conviene probar otra herramienta.":"La emoción subió. Puede probar otra herramienta o pedir ayuda."}else r.hidden=true}
+function reset(){editing=null;$("#hr-fecha").value=iso(new Date());["#hr-situacion","#hr-otra","#hr-otra-tool","#hr-como"].forEach(s=>$(s).value="");
+  setC($("#hr-emos"),[]);setC($("#hr-tools"),[]);setS($("#hr-antes"),null);setS($("#hr-despues"),null);$("#hr-estado").textContent="Nuevo registro";tips();upd()}
+function fill(e){$("#hr-fecha").value=e.fecha;$("#hr-situacion").value=e.situacion||"";$("#hr-otra").value=e.otra||"";$("#hr-otra-tool").value=e.otraTool||"";$("#hr-como").value=e.como||"";
+  setC($("#hr-emos"),e.emos);setC($("#hr-tools"),e.tools);setS($("#hr-antes"),e.antes);setS($("#hr-despues"),e.despues);$("#hr-estado").textContent="Editando registro";tips();upd()}
+function hist(){const h=$("#hr-hist");if(!list.length){h.innerHTML='<p class="small muted">Todavía no hay registros guardados.</p>';return}
+  h.innerHTML=list.slice().sort((a,b)=>b.id-a.id).slice(0,30).map(e=>{const tl=[...e.tools,e.otraTool].filter(Boolean).join(", ")||"Sin herramienta marcada";
+    const ch=e.antes!==null&&e.despues!==null?` · ${e.antes} → ${e.despues}`:"";
+    return`<details class="entry"><summary><span class="disc" style="background:var(--warm)"></span><span><b>${esc(fmt(e.fecha))}</b><br><span class="small muted">${esc(tl)}${ch}</span></span></summary>
+    <div class="body">${e.situacion?`<dt>Qué pasó</dt><dd>${esc(e.situacion)}</dd>`:""}${[...e.emos,e.otra].filter(Boolean).length?`<dt>Emoción</dt><dd>${esc([...e.emos,e.otra].filter(Boolean).join(", "))}</dd>`:""}
+    ${e.como?`<dt>Cómo la usé</dt><dd>${esc(e.como)}</dd>`:""}<div class="row"><button class="btn ghost" type="button" data-ed="${e.id}">Editar</button><button class="btn danger" type="button" data-del="${e.id}">Borrar</button></div></div></details>`}).join("")}
+$("#hr-hist").addEventListener("click",ev=>{const ed=ev.target.closest("[data-ed]"),del=ev.target.closest("[data-del]");
+  if(ed){const e=list.find(x=>x.id==ed.dataset.ed);if(e){editing=e.id;fill(e);window.scrollTo(0,0)}}
+  if(del){if(del.dataset.ok){list=list.filter(x=>x.id!=del.dataset.del);save(list);if(editing==del.dataset.del)reset();hist()}else{del.dataset.ok=1;del.textContent="¿Seguro/a? Tocar de nuevo"}}});
+chips($("#hr-emos"),C.emos);chips($("#hr-tools"),C.tools.map(t=>t[0]),tips);scale($("#hr-antes"));scale($("#hr-despues"));
+$("#hr-fecha").max=iso(new Date());
+$("#v-herramientas").addEventListener("input",upd);
+$("#hr-guardar").onclick=()=>{const e=data();
+  if(!e.tools.length&&!e.otraTool){alertMsg("Marque primero qué herramienta usó");return}
+  if(editing){const i=list.findIndex(x=>x.id===editing);if(i>-1)list[i]={...e,id:editing}}else list.push({...e,id:Date.now()});
+  alertMsg(save(list)?"Registro guardado":"Guardado sólo por esta sesión: el navegador no permite almacenar datos");reset();hist()};
+function alertMsg(m){const t=document.getElementById("toast");if(!t)return;t.textContent=m;t.classList.add("show");clearTimeout(alertMsg.t);alertMsg.t=setTimeout(()=>t.classList.remove("show"),2200)}
+const b=document.getElementById("a-borrar-si");if(b)b.addEventListener("click",()=>{list=[];save(list);reset();hist()});
+reset();hist();
+addEventListener("hashchange",()=>{if(location.hash==="#herramientas")hist()});
+})();
+</script>
+
 <script>(function(){const d=document.getElementById("musica");if(!d)return;d.addEventListener("toggle",()=>{const f=d.querySelector(".music-frame");if(d.open&&!f.firstChild){const i=document.createElement("iframe");i.title="Piano instrumental de música católica en Spotify";i.src=f.dataset.src.replace(/&amp;/g,"&");i.allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";i.loading="lazy";f.appendChild(i)}})})();</script>
 </body>
 </html>
